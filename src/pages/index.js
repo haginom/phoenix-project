@@ -1,176 +1,188 @@
-import * as React from "react"
+import * as React from "react";
+import { graphql } from "gatsby";
+import Hero from "../components/Hero";
+import X from "../svgs/X.svg";
+import InfoBox from "../components/InfoBox";
+import AnimatedBanner from "../components/AnimatedBar";
+import { Button, Container, Row, Col } from "react-bootstrap";
+import Arrow from "../svgs/arrowRight.svg";
+import BrandIcon from "../svgs/Brand-Icon.svg";
+import ResearchIcon from "../svgs/Research-Icon.svg";
+import ExpansionIcon from "../svgs/Expansion-Icon.svg";
+import Chevron from "../svgs/chevron.svg";
+import logoTexts from "../data/logoTexts";
+import { mapEdgesToNodes } from "../library/helpers";
+import ProjectPreviewGrid from "../components/ProjectPreviewGrid";
 
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
+export const query = graphql`
+  query WorkQuery {
+    featuredWork: allSanityFeaturedWork {
+      edges {
+        node {
+          id
+          title
+          description
+          previewPoster {
+            asset {
+              _id
+              url
+              altText
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+const IndexPage = (props) => {
+  const { data, errors } = props;
+  const [hoveredLogo, setHoveredLogo] = React.useState(null);
 
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
+  const handleMouseOver = (logo) => {
+    setHoveredLogo(logo);
+  };
+  const handleMouseLeave = () => {
+    setHoveredLogo(null);
+  };
 
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
+  if (errors) {
+    return <p>{errors} an error occured </p>;
+  }
 
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
+  const featuredWorkNodes = (data || {}).featuredWork
+    ? mapEdgesToNodes(data.featuredWork)
+    : [];
 
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
-
-const IndexPage = () => {
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
+    <>
+      <Hero
+        bg="bg-primary"
+        heading="We’re a global brand strategy, research & insights consultancy "
+        text="Born where brand strategy meets strategic design, based in Amsterdam, and growing brands all over the world by getting deep into culture, behavior and reinventing the point of view. 
+        "
+        coverImage={<X className="coverImage" />}
       />
-    </main>
-  )
-}
+      <div className="padding-large">
+        <InfoBox text="We work closely with clients to solve big challenges: " />
+      </div>
+      <AnimatedBanner />
+      {featuredWorkNodes && (
+        <ProjectPreviewGrid
+          title="Featured Work"
+          nodes={featuredWorkNodes}
+          browseMoreHref="/featuredWork/"
+        />
+      )}
+      <div className="bg-success padding-large">
+        <InfoBox
+          heading="what we do"
+          text="We help find the right problems to solve with a mind in design, and heart in the future."
+        />
+        <Container className="mt-5">
+          <Row className="mb-4 gy-5">
+            <Col lg={4} md={12} style={{ order: 1 }}>
+              <BrandIcon className="mb-4" />
+              <h3 className="w-50 mb-4">Brand Building</h3>
+              <p className="w-90 mb-4">
+                From brand positioning and promise and architecture to key
+                narrative and messaging. We often collaborate or cross-over with
+                creative partners.
+              </p>
+            </Col>
+            <Col lg={4} md={12} style={{ order: 4 }}>
+              <ResearchIcon className="mb-4" />
+              <h3 className="w-50 mb-4 ">Research & Design</h3>
+              <p className="w-90 mb-4 ">
+                A brand is a promise. We love to connect the dots between the
+                brand promise and the product experience, through deep research
+                and insight work, and early stage concept design & user testing.
+              </p>
+            </Col>
+            <Col lg={4} md={12} style={{ order: 7 }}>
+              <ExpansionIcon className="mb-4" />
+              <h3 className="w-50 mb-4">Expansion & Innovation</h3>
 
-export default IndexPage
+              <p className="w-90 mb-4">
+                Through cultural understanding and innovation practices we help
+                with challenges around expanding into new markets, new
+                verticals, new products, and future-proofing for now and down
+                the road.
+              </p>
+            </Col>
+          </Row>
+        </Container>
+        <Button className="btn-primary">
+          See our services
+          <Arrow />
+        </Button>
+      </div>
+      <div className="padding-large">
+        <InfoBox
+          heading="our partners"
+          text="We love clients who are brave enough to want to shake thing up."
+        />
+        <div>
+          <div className="d-flex justify-content-evenly ">
+            {["logoOne", "logoTwo", "logoThree", "logoFour"].map(
+              (logo, index) => (
+                <div
+                  className="logo"
+                  key={index}
+                  onMouseOver={() => handleMouseOver(logo)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  logo
+                </div>
+              )
+            )}
+          </div>
+          <div>
+            <div className="d-flex justify-content-center align-items-center logoInfo">
+              <Chevron />
+              <span className="logoText">
+                {hoveredLogo && logoTexts[hoveredLogo]}
 
-export const Head = () => <title>Home Page</title>
+                {!hoveredLogo && logoTexts.defaultText}
+              </span>
+            </div>
+          </div>
+          <div className="d-flex justify-content-evenly ">
+            {["logoFive", "logoSix", "logoSeven", "logoEight"].map(
+              (logo, index) => (
+                <div
+                  tabIndex="0"
+                  role="button"
+                  aria-label="Show information about what we did for brand"
+                  className="logo"
+                  key={index}
+                  onMouseOver={() => handleMouseOver(logo)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  logo
+                </div>
+              )
+            )}
+          </div>
+        </div>
+      </div>
+      <Hero
+        quote
+        bgImg="quote-hero"
+        bg="bg-primary"
+        heading="Their work helped us roadmap, but also have fruitful conversations across teams internally."
+        text="Born where brand strategy meets strategic design, based in Amsterdam, and growing brands all over the world by getting deep into culture, behavior and reinventing the point of view. 
+        "
+      />
+      <Hero
+        cta
+        bgImg="cta-hero"
+        bg="bg-success"
+        heading="Have a challenge? We love a good one."
+      />
+    </>
+  );
+};
+
+export default IndexPage;
+
+export const Head = () => <title>Phoenix Home</title>;
