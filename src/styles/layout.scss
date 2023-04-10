@@ -295,6 +295,8 @@ footer {
 	background-image: url("data:image/svg+xml,%3Csvg width='946' height='832' viewBox='0 0 946 832' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1756.71 -522.321H1557.58L1042.26 272.119L526.916 -522.321H327.805L942.703 425.604L326.965 1374.8H526.1L1042.26 579.066L1558.42 1374.8H1757.53L1141.81 425.604L1756.71 -522.321Z' fill='%23C5D8FF'/%3E%3Cpath d='M200.631 -522.441L1.51924 -522.489L616.202 425.58L0.271484 1374.63L199.383 1374.68L815.313 425.628L200.631 -522.441Z' fill='%23C5D8FF'/%3E%3Cpath d='M1439.93 -522.321H1240.82L1041.83 -215.566L842.859 -522.321H643.724L1041.83 91.381L1439.93 -522.321Z' fill='%23C5D8FF'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right;
+  display: flex;
+  align-items: center;
 }
 @media (max-width: 540px)  {
 // .quote-hero{
