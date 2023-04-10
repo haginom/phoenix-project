@@ -1,6 +1,5 @@
 :root {
   --bs-navbar-active-color: #FC5A44;
-   
 }
 
 //customise padding
@@ -139,17 +138,7 @@ p{
   margin-left: 5rem;
  }
 
- .offcanvasImage{
-  position: absolute;
-  right: 0;
-  z-index: 2000;
- }
-
- @media (max-width: 720px) {
-  .offcanvasImage{
-    display: none;
-  }
- }
+ 
 
 .offcanvas-canvas{
   z-index: 3000;
@@ -170,6 +159,18 @@ p{
     padding-bottom: 1rem;
   }
 }
+
+.offcanvasImage{
+  position: absolute;
+  right: 0;
+  z-index: 2000;
+ }
+
+ @media (max-width: 720px) {
+  .offcanvasImage{
+    display: none;
+  }
+ }
 
 
 .nav-link.active::before{
