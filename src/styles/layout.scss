@@ -139,12 +139,12 @@ p{
   margin-left: 5rem;
  }
 
-
  .offcanvasImage{
   position: absolute;
   right: 0;
   z-index: 2000;
  }
+
  @media (max-width: 720px) {
   .offcanvasImage{
     display: none;
@@ -154,8 +154,6 @@ p{
 .offcanvas-canvas{
   z-index: 3000;
 }
-
-
 
 .offcanvas-header{
   padding-left: 4.5rem;
