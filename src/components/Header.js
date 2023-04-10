@@ -28,10 +28,15 @@ const Header = ({ about }) => {
               style={{ outline: "none" }}
             />
             <Navbar.Offcanvas
-              style={{ backgroundImage: `url(${background})`, backgroundSize: `contain`,
-              backgroundPosition: `right` }}
+              style={{
+                backgroundImage: `url(${background})`,
+                backgroundSize: `contain`,
+                backgroundPosition: `right`,
+                backgroundRepeat: `no-repeat`,
+                zIndex: `4000`,
+              }}
               className="offcanvas-component"
-              id={`offcanvasNavbar-expand-${expand}`}
+              id={`offcanvasNavbar-expand-${expand} offcanvasBg`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
               placement="end"
             >

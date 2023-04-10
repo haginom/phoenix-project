@@ -121,7 +121,7 @@ const IndexPage = (props) => {
           heading="our partners"
           text="We love clients who are brave enough to want to shake thing up."
         />
-        <div>
+        <div className="mb-5 mt-5">
           <div className="d-flex justify-content-evenly ">
             {["logoOne", "logoTwo", "logoThree", "logoFour"].map(
               (logo, index) => (
@@ -170,7 +170,8 @@ const IndexPage = (props) => {
         bgImg="quote-hero"
         bg="bg-primary"
         heading="Their work helped us roadmap, but also have fruitful conversations across teams internally."
-        text="Born where brand strategy meets strategic design, based in Amsterdam, and growing brands all over the world by getting deep into culture, behavior and reinventing the point of view. 
+        quoteName="Nil Onal"
+        quoteText="Global Consumer Product Marketing Lead at WhatsApp. 
         "
       />
       <Hero

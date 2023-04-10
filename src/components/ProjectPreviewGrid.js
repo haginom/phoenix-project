@@ -8,7 +8,7 @@ function ProjectPreviewGrid(props) {
   return (
     <Container className="mb-5">
       {props.title && <h2 className="subheading">{props.title}</h2>}
-      <Carousel>
+      <Carousel interval={null}>
         {props.nodes &&
           props.nodes.map((node, index) => {
             if (index % 2 === 0) {

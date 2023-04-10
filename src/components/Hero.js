@@ -3,7 +3,17 @@ import { Container, Button } from "react-bootstrap";
 import Quote from "../svgs/Quote.svg";
 import Arrow from "../svgs/arrowRight.svg";
 
-const Hero = ({ bg, heading, text, cta, coverImage, bgImg, quote }) => {
+const Hero = ({
+  bg,
+  heading,
+  text,
+  cta,
+  coverImage,
+  bgImg,
+  quote,
+  quoteName,
+  quoteText,
+}) => {
   return (
     <Container fluid className={`${bg} hero dark position-relative ${bgImg}`}>
       <div
@@ -21,7 +31,12 @@ const Hero = ({ bg, heading, text, cta, coverImage, bgImg, quote }) => {
 
         <h1 className="display-4 ">{heading}</h1>
         {text ? <p>{text}</p> : null}
-
+        {quoteText ? (
+          <>
+            <p className="h4">{quoteName}</p>
+            <p className="h4"> {quoteText}</p>
+          </>
+        ) : null}
         {cta ? (
           <Button>
             Let's Talk <Arrow />
