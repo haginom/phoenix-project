@@ -140,18 +140,21 @@ p{
  }
 
 
-.offcanvas-canvas{
-  background-repeat: no-repeat;
-  background-size: cover;
-    background-position: center;
-}
-
+ .offcanvasImage{
+  position: absolute;
+  right: 0;
+  z-index: 2000;
+ }
  @media (max-width: 720px) {
-  .offcanvas.offcanvas-canvas{
-    background-image: none;
-    z-index: 4000;
+  .offcanvasImage{
+    display: none;
   }
  }
+
+.offcanvas-canvas{
+  z-index: 3000;
+}
+
 
 
 .offcanvas-header{
@@ -160,6 +163,16 @@ p{
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+
+@media (max-width: 720px) {
+  .offcanvas-header{
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
 
 .nav-link.active::before{
   position: absolute;
