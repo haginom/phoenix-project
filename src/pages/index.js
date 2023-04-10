@@ -15,7 +15,7 @@ import { mapEdgesToNodes } from "../library/helpers";
 import ProjectPreviewGrid from "../components/ProjectPreviewGrid";
 
 export const query = graphql`
-  query WorkQuery {
+  query IndexPageQuery {
     featuredWork: allSanityFeaturedWork {
       edges {
         node {

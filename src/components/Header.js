@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Link } from "gatsby";
 import { useLocation } from "@reach/router";
+import background from "../images/Offcanvas.svg";
 
 const Header = ({ about }) => {
   const location = useLocation();
@@ -27,6 +28,8 @@ const Header = ({ about }) => {
               style={{ outline: "none" }}
             />
             <Navbar.Offcanvas
+              style={{ backgroundImage: `url(${background})`, backgroundSize: `contain`,
+              backgroundPosition: `right` }}
               className="offcanvas-component"
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}

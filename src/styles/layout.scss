@@ -133,14 +133,12 @@ p{
  }
 
 .offcanvas-component{
-  mask-image: url("data:image/svg+xml,%3Csvg width='420' height='760' viewBox='0 0 420 760' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M732.58 0.699951H649.59L434.83 331.86L220.06 0.699951H137.08L393.34 395.84L136.73 791.51H219.72L434.83 459.81L649.94 791.51H732.92L476.32 395.84L732.58 0.699951Z' fill='%23FC5A44'/%3E%3Cpath d='M84.0801 0.649883L1.10008 0.629883L257.27 395.83L0.580078 791.44L83.5601 791.46L340.25 395.85L84.0801 0.649883Z' fill='%23FC5A44'/%3E%3Cpath d='M600.56 0.699951H517.58L434.65 128.57L351.73 0.699951H268.74L434.65 256.52L600.56 0.699951Z' fill='%23FC5A44'/%3E%3C/svg%3E");
-
+  background-image: url("/src/images/Group.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   z-index: 4000;
-  background-color:#fc5a44;
-  stroke:#fc5a44;
+  
 }
 
 .offcanvas-header{
