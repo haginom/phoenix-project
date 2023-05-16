@@ -1,7 +1,7 @@
 import React from "react";
 
 const FeaturedWorkPage = (props) => {
-  return <>hello</>;
+  return <div>{props.title}</div>;
 };
 
 export default FeaturedWorkPage;

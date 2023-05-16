@@ -1,7 +1,7 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import Hero from "../components/Hero";
-import X from "../svgs/X.svg";
+// import X from "../svgs/X.svg";
 import InfoBox from "../components/InfoBox";
 import AnimatedBanner from "../components/AnimatedBar";
 import { Button, Container, Row, Col } from "react-bootstrap";
@@ -13,6 +13,7 @@ import Chevron from "../svgs/chevron.svg";
 import logoTexts from "../data/logoTexts";
 import { mapEdgesToNodes } from "../library/helpers";
 import ProjectPreviewGrid from "../components/ProjectPreviewGrid";
+import Layout from "../components/Layout";
 
 export const query = graphql`
   query IndexPageQuery {
@@ -30,6 +31,11 @@ export const query = graphql`
             }
           }
         }
+      }
+    }
+    logo: file(relativePath: { eq: "logo-black.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
   }
@@ -54,13 +60,13 @@ const IndexPage = (props) => {
     : [];
 
   return (
-    <>
+    <Layout data={data}>
       <Hero
         bg="bg-primary"
         heading="We’re a global brand strategy, research & insights consultancy "
         text="Born where brand strategy meets strategic design, based in Amsterdam, and growing brands all over the world by getting deep into culture, behavior and reinventing the point of view. 
         "
-        coverImage={<X className="coverImage" />}
+        coverImage
       />
       <div className="padding-large">
         <InfoBox text="We work closely with clients to solve big challenges: " />
@@ -79,30 +85,30 @@ const IndexPage = (props) => {
           text="We help find the right problems to solve with a mind in design, and heart in the future."
         />
         <Container className="mt-5">
-          <Row className="mb-4 gy-5">
-            <Col lg={4} md={12} style={{ order: 1 }}>
+          <Row className="mb-4">
+            <Col className="ps-0" lg={4} md={12} style={{ order: 1 }}>
               <BrandIcon className="mb-4" />
-              <h3 className="w-50 mb-4">Brand Building</h3>
-              <p className="w-90 mb-4">
+              <h3 className="w-100 mb-4">Brand Building</h3>
+              <p className="w-100 mb-4">
                 From brand positioning and promise and architecture to key
                 narrative and messaging. We often collaborate or cross-over with
                 creative partners.
               </p>
             </Col>
-            <Col lg={4} md={12} style={{ order: 4 }}>
+            <Col className="ps-0" lg={4} md={12} style={{ order: 4 }}>
               <ResearchIcon className="mb-4" />
-              <h3 className="w-50 mb-4 ">Research & Design</h3>
-              <p className="w-90 mb-4 ">
+              <h3 className="w-100 mb-4 ">Research & Design</h3>
+              <p className="w-100 mb-4 ">
                 A brand is a promise. We love to connect the dots between the
                 brand promise and the product experience, through deep research
                 and insight work, and early stage concept design & user testing.
               </p>
             </Col>
-            <Col lg={4} md={12} style={{ order: 7 }}>
+            <Col className="ps-0" lg={4} md={12} style={{ order: 7 }}>
               <ExpansionIcon className="mb-4" />
-              <h3 className="w-50 mb-4">Expansion & Innovation</h3>
+              <h3 className="w-100 mb-4">Expansion & Innovation</h3>
 
-              <p className="w-90 mb-4">
+              <p className="w-100 mb-4">
                 Through cultural understanding and innovation practices we help
                 with challenges around expanding into new markets, new
                 verticals, new products, and future-proofing for now and down
@@ -180,7 +186,7 @@ const IndexPage = (props) => {
         bg="bg-success"
         heading="Have a challenge? We love a good one."
       />
-    </>
+    </Layout>
   );
 };
 

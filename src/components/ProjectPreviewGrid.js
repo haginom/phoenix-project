@@ -6,14 +6,14 @@ import ProjectPreview from "./ProjectPreview";
 
 function ProjectPreviewGrid(props) {
   return (
-    <Container className="mb-5">
-      {props.title && <h2 className="subheading">{props.title}</h2>}
+    <div className="padding-large mb-5 ">
+      {props.title && <h2 className="subheading mb-5">{props.title}</h2>}
       <Carousel interval={null}>
         {props.nodes &&
           props.nodes.map((node, index) => {
             if (index % 2 === 0) {
               return (
-                <Carousel.Item key={node.id}>
+                <Carousel.Item key={node.id} className="mb-3">
                   <Row>
                     <Col md={6}>
                       <ProjectPreview {...node} />
@@ -41,7 +41,7 @@ function ProjectPreviewGrid(props) {
           </Link>
         </div>
       )}
-    </Container>
+    </div>
   );
 }
 

@@ -17,7 +17,7 @@ const HeroCover = ({
         coverImage && `position-relative`
       }`}
     >
-      <div>
+      <div className="text introText">
         <h1 className="display-4 ">{heading}</h1>
         <p>{text}</p>
       </div>

@@ -1,55 +1,67 @@
 const services = {
   brandBuilding: [
     {
-      "Positioning & Repositioning":
+      Title: "Positioning & Repositioning",
+      Description:
         "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
     },
     {
-      "Brand promise, story, ":
+      Title: "Brand promise, story, ",
+      Description:
         "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
     },
     {
-      "Brand Naming & Architecture.":
+      Title: "Brand Naming & Architecture.",
+      Description:
         "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
     },
     {
-      "Cultural context.":
-        "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
-    },
-  ],
-  researchDesign: [
-    {
-      "User, Market & Prospect Research":
-        "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
-    },
-    {
-      "User Journey Models and CX mapping":
-        "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
-    },
-    {
-      "Proposition & Prototype development":
-        "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
-    },
-    {
-      "Concept Design, Experimentation & User Testing":
+      Title: "Cultural context.",
+      Description:
         "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
     },
   ],
   researchDesign: [
     {
-      "Trends Analysis & Applied Semiotics":
+      Title: "User, Market & Prospect Research",
+      Description:
         "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
     },
     {
-      "Research & Product Development Roadmaps":
+      Title: "User Journey Models and CX mapping",
+      Description:
         "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
     },
     {
-      "Futureproofing workshops":
+      Title: "Proposition & Prototype development",
+      Description:
         "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
     },
     {
-      "Culture & Innovation research and roadmapping":
+      Title: "Concept Design, Experimentation & User Testing",
+      Description:
+        "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
+    },
+  ],
+  expansionInnovation: [
+    {
+      Title: "Trends Analysis & Applied Semiotics",
+      Description:
+        "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
+    },
+    {
+      Title: "Research & Product Development Roadmaps",
+      Description:
+        "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
+    },
+    {
+      Title: "Futureproofing workshops",
+      Description:
+        "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
+    },
+    {
+      Title: "Culture & Innovation research and roadmapping",
+      Description:
         "Blurb about what this service means for someone interested in it. Blurb about what this service means for someone interested in it.",
     },
   ],
