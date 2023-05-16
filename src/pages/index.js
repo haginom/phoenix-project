@@ -12,7 +12,7 @@ import ExpansionIcon from "../svgs/Expansion-Icon.svg";
 import Chevron from "../svgs/chevron.svg";
 import logoTexts from "../data/logoTexts";
 import { mapEdgesToNodes } from "../library/helpers";
-import ProjectPreviewGrid from "../components/ProjectPreviewGrid";
+import ProjectPreviewGrid from "../components/ProjectPreviewSlick";
 import Layout from "../components/Layout";
 
 export const query = graphql`
@@ -84,8 +84,8 @@ const IndexPage = (props) => {
           heading="what we do"
           text="We help find the right problems to solve with a mind in design, and heart in the future."
         />
-        <Container className="mt-5">
-          <Row className="mb-4">
+        <Container fluid className="mt-5">
+          <Row className="my-5">
             <Col className="ps-0" lg={4} md={12} style={{ order: 1 }}>
               <BrandIcon className="mb-4" />
               <h3 className="w-100 mb-4">Brand Building</h3>

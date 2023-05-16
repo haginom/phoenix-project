@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Container, Carousel, Row, Col } from "react-bootstrap";
+import { Carousel, Row, Col } from "react-bootstrap";
 import Arrow from "../svgs/arrowRight.svg";
 import ProjectPreview from "./ProjectPreview";
 

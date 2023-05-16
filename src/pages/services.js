@@ -7,10 +7,12 @@ import ResearchIcon from "../svgs/Research-Icon.svg";
 import ExpansionIcon from "../svgs/Expansion-Icon.svg";
 import { Container } from "react-bootstrap";
 import InfoBox from "../components/InfoBox";
+import ServicesGraphic from "../svgs/Services-Graphic.svg";
+import Hero from "../components/Hero";
 
 const ServicePage = () => {
   return (
-    <>
+    <Layout>
       <HeroCover
         bg="bg-light"
         heading="We have the tools to help build your brand"
@@ -18,7 +20,7 @@ const ServicePage = () => {
       />
 
       <Service
-        serviceImage={<BrandIcon className="mb-4" />}
+        serviceImage={<BrandIcon className="serviceIcon" />}
         title="Brand Building"
         titleDescription={
           "From brand positioning to brand architecture, we build new brands from scratch and reposition those looking to grow.  We handle key narrative and messaging and often collaborate or cross-over with various creative partners to bring brand strategy to life."
@@ -26,7 +28,7 @@ const ServicePage = () => {
         service="brandBuilding"
       />
       <Service
-        serviceImage={<ResearchIcon className="mb-4" />}
+        serviceImage={<ResearchIcon className="serviceIcon" />}
         title="Research & Design"
         titleDescription={
           "We love to connect the dots between the brand promise and the actual service or product experience, through deep user research and cultural insight work, and early stage concept design & user testing."
@@ -34,7 +36,7 @@ const ServicePage = () => {
         service="researchDesign"
       />
       <Service
-        serviceImage={<ExpansionIcon className="mb-4" />}
+        serviceImage={<ExpansionIcon className="serviceIcon" />}
         title="Expansion & Innovation"
         titleDescription={
           "Through cultural understanding and innovation practices we help with expanding into new markets, new verticals, new products, and future-proofing for now and down the road!"
@@ -56,7 +58,16 @@ const ServicePage = () => {
           </p>
         </div>
       </Container>
-    </>
+      <Container fluid className="bg-primary padding-md">
+        <ServicesGraphic className="" />
+      </Container>
+      <Hero
+        cta
+        bgImg="cta-hero"
+        bg="bg-success"
+        heading="Have a challenge? We love a good one."
+      />
+    </Layout>
   );
 };
 

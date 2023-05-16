@@ -8,20 +8,20 @@ import { GatsbyImage } from "gatsby-plugin-image";
 
 const AboutPage = ({ data }) => {
   return (
-    <>
+    <Layout>
       <HeroCover
         // contactCoverImage={<About className="about-hero" />}
         bg="bg-primary"
         // heading="A collective of thinkers from across the globe"
       />
-      <div className="padding-large">
-        <Container className="bg-success padding-large">
-          <div className="subheading">Our Mission</div>
-          <h3>
+      <div className="padding-medium">
+        <Container fluid className="bg-success missionStatement">
+          <div className="subheading mt-5 fw-5">Our Mission</div>
+          <h3 className="display-2 mb-2r">
             Our job is to help clients make decisions about what to do, or not
             do.
           </h3>
-          <p>
+          <p className="mb-2r">
             Brand is how every aspect of your business is delivered. A brand is
             a promise to change something in people’s lives, the story through
             which people understand why you exist, and most importantly - a
@@ -30,10 +30,10 @@ const AboutPage = ({ data }) => {
             beliefs and continuous reinvention are what allow you to do that.
           </p>
         </Container>
-        <Container>
+        <Container className="mb-6">
           <Row className="mt-5">
             <Col sm={6}></Col>
-            <Col sm={6}>
+            <Col className="d-flex flex-column justify-content-center" sm={6}>
               <div className="subheading">DIVERSITY OF PERSPECTIVE</div>
               <h3>Our team is tiny but truly global.</h3>
               <p>
@@ -48,7 +48,7 @@ const AboutPage = ({ data }) => {
             </Col>
           </Row>
           <Row className="mt-5">
-            <Col sm={6}>
+            <Col className="d-flex flex-column justify-content-center" sm={6}>
               <div className="subheading">PLAYS WELL WITH OTHERS</div>
               <h3>We’re collaborators at heart.</h3>
               <p>
@@ -63,8 +63,13 @@ const AboutPage = ({ data }) => {
             <Col sm={6}></Col>
           </Row>
           <Row className="mt-5">
-            <Col sm={6}></Col>
             <Col sm={6}>
+              <GatsbyImage
+                image={data.aboutFour.childImageSharp.gatsbyImageData}
+                alt=""
+              />
+            </Col>
+            <Col className="d-flex flex-column justify-content-center" sm={6}>
               <div className="subheading">female-led</div>
               <h3>Part of the few.</h3>
               <p>
@@ -76,7 +81,7 @@ const AboutPage = ({ data }) => {
             </Col>
           </Row>
           <Row className="mt-5">
-            <Col sm={6}>
+            <Col className="d-flex flex-column justify-content-center" sm={6}>
               <div className="subheading">BUILT AROUND BABIES</div>
               <h3>Flexible culture that values balance.</h3>
               <p>
@@ -88,12 +93,7 @@ const AboutPage = ({ data }) => {
                 welcome!
               </p>
             </Col>
-            <Col sm={6}>
-              <GatsbyImage
-                image={data.aboutFour.childImageSharp.gatsbyImageData}
-                alt=""
-              />
-            </Col>
+            <Col sm={6}></Col>
           </Row>
         </Container>
       </div>
@@ -103,7 +103,7 @@ const AboutPage = ({ data }) => {
         bg="bg-success"
         heading="Have a challenge? We love a good one."
       />
-    </>
+    </Layout>
   );
 };
 

@@ -3,10 +3,11 @@ import HeroCover from "../components/Hero-Contact";
 import Contact from "../svgs/Contact.svg";
 import { Container, Row, Col } from "react-bootstrap";
 import Hero from "../components/Hero";
+import Layout from "../components/Layout";
 
 const ContactPage = () => {
   return (
-    <>
+    <Layout>
       <HeroCover
         contactCoverImage={<Contact className="contact-hero" />}
         bg="bg-primary"
@@ -46,11 +47,9 @@ const ContactPage = () => {
 
         Any of these roles sound like a great fit for you? Get in touch. "
       />
-    </>
+    </Layout>
   );
 };
-
-
 
 export default ContactPage;
 

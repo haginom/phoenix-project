@@ -1,12 +1,12 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
-import BrandIcon from "../svgs/Brand-Icon.svg";
-import ResearchIcon from "../svgs/Research-Icon.svg";
-import ExpansionIcon from "../svgs/Expansion-Icon.svg";
+import BrandIcon from "../svgs/Brand-Icon-Mini.svg";
+import ResearchIcon from "../svgs/chevron.svg";
+import ExpansionIcon from "../svgs/Expansion-Icon-Mini.svg";
 
 const AnimatedBanner = ({ text, service }) => {
   return (
-    <div className="marqueeContainer mb-5">
+    <div className="marqueeContainer mt-5">
       <Marquee
         style={{ width: "100%" }}
         startPosition={0}
