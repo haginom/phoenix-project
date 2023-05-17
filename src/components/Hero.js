@@ -6,6 +6,8 @@ import { Row, Col } from "react-bootstrap";
 import X from "../images/phoeni-X.png";
 
 const Hero = ({
+  offset,
+  size,
   bg,
   heading,
   text,
@@ -19,7 +21,7 @@ const Hero = ({
   return (
     <Container fluid className={`${bg} hero dark ${bgImg} position-relative `}>
       <Row className="w-100 h-100 align-items-center no-gutters">
-        <Col md={6} className="offset-md-2 px-0">
+        <Col md={`${size}`} className={`offset-md-${offset} px-0`}>
           <div
             className={`text ${
               coverImage

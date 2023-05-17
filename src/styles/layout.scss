@@ -8,9 +8,15 @@
 .fw-5{
   font-weight: 500;
 }
-
+.mt-6{
+  margin-top: 4rem;
+}
 .mb-2r{
   margin-bottom: 2rem;
+}
+
+.mb-45{
+  margin-bottom: 2.5rem;
 }
 
 .mb-6{
@@ -20,9 +26,31 @@
 .padding-large{
   padding: 6.5rem 8rem 5rem 8rem;
 }
+
+@media (max-width: 768px) {
+  .padding-large {
+    padding: 1.75rem 1.6rem 1.75rem 1.6rem;
+  }
+}
 .padding-large-no-right{
   padding: 6.5rem 0rem 5rem 8rem;
 }
+
+.padding-small{
+  padding: 5.5rem 8rem 3rem 8rem;
+}
+
+@media (max-width: 768px) {
+  .padding-small {
+    padding: 1.75rem 1.6rem 1.75rem 1.6rem;
+  }
+}
+
+@media (max-width: 768px){
+  .padding-large-no-right{
+    padding: 1.75rem 0rem 1.75rem 1.6rem;
+
+}}
 
 .padding-md{
   padding: 1rem 7rem 5rem 7rem;
@@ -32,11 +60,7 @@
   padding: 3rem 8rem 0rem 8rem;
 }
 
-@media (max-width: 768px) {
-  .padding-large {
-    padding: 1.75rem 1.6rem 1.75rem 1.6rem;
-  }
-}
+
 
 .padding-sides{
   padding: 1.1rem 8.125rem 1.1rem 8.125rem;
@@ -56,14 +80,21 @@
 .btn{
   padding-left: 1rem;
   padding-right:1rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   border-radius: 40px;
   color:  #f7f7f7;
   margin-top: 1rem;
+  font-weight:500;
   margin-bottom: 1rem;
   width: 18rem;
+  display: flex;
+  justify-content: space-around;
+}
 
+.btn-large{
+  width: 22rem;
+  margin-left: 0.25rem;
 }
 
 .btn-primary{
@@ -100,7 +131,7 @@
 
 //customise text
 p{
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   line-height: 2rem;
   font-weight: 400;
 }
@@ -133,13 +164,19 @@ p{
 .navbar-toggler-icon{
   z-index: 2000;
 }
-
-
 .navbarContainer{
   padding-left: 5rem;
   padding-right: 5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+@media (max-width: 768px) {
+  .navbarContainer{
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
 }
 
 .offcanvas-title{
@@ -202,7 +239,6 @@ p{
   width: 11rem;
  }
 
-
 .nav-link.active::before{
   position: absolute;
   content: url("data:image/svg+xml,%3Csvg width='61' height='94' viewBox='0 0 61 94' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27.9904 51.7739L-11.3025 77.7653L-11.0698 103.415L67.5412 51.4152L-12.0002 0.849822L-11.7675 26.4996L27.9904 51.7739Z' fill='%23FC5A44'/%3E%3C/svg%3E%0A");
@@ -218,14 +254,13 @@ footer{
   color: #f7f7f7;
 }
 .footerLogo {
-  margin-bottom: 3rem;
-  margin-top: 2rem;
+  margin-bottom: 4rem;
+  width: 13.5rem;
 }
 
 .colTitle{
-  font-weight: 600;
+  font-weight: 500;
   font-size: 2rem;
-  
 }
 
 .copyright{
@@ -358,10 +393,7 @@ footer {
 }
 }
 
-.quoteText{
-  margin: 1rem 8.125rem 1rem 8.125rem;
-  max-width: 42rem;
-}
+
 @media (max-width: 768px) {
   .quoteText{
     margin: 1rem 1rem 1rem 1rem;
@@ -498,7 +530,11 @@ svg{
     margin: 20px 20px; /* Adjust the margin value as per your requirement */
   }
 }
-
+@media (max-width: 768px){
+  .slick-list {
+    margin: 0 0px;
+  }
+}
 
 /* the parent */
 .slick-list {
@@ -546,6 +582,12 @@ svg{
 .marqueeIndexSpacing{
   margin-bottom: 2rem;
   margin-top: -4rem;
+}
+
+@media (max-width: 768px){
+.marqueeIndexSpacing{
+  margin-top: -2rem;
+}  
 }
 
 .marqueeList{

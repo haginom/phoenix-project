@@ -62,6 +62,8 @@ const IndexPage = (props) => {
   return (
     <Layout data={data}>
       <Hero
+        offset={2}
+        size={6}
         bg="bg-primary"
         heading="We’re a global brand strategy, research & insights consultancy "
         text="Born where brand strategy meets strategic design, based in Amsterdam, and growing brands all over the world by getting deep into culture, behavior and reinventing the point of view. 
@@ -84,40 +86,67 @@ const IndexPage = (props) => {
           heading="what we do"
           text="We help find the right problems to solve with a mind in design, and heart in the future."
         />
-        <Container fluid className="mt-5">
+        <Container fluid className="mt-6">
           <Row className="my-5">
             <Col className="ps-0" lg={4} md={12} style={{ order: 1 }}>
-              <BrandIcon className="mb-4" />
-              <h3 className="w-100 mb-4">Brand Building</h3>
-              <p className="w-100 mb-4">
-                From brand positioning and promise and architecture to key
-                narrative and messaging. We often collaborate or cross-over with
-                creative partners.
-              </p>
+              <Row className="text-align-left">
+                <BrandIcon
+                  style={{ width: "105px", height: "105px" }}
+                  className="mb-4"
+                />
+              </Row>
+              <Row>
+                <h3 className="w-90 mb-2r display-2">Brand Building</h3>
+              </Row>
+              <Row>
+                <p className="w-100 mb-4">
+                  From brand positioning and promise and architecture to key
+                  narrative and messaging. We often collaborate or cross-over
+                  with creative partners.
+                </p>
+              </Row>
             </Col>
             <Col className="ps-0" lg={4} md={12} style={{ order: 4 }}>
-              <ResearchIcon className="mb-4" />
-              <h3 className="w-100 mb-4 ">Research & Design</h3>
-              <p className="w-100 mb-4 ">
-                A brand is a promise. We love to connect the dots between the
-                brand promise and the product experience, through deep research
-                and insight work, and early stage concept design & user testing.
-              </p>
+              <Row>
+                <ResearchIcon
+                  style={{ width: "105px", height: "105px" }}
+                  className="mb-4"
+                />
+              </Row>
+              <Row>
+                <h3 className="w-90 mb-2r display-2">Research & Design</h3>
+              </Row>
+              <Row>
+                <p className="w-100 mb-4 ">
+                  A brand is a promise. We love to connect the dots between the
+                  brand promise and the product experience, through deep
+                  research and insight work, and early stage concept design &
+                  user testing.
+                </p>
+              </Row>
             </Col>
             <Col className="ps-0" lg={4} md={12} style={{ order: 7 }}>
-              <ExpansionIcon className="mb-4" />
-              <h3 className="w-100 mb-4">Expansion & Innovation</h3>
-
-              <p className="w-100 mb-4">
-                Through cultural understanding and innovation practices we help
-                with challenges around expanding into new markets, new
-                verticals, new products, and future-proofing for now and down
-                the road.
-              </p>
+              <Row>
+                <ExpansionIcon
+                  style={{ width: "105px", height: "105px" }}
+                  className="mb-4"
+                />
+              </Row>
+              <Row>
+                <h3 className="w-90 mb-2r display-2">Expansion & Innovation</h3>
+              </Row>
+              <Row>
+                <p className="w-90 mb-5">
+                  Through cultural understanding and innovation practices we
+                  help with challenges around expanding into new markets, new
+                  verticals, new products, and future-proofing for now and down
+                  the road.
+                </p>
+              </Row>
             </Col>
           </Row>
         </Container>
-        <Button className="btn-primary">
+        <Button className="mb-5 btn-primary">
           See our services
           <Arrow />
         </Button>
@@ -172,7 +201,9 @@ const IndexPage = (props) => {
         </div>
       </div>
       <Hero
+        offset={1}
         quote
+        size={7}
         bgImg="quote-hero"
         bg="bg-primary"
         heading="Their work helped us roadmap, but also have fruitful conversations across teams internally."
@@ -182,6 +213,8 @@ const IndexPage = (props) => {
       />
       <Hero
         cta
+        size={6}
+        offset={2}
         bgImg="cta-hero"
         bg="bg-success"
         heading="Have a challenge? We love a good one."
