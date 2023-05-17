@@ -6,11 +6,12 @@ import { Row, Col } from "react-bootstrap";
 import X from "../images/phoeni-X.png";
 
 const Hero = ({
+  headingClass,
   offset,
   size,
   bg,
   heading,
-  text,
+  texts,
   cta,
   coverImage,
   bgImg,
@@ -35,9 +36,15 @@ const Hero = ({
           >
             {quote ? <Quote className="quote" /> : null}
 
-            <h1 className="display-3 ">{heading}</h1>
+            <h1 className={`${headingClass} display-3`}>{heading}</h1>
 
-            {text ? <p>{text}</p> : null}
+            {texts ? (
+              <div className="mb-5">
+                {texts.map((text, index) => (
+                  <p key={index}>{text}</p>
+                ))}
+              </div>
+            ) : null}
 
             {quoteText ? (
               <>

@@ -1,7 +1,10 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 const HeroCover = ({
+  offset,
+  size,
+  notFound,
   bg,
   heading,
   text,
@@ -17,40 +20,30 @@ const HeroCover = ({
         coverImage && `position-relative`
       }`}
     >
-      <div className="text introText">
-        <h1 className="display-4 ">{heading}</h1>
-        <p>{text}</p>
-      </div>
-      {coverImage ? <div className="coverCWrapper"> {coverImage} </div> : null}
+      <Row className="w-100 h-100 align-items-center no-gutters">
+        <Col md={`${size}`} className={`offset-md-${offset} px-0`}>
+          {notFound ? (
+            <div className="">
+              <h1 className="display-6 ">{heading}</h1>
+              <p className="display-3 ">{text}</p>
+            </div>
+          ) : (
+            <div className="text introText">
+              <h1 className="display-3 ">{heading}</h1>
+              <p>{text}</p>
+            </div>
+          )}
+          {coverImage ? (
+            <div className="coverCWrapper"> {coverImage} </div>
+          ) : null}
 
-      {contactCoverImage ? (
-        <div className="coverXWrapper"> {contactCoverImage} </div>
-      ) : null}
+          {contactCoverImage ? (
+            <div className="coverXWrapper"> {contactCoverImage} </div>
+          ) : null}
+        </Col>
+      </Row>
     </Container>
   );
 };
-
-// const CoverCWrapper = styled.div`
-//   position: relative;
-//   height: 100vh;
-//   width: 100%;
-// `;
-
-// const CoverXWrapper = styled.div`
-//   position: relative;
-//   display: block;
-//   width: 100%;
-//   height: 100vh;
-//   padding: 0;
-//   margin: 0;
-
-//   @media (max-width: 960px) {
-//     position: static;
-//     width: 100vw;
-//     height: auto;
-//     margin-right: 1rem;
-//     margin-left: 1rem;
-//   }
-// `;
 
 export default HeroCover;

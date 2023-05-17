@@ -99,6 +99,8 @@ const AboutPage = ({ data }) => {
       </div>
       <Hero
         cta
+        size={6}
+        offset={2}
         bgImg="cta-hero"
         bg="bg-success"
         heading="Have a challenge? We love a good one."

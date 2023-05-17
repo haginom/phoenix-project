@@ -23,6 +23,10 @@
   margin-bottom: 6rem;
 }
 //customise padding
+.padding-xl{
+  padding: 4.5rem 10rem 7rem 14rem;
+}
+
 .padding-large{
   padding: 6.5rem 8rem 5rem 8rem;
 }
@@ -141,6 +145,7 @@ p{
   line-height: 1.5rem;
   text-transform: uppercase;
   margin-bottom: 2rem;
+  font-weight: 500;
 }
 
 //nav menu
@@ -160,6 +165,7 @@ p{
   outline: none;
   border: none;
   color: transparent;
+  z-index: 1000;
 }
 .navbar-toggler-icon{
   z-index: 2000;
@@ -439,10 +445,10 @@ footer {
 
 
 .contact-hero{
-  height: calc(100vh + 90px);
+  height: calc(100vh + 0.25rem);
   position: absolute;
   top: 0px;
-  right: 0;
+  right: -2.5%;
   z-index: 100;
 }
 
@@ -459,9 +465,7 @@ svg{
   pointer-events: none;
 }
 
-.contact-table{
-  border-right: solid 3px #FC5A44; 
-}
+
 .contactCol{
   padding-left: 5rem;
 }
@@ -648,4 +652,11 @@ svg{
 
 .missionStatement{
   padding: 4rem 7rem 6rem 7rem;
+}
+
+.separator{
+  margin-left: 0.25rem;
+    border-right: 3px solid #FC5A44;
+    height: 350px;
+    
 }
