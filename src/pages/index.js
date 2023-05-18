@@ -1,19 +1,18 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import Hero from "../components/Hero";
-// import X from "../svgs/X.svg";
 import InfoBox from "../components/InfoBox";
 import AnimatedBanner from "../components/AnimatedBar";
-import { Button, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import Arrow from "../svgs/arrowRight.svg";
 import BrandIcon from "../svgs/Brand-Icon.svg";
 import ResearchIcon from "../svgs/Research-Icon.svg";
 import ExpansionIcon from "../svgs/Expansion-Icon.svg";
-import Chevron from "../svgs/chevron.svg";
-import logoTexts from "../data/logoTexts";
 import { mapEdgesToNodes } from "../library/helpers";
 import ProjectPreviewGrid from "../components/ProjectPreviewSlick";
 import Layout from "../components/Layout";
+import Partners from "../components/OurPartners";
+import { Link } from "gatsby";
 
 export const query = graphql`
   query IndexPageQuery {
@@ -33,6 +32,21 @@ export const query = graphql`
         }
       }
     }
+    logos: allSanityQuote {
+      edges {
+        node {
+          id
+          companyName
+          quote
+          logo {
+            asset {
+              url
+            }
+          }
+        }
+      }
+    }
+
     logo: file(relativePath: { eq: "logo-black.png" }) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
@@ -42,14 +56,6 @@ export const query = graphql`
 `;
 const IndexPage = (props) => {
   const { data, errors } = props;
-  const [hoveredLogo, setHoveredLogo] = React.useState(null);
-
-  const handleMouseOver = (logo) => {
-    setHoveredLogo(logo);
-  };
-  const handleMouseLeave = () => {
-    setHoveredLogo(null);
-  };
 
   if (errors) {
     return <p>{errors} an error occured </p>;
@@ -58,6 +64,7 @@ const IndexPage = (props) => {
   const featuredWorkNodes = (data || {}).featuredWork
     ? mapEdgesToNodes(data.featuredWork)
     : [];
+  const logoNodes = (data || {}).logos ? mapEdgesToNodes(data.logos) : [];
 
   return (
     <Layout data={data}>
@@ -146,59 +153,16 @@ const IndexPage = (props) => {
             </Col>
           </Row>
         </Container>
-        <Button className="mb-5 btn-primary">
+        <Link to="services" className="mb-5 btn btn-primary">
           See our services
           <Arrow />
-        </Button>
+        </Link>
       </div>
       <div className="padding-large">
-        <InfoBox
-          heading="our partners"
+        <Partners
+          logos={logoNodes}
           text="We love clients who are brave enough to want to shake thing up."
         />
-        <div className="mb-5 mt-5">
-          <div className="d-flex justify-content-evenly ">
-            {["logoOne", "logoTwo", "logoThree", "logoFour"].map(
-              (logo, index) => (
-                <div
-                  className="logo"
-                  key={index}
-                  onMouseOver={() => handleMouseOver(logo)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  logo
-                </div>
-              )
-            )}
-          </div>
-          <div>
-            <div className="d-flex justify-content-center align-items-center logoInfo">
-              <Chevron />
-              <span className="logoText">
-                {hoveredLogo && logoTexts[hoveredLogo]}
-
-                {!hoveredLogo && logoTexts.defaultText}
-              </span>
-            </div>
-          </div>
-          <div className="d-flex justify-content-evenly ">
-            {["logoFive", "logoSix", "logoSeven", "logoEight"].map(
-              (logo, index) => (
-                <div
-                  tabIndex="0"
-                  role="button"
-                  aria-label="Show information about what we did for brand"
-                  className="logo"
-                  key={index}
-                  onMouseOver={() => handleMouseOver(logo)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  logo
-                </div>
-              )
-            )}
-          </div>
-        </div>
       </div>
       <Hero
         offset={1}

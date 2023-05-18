@@ -10,10 +10,9 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      title: 'Title',
-      name: 'title',
+      title: 'Job Title',
+      name: 'jobTitle',
       type: 'string',
-      validation: (Rule) => Rule.required().min(10).max(80),
     },
     {
       title: 'Image',

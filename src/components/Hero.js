@@ -1,9 +1,10 @@
 import React from "react";
-import { Container, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Quote from "../svgs/Quote.svg";
 import Arrow from "../svgs/arrowRight.svg";
 import { Row, Col } from "react-bootstrap";
 import X from "../images/phoeni-X.png";
+import { Link } from "gatsby";
 
 const Hero = ({
   headingClass,
@@ -54,13 +55,13 @@ const Hero = ({
             ) : null}
 
             {cta ? (
-              <Button>
+              <Link to="/contact" className="btn btn-primary">
                 Let's Talk <Arrow />
-              </Button>
+              </Link>
             ) : null}
           </div>
         </Col>
-        {coverImage ? <img className="x-bkg" src={X} /> : null}
+        {coverImage ? <img alt="" className="x-bkg" src={X} /> : null}
       </Row>
     </Container>
   );

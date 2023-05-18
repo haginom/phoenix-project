@@ -1,16 +1,19 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import services from "../data/services";
 import AnimatedBanner from "./AnimatedBanner";
-import Hero from "./Hero";
 
-const Service = ({ serviceImage, title, titleDescription, service }) => {
-  const descriptions = services[service];
+const Service = ({
+  serviceImage,
+  title,
+  titleDescription,
+  subServices,
+  miniIcon,
+}) => {
   return (
     <>
       <AnimatedBanner
         text={[`${title}`, ` ${title}`, `${title}`]}
-        service={title}
+        miniIcon={miniIcon}
       />
       <Container fluid className="padding-large serviceTable w-100 mx-auto">
         <Row className="serviceTableTopRow mb-5 me-0">
@@ -23,12 +26,12 @@ const Service = ({ serviceImage, title, titleDescription, service }) => {
           </Col>
         </Row>
         <Row>
-          {descriptions.map((service, index) => (
+          {subServices.map((subService, index) => (
             <Col className="p-3" md={3} key={index}>
               <p className="mb-5 two-lines-height">
-                <strong>{service["Title"]}</strong>
+                <strong>{subService.title}</strong>
               </p>
-              <p className="mb-5">{service["Description"]}</p>
+              <p className="mb-5">{subService.description}</p>
             </Col>
           ))}
         </Row>

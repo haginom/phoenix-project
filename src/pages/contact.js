@@ -13,7 +13,7 @@ const ContactPage = () => {
         size={4}
         contactCoverImage={<Contact className="contact-hero" />}
         bg="bg-primary"
-        heading="Say hi / hoi / hola / hello / zdravei / ciao!"
+        heading="Say hi / hoi / hola / hello / درود / zdravei / ciao / こんにちは!"
       />
       <Container fluid className="padding-xl">
         <p className="subheading">PARTNERS</p>

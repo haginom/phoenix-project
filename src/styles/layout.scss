@@ -4,6 +4,9 @@
 .w-93{
   width: 93%;
 }
+.w-97{
+  width: 99%;
+}
 
 .fw-5{
   font-weight: 500;
@@ -22,6 +25,7 @@
 .mb-6{
   margin-bottom: 6rem;
 }
+
 //customise padding
 .padding-xl{
   padding: 4.5rem 10rem 7rem 14rem;
@@ -64,10 +68,12 @@
   padding: 3rem 8rem 0rem 8rem;
 }
 
-
-
 .padding-sides{
   padding: 1.1rem 8.125rem 1.1rem 8.125rem;
+}
+
+.padding-team{
+  padding: 6.5rem;
 }
 @media (max-width: 768px) {
   .padding-sides {
@@ -146,6 +152,10 @@ p{
   text-transform: uppercase;
   margin-bottom: 2rem;
   font-weight: 500;
+}
+
+.lh-2{
+  height: 5rem;
 }
 
 //nav menu
@@ -419,7 +429,7 @@ footer {
 
 //
 
-.logo{
+.logo-container{
   width: 240px  ;
   border-radius: 20px;
   height: 100px;
@@ -428,9 +438,11 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 1rem;
 }
 .logoText{
   font-size: 3rem;
+  font-weight:500;
   line-height: 4rem;
   margin-left: 1rem;
   color:#F86A1A;
@@ -439,9 +451,15 @@ footer {
 .logoInfo{
  max-width: 60rem;
  margin: 5rem auto;
- 
+ min-height: 13rem;
 }
 
+.quote-chevron{
+height: 80px !important;
+width: 80px !important;;
+flex-shrink: 0;
+  min-width: 120px;
+}
 
 
 .contact-hero{
