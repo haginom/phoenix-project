@@ -31,7 +31,7 @@ const LogoContainer = ({ logos }) => {
   };
 
   return (
-    <div className="container mb-5 mt-6">
+    <div className=" mb-5 mt-6">
       <Row>
         {logos.slice(0, 4).map((logo) => (
           <LogoWithQuote

@@ -2,7 +2,6 @@ import * as React from "react";
 import Layout from "../components/Layout";
 import { Container, Row, Col } from "react-bootstrap";
 import Hero from "../components/Hero";
-import HeroCover from "../components/Hero-Contact";
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { mapEdgesToNodes } from "../library/helpers";
@@ -71,13 +70,9 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
-      <HeroCover
-        // contactCoverImage={<About className="about-hero" />}
-        bg="bg-primary"
-        // heading="A collective of thinkers from across the globe"
-      />
+      <Hero bg="bg-primary" />
       <div className="padding-medium">
-        <Container fluid className="bg-success missionStatement mb-5">
+        <Container fluid className="bg-success missionStatement">
           <div className="subheading mt-5 fw-5">Our Mission</div>
           <h3 className="display-2 mb-2r">
             Our job is to help clients make decisions about what to do, or not
@@ -94,17 +89,17 @@ const AboutPage = ({ data }) => {
         </Container>
       </div>
       <div className="padding-medium">
-        <div className="w-100 mb-6 mt-5">
-          <Row className="my-5">
+        <div className="w-100 mb-6 p-1">
+          <Row className="aboutTable">
             <Col sm={6}>
               <img alt="" src="https://picsum.photos/580" />
             </Col>
             <Col className="d-flex flex-column justify-content-center" sm={6}>
-              <h2 className="subheading">DIVERSITY OF PERSPECTIVE</h2>
-              <h3 className="display-2 mb-4">
+              <h2 className="subheading mt-3">DIVERSITY OF PERSPECTIVE</h2>
+              <h3 className="display-2 mb-4 ">
                 Our team is tiny but truly global.
               </h3>
-              <p className="w-75">
+              <p className="aboutWidth">
                 Our core team spans seven nationalities and ten languages. And
                 we’ve also built a network of trusted partners around the world,
                 giving us nuance and depth in each region. Whether you want to
@@ -115,11 +110,15 @@ const AboutPage = ({ data }) => {
               </p>
             </Col>
           </Row>
-          <Row className="my-5">
-            <Col className="d-flex flex-column justify-content-center" sm={6}>
-              <h2 className="subheading">PLAYS WELL WITH OTHERS</h2>
+          <Row className="aboutTable">
+            <Col
+              className="d-flex flex-column justify-content-center"
+              xs={{ span: 12, order: "last" }}
+              sm={{ span: 6, order: "first" }}
+            >
+              <h2 className="subheading mt-3">PLAYS WELL WITH OTHERS</h2>
               <h3 className="display-2 mb-4">We’re collaborators at heart.</h3>
-              <p className="w-75">
+              <p className="aboutWidth">
                 We often work closely with other brand partners or client
                 agencies to bring strategy to life when it comes to the
                 communication, character and advertising side of things. We’ve
@@ -128,12 +127,12 @@ const AboutPage = ({ data }) => {
                 full-service projects.
               </p>
             </Col>
-            <Col sm={6}>
+            <Col xs={{ span: 12, order: "first" }} sm={6}>
               {" "}
               <img alt="" src="https://picsum.photos/580" />
             </Col>
           </Row>
-          <Row className="my-5">
+          <Row className="aboutTable">
             <Col sm={6}>
               <GatsbyImage
                 image={data.aboutFour.childImageSharp.gatsbyImageData}
@@ -141,9 +140,9 @@ const AboutPage = ({ data }) => {
               />
             </Col>
             <Col className="d-flex flex-column justify-content-center" sm={6}>
-              <h2 className="subheading">female-led</h2>
+              <h2 className="subheading mt-3">female-led</h2>
               <h3 className="display-2 mb-4">Part of the few.</h3>
-              <p className="w-75">
+              <p className="aboutWidth">
                 We’re part of the 0.1% of strategy shops founded and run by
                 women. We think that’s nuts, but we’re driving the change and
                 bringing empathy and lateral thinking to a traditionally
@@ -151,13 +150,17 @@ const AboutPage = ({ data }) => {
               </p>
             </Col>
           </Row>
-          <Row className="my-5">
-            <Col className="d-flex flex-column justify-content-center" sm={6}>
-              <h2 className="subheading">BUILT AROUND BABIES</h2>
+          <Row className="aboutTable">
+            <Col
+              className="d-flex flex-column justify-content-center"
+              xs={{ span: 12, order: "last" }}
+              sm={{ span: 6, order: "first" }}
+            >
+              <h2 className="subheading mt-3">BUILT AROUND BABIES</h2>
               <h3 className="display-2 mb-4">
                 Flexible culture that values balance.
               </h3>
-              <p className="w-75">
+              <p className="aboutWidth">
                 You did read that right. We are a bunch of young parents and new
                 families, so we know how to create a way of working that is
                 built around life, not the other way around. We also believe the
@@ -166,7 +169,7 @@ const AboutPage = ({ data }) => {
                 welcome!
               </p>
             </Col>
-            <Col sm={6}>
+            <Col xs={{ span: 12, order: "first" }} sm={6}>
               {" "}
               <img alt="" src="https://picsum.photos/580" />
             </Col>
@@ -186,10 +189,10 @@ const AboutPage = ({ data }) => {
                     src="https://picsum.photos/180"
                   />
                 </Row>
-                <Row className="mb-3">
+                <Row className="mb-3 mb-o">
                   <p className="h2 lh-2">{teamMember.name}</p>
                 </Row>
-                <Row className="mb-3 w-90">
+                <Row className="mb-3 mb-o w-90">
                   <p>{teamMember.jobTitle}</p>
                 </Row>
                 <Row className="w-97">
@@ -210,8 +213,15 @@ const AboutPage = ({ data }) => {
       </div>
       <Hero
         cta
-        size={6}
-        offset={2}
+        btnBorder={"btnBorder"}
+        headingClass={"ctaHeading"}
+        colSizeMax={9}
+        colSizeMin={6}
+        colSizeMid={6}
+        offsetMax={3}
+        offsetMid={3}
+        offsetMin={2}
+        linkTo="open-roles"
         bgImg="cta-hero"
         bg="bg-success"
         heading="Have a challenge? We love a good one."

@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "gatsby";
 import { urlFor } from "../library/helpers";
 
-function ProjectPreview(props) {
+function ProjectPreview({ headingClass, ...props }) {
   return (
-    <Link className="previewCard ms-0" to={`/${props.id}`}>
+    <Link className="previewCard ms-0" to={`work/${props?.id}`}>
       <div className="leadMediaThumb mb-3">
         {props.previewPoster && props.previewPoster.asset && (
           <img
@@ -18,7 +18,7 @@ function ProjectPreview(props) {
           />
         )}
       </div>
-      <h3>{props.title}</h3>
+      <h3 className={headingClass}>{props.title}</h3>
 
       <div>
         <p>{props.description}</p>

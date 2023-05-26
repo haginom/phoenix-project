@@ -1,7 +1,7 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import HeroCover from "../components/Hero-Services";
+import HeroCover from "../components/HeroPolgyon";
 import Service from "../components/Service";
 import { Container } from "react-bootstrap";
 import InfoBox from "../components/InfoBox";
@@ -48,6 +48,16 @@ const ServicePage = ({ data }) => {
   return (
     <Layout>
       <HeroCover
+        offsetMax={1}
+        offsetMid={4}
+        offsetMin={1}
+        colSizeMax={10}
+        colSizeMin={6}
+        colSizeMid={5}
+        textColor={"text-white"}
+        polygon="clip-path-polygon"
+        bgPolygon="bg-primary"
+        svgColor={"Success"}
         bg="bg-light"
         heading="We have the tools to help build your brand"
         text="We don’t like to be boxed into disciplines, but mix all the tools to come up with the ideal approach, bringing a blend of brand fundamentals, strategic design, deep user research and digital craft to each project. "
@@ -86,12 +96,18 @@ const ServicePage = ({ data }) => {
         </div>
       </Container>
       <Container fluid className="bg-primary padding-md">
-        <ServicesGraphic className="" />
+        <ServicesGraphic className="servicesGraphic" />
       </Container>
       <Hero
-        size={6}
-        offset={2}
         cta
+        btnBorder={"btnBorder"}
+        headingClass={"ctaHeading"}
+        colSizeMax={9}
+        colSizeMin={6}
+        colSizeMid={6}
+        offsetMax={3}
+        offsetMid={3}
+        offsetMin={2}
         bgImg="cta-hero"
         bg="bg-success"
         heading="Have a challenge? We love a good one."

@@ -7,13 +7,34 @@ export const query = graphql`
     featuredWork: sanityFeaturedWork(id: { eq: $id }) {
       id
       _id
+      _rawContent
       title
+      keywords
       description
+
       previewPoster {
         asset {
           _id
           url
           altText
+        }
+      }
+      poster {
+        asset {
+          _id
+          url
+          altText
+        }
+      }
+      content {
+        list
+        style
+        _type
+        children {
+          text
+          marks
+          _key
+          _type
         }
       }
     }
@@ -28,5 +49,7 @@ const WorkDetailPage = (props) => {
   }
   return <FeaturedWorkPage {...FeatureWorks} />;
 };
+
+export const Head = () => <title>Phoenix Work Details</title>;
 
 export default WorkDetailPage;

@@ -1,19 +1,28 @@
 import * as React from "react";
-import HeroCover from "../components/Hero-Contact";
 import Contact from "../svgs/Contact.svg";
 import { Container, Row, Col } from "react-bootstrap";
 import Hero from "../components/Hero";
 import Layout from "../components/Layout";
+import X from "../images/phoeni-X.png";
 
 const ContactPage = () => {
   return (
     <Layout>
-      <HeroCover
-        offset={2}
-        size={4}
-        contactCoverImage={<Contact className="contact-hero" />}
+      <Hero
+        headingClass={"mb-5"}
+        offsetMax={1}
+        offsetMid={1}
+        offsetMin={1}
+        colSizeMax={10}
+        colSizeMin={6}
+        colSizeMid={5}
+        svgImage={<Contact className="contact-hero" />}
         bg="bg-primary"
-        heading="Say hi / hoi / hola / hello / درود / zdravei / ciao / こんにちは!"
+        heading={
+          "Say hi / hoi / hola / hello / درود / zdravei / ciao /\nこんにちは!"
+        }
+        coverImage={X}
+        coverImageClassName="x-Mobile"
       />
       <Container fluid className="padding-xl">
         <p className="subheading">PARTNERS</p>
@@ -44,10 +53,15 @@ const ContactPage = () => {
         </Row>
       </Container>
       <Hero
-        offset={2}
-        size={6}
-        headingClass="w-90"
         cta
+        btnBorder={"btnBorder"}
+        headingClass={"ctaHeading"}
+        colSizeMax={9}
+        colSizeMin={6}
+        colSizeMid={6}
+        offsetMax={3}
+        offsetMid={3}
+        offsetMin={2}
         bgImg="cta-hero"
         bg="bg-success"
         heading="Think you might fit in here?"

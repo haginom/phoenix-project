@@ -8,27 +8,34 @@ import { useLocation } from "@reach/router";
 import OffcanvasBg from "../images/Offcanvas.svg";
 import logo from "../images/logo-white-crop.png";
 import logoB from "../images/logo-black-crop.png";
+import { Link } from "gatsby";
 
-const Header = ({ data, about }) => {
+const Header = ({ background, about }) => {
   const location = useLocation();
   return (
     <>
       {[false].map((expand) => (
         <Navbar
-          bg="primary"
+          className={`${background ? "navbarDark" : "navbarLight"}`}
+          bg={`${background ? background : "primary"}`}
           variant={about ? "light" : "dark"}
           key={expand}
           expand={expand}
         >
           <Container className="navbarContainer" fluid>
-            <Navbar.Brand href="#">
-              <img src={logo} className={`navLogo`} />
+            <Navbar.Brand as={Link} to="/">
+              {background ? (
+                <img src={logoB} alt="Logo Phoenix" className={`navLogo`} />
+              ) : (
+                <img src={logo} alt="Logo Phoenix" className={`navLogo`} />
+              )}
             </Navbar.Brand>
             <Navbar.Toggle
               activekey={location.pathname}
               aria-controls={`offcanvasNavbar-expand-${expand}`}
             >
               <svg
+                className={`${background ? "filterDark" : null}`}
                 width="39"
                 height="53"
                 viewBox="0 0 39 53"

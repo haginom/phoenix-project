@@ -1,5 +1,10 @@
 import sanityClient from "@sanity/client";
 
+export const sanityConfig = {
+  projectId: "3i8bbloq",
+  dataset: "production",
+};
+
 const client = sanityClient({
   projectId: "3i8bbloq",
   dataset: "production",

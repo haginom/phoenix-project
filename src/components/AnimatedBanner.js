@@ -19,7 +19,7 @@ const AnimatedBanner = ({ text, miniIcon }) => {
               className="ms-5 me-5"
             />
 
-            <div className="marqueeServiceText">{item}</div>
+            <div className="marqueeText">{item}</div>
           </div>
         ))}
       </Marquee>

@@ -1,8 +1,24 @@
 import featuredWork from './work'
 import team from './team'
-import quotes from './quotes'
+import clients from './clients'
 import roles from './roles'
 import services from './service'
 import subService from './subservice'
-
-export const schemaTypes = [featuredWork, team, quotes, roles, services, subService]
+import content from './content'
+import youtube from './youtube'
+import caseStudyBuilder from './caseStudyBuilder'
+import hero from './hero'
+import textWithIllustration from './textWithIllustration'
+export const schemaTypes = [
+  featuredWork,
+  team,
+  clients,
+  roles,
+  services,
+  subService,
+  content,
+  caseStudyBuilder,
+  youtube,
+  hero,
+  textWithIllustration,
+]

@@ -3,29 +3,57 @@ import { Container } from "react-bootstrap";
 import Quote from "../svgs/Quote.svg";
 import Arrow from "../svgs/arrowRight.svg";
 import { Row, Col } from "react-bootstrap";
-import X from "../images/phoeni-X.png";
 import { Link } from "gatsby";
 
 const Hero = ({
+  contactType,
+  btnBorder,
   headingClass,
-  offset,
-  size,
+  linkTo,
+  light,
+  offsetMin,
+  offsetMid,
+  offsetMax,
+  colSizeMax,
+  colSizeMin,
+  colSizeMid,
   bg,
   heading,
   texts,
   cta,
+  notFound,
   coverImage,
+  coverImageClassName,
+  svgImage,
+  svgImageClassName,
   bgImg,
   quote,
   quoteName,
   quoteText,
 }) => {
   return (
-    <Container fluid className={`${bg} hero dark ${bgImg} position-relative `}>
-      <Row className="w-100 h-100 align-items-center no-gutters">
-        <Col md={`${size}`} className={`offset-md-${offset} px-0`}>
+    <Container
+      fluid
+      className={`${bg} dark ${bgImg} ${light} overflow-hidden position-relative hero`}
+    >
+      <Row
+        style={{
+          marginLeft: 0,
+          marginRight: 0,
+        }}
+        className="w-100 h-100 align-items-center"
+      >
+        <Col
+          xs={{ span: `${colSizeMax}`, offset: `${offsetMin}` }}
+          sm={{ span: `${colSizeMax}`, offset: `${offsetMin}` }}
+          md={{ span: `${colSizeMid}`, offset: `${offsetMid}` }}
+          lg={{ span: `${colSizeMid}`, offset: `${offsetMid}` }}
+          xl={{ span: `${colSizeMin}`, offset: `${offsetMax}` }}
+          className={`px-sm-0 me-md-4`}
+          style={{ paddingLeft: 0, paddingRight: 0 }}
+        >
           <div
-            className={`text ${
+            className={`d-flex flex-column align-items-stretch justify-content-center ${
               coverImage
                 ? `introText`
                 : quote
@@ -33,36 +61,56 @@ const Hero = ({
                 : cta
                 ? `ctaText`
                 : null
-            }`}
+            } ${contactType ? `contactTypeMargin` : null}`}
           >
             {quote ? <Quote className="quote" /> : null}
 
-            <h1 className={`${headingClass} display-3`}>{heading}</h1>
+            <h1
+              className={`${headingClass} ${
+                notFound
+                  ? "display-6"
+                  : quote || contactType
+                  ? null
+                  : "display-3"
+              } mb-4`}
+            >
+              {heading}
+            </h1>
 
             {texts ? (
-              <div className="mb-5">
+              <div className="w-90 mb-4">
                 {texts.map((text, index) => (
-                  <p key={index}>{text}</p>
+                  <p
+                    key={index}
+                    className={`${notFound ? "display-3 mb-0" : null}`}
+                  >
+                    {text}
+                  </p>
                 ))}
               </div>
             ) : null}
 
             {quoteText ? (
               <>
-                <p className="h4">{quoteName}</p>
-                <p className="h4"> {quoteText}</p>
+                <p className="h4 mt-5">{quoteName}</p>
+                <p className="h4 clientTitle">
+                  <strong>{quoteText}</strong>
+                </p>
               </>
             ) : null}
 
             {cta ? (
-              <Link to="/contact" className="btn btn-primary">
+              <Link to={linkTo} className={`btn btn-primary ${btnBorder}`}>
                 Let's Talk <Arrow />
               </Link>
             ) : null}
           </div>
         </Col>
-        {coverImage ? <img alt="" className="x-bkg" src={X} /> : null}
+        {svgImage && <div className={svgImageClassName}> {svgImage} </div>}
       </Row>
+      {coverImage && (
+        <img className={coverImageClassName} src={coverImage} alt="" />
+      )}
     </Container>
   );
 };

@@ -19,6 +19,7 @@ $container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1140px);
 $enable-negative-margins: true;
 
 
+
 // Change the container widths for different breakpoints
 @import '~bootstrap/scss/bootstrap';
 
@@ -41,6 +42,8 @@ ul{
 /*
   Customise display classes.
 */
+
+
 .display-1 {
   font-size: calc(1.625rem + 4.5vw);
   font-weight: 300;
@@ -53,7 +56,7 @@ ul{
 }
 
 .display-2 {
-  font-size: calc(1.575rem + 3.9vw);
+  font-size: calc(1.575rem + 2vw);
   font-weight: 500;
   line-height: 1.2;
 }
@@ -64,13 +67,18 @@ ul{
 }
 
 .display-3 {
-  font-size: calc(1.525rem + 3.1vw);
+  font-size: calc(1.525rem + 5vw);
   font-weight: 500;
   line-height: 1.2;
 }
+@media (min-width: 768px) {
+  .display-3 {
+    font-size: calc(1.525rem + 2.6vw);
+  }
+}
 @media (min-width: 1200px) {
   .display-3 {
-    font-size: 4rem;
+    font-size: calc(1.525rem + 2.9vw);
   }
 }
 

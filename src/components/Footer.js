@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="bg-secondary">
       <Container fluid className="footer padding-small">
         <Row>
-          <img src={logoO} className={`footerLogo`} />
+          <img alt="Phoenix Logo" src={logoO} className={`footerLogo`} />
         </Row>
         <Row>
           <Col className="p-3" lg={3} md={12}>
@@ -18,7 +18,9 @@ const Footer = () => {
                 <a href="/">Instagram</a>
               </li>
               <li className="mb-2">
-                <a href="/">LinkedIn</a>
+                <a href="https://nl.linkedin.com/company/phoenix-brand-strategy">
+                  LinkedIn
+                </a>
               </li>
               <li className="mb-2">
                 <a href="/">Medium</a>
@@ -48,14 +50,20 @@ const Footer = () => {
         </Row>
       </Container>
       <Row
+        style={{
+          marginLeft: 0,
+          marginRight: 0,
+          paddingLeft: 0,
+          paddingRight: 0,
+        }}
         className="  
         bg-primary d-flex flex-row-reverse flex-md-row justify-content-between copyright padding-sides"
       >
-        <Col xs={8}>
+        <Col xs={7}>
           <span>Copyright Phoenix Brand Strategy 2022</span>
         </Col>
 
-        <Col xs={4}>
+        <Col xs={5}>
           {" "}
           <span className="pe-3">Terms</span>
           <span>Privacy</span>

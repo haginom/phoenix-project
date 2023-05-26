@@ -1,11 +1,12 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import HeroCover from "../components/Hero-Contact";
 import Contact from "../svgs/Contact.svg";
 import Layout from "../components/Layout";
 import { mapEdgesToNodes } from "../library/helpers";
 import { Link } from "gatsby";
 import Arrow from "../svgs/arrowRight.svg";
+import Hero from "../components/Hero";
+import X from "../images/phoeni-X.png";
 
 export const query = graphql`
   query OpenRolesQuery {
@@ -33,12 +34,18 @@ const OpenRolesPage = (props) => {
 
   return (
     <Layout>
-      <HeroCover
-        offset={2}
-        size={4}
-        contactCoverImage={<Contact className="contact-hero" />}
+      <Hero
+        offsetMax={1}
+        offsetMid={1}
+        offsetMin={1}
+        colSizeMax={10}
+        colSizeMin={6}
+        colSizeMid={5}
+        svgImage={<Contact className="contact-hero" />}
         bg="bg-primary"
         heading="Open roles"
+        coverImage={X}
+        coverImageClassName="x-Mobile"
       />
       <div className="padding-large">
         {openRolesNodes.map((openRoles, index) => (

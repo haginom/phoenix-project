@@ -1,19 +1,26 @@
 import * as React from "react";
 import Layout from "../components/Layout";
-import HeroCover from "../components/Hero-Contact";
+import Hero from "../components/Hero";
 import Contact from "../svgs/Contact.svg";
+import X from "../images/phoeni-X.png";
 
 const ContactPage = () => {
   return (
     <Layout>
-      <HeroCover
+      <Hero
         notFound
-        size={6}
-        offset={2}
-        contactCoverImage={<Contact className="contact-hero" />}
+        offsetMax={1}
+        offsetMid={1}
+        offsetMin={1}
+        colSizeMax={10}
+        colSizeMin={6}
+        colSizeMid={5}
+        svgImage={<Contact className="contact-hero" />}
         bg="bg-primary"
         heading="404"
-        text="page not found"
+        texts={["page not found"]}
+        coverImage={X}
+        coverImageClassName="x-Mobile"
       />
     </Layout>
   );

@@ -13,6 +13,7 @@ import ProjectPreviewGrid from "../components/ProjectPreviewSlick";
 import Layout from "../components/Layout";
 import Partners from "../components/OurPartners";
 import { Link } from "gatsby";
+import X from "../images/phoeni-X.png";
 
 export const query = graphql`
   query IndexPageQuery {
@@ -20,6 +21,7 @@ export const query = graphql`
       edges {
         node {
           id
+          _createdAt
           title
           description
           previewPoster {
@@ -64,36 +66,47 @@ const IndexPage = (props) => {
   const featuredWorkNodes = (data || {}).featuredWork
     ? mapEdgesToNodes(data.featuredWork)
     : [];
+
+  const SortedWorkByDate = featuredWorkNodes.sort(
+    (a, b) => new Date(a._createdAt) - new Date(b._createdAt)
+  );
+
   const logoNodes = (data || {}).logos ? mapEdgesToNodes(data.logos) : [];
 
   return (
     <Layout data={data}>
       <Hero
-        offset={2}
-        size={6}
+        offsetMax={1}
+        offsetMid={1}
+        offsetMin={1}
+        colSizeMax={11}
+        colSizeMin={7}
+        colSizeMid={6}
         bg="bg-primary"
         heading="We’re a global brand strategy, research & insights consultancy "
-        text="Born where brand strategy meets strategic design, based in Amsterdam, and growing brands all over the world by getting deep into culture, behavior and reinventing the point of view. 
-        "
-        coverImage
+        texts={[
+          "Born where brand strategy meets strategic design, based in Amsterdam, and growing brands all over the world by getting deep into culture, behavior and reinventing the point of view.",
+        ]}
+        coverImage={X}
+        coverImageClassName="x-bkg"
       />
       <div className="padding-large">
         <InfoBox text="We work closely with clients to solve big challenges: " />
       </div>
       <AnimatedBanner />
-      {featuredWorkNodes && (
+      {SortedWorkByDate && (
         <ProjectPreviewGrid
           title="Featured Work"
-          nodes={featuredWorkNodes}
+          nodes={SortedWorkByDate}
           browseMoreHref="/featuredWork/"
         />
       )}
-      <div className="bg-success padding-large">
+      <div className="bg-success padding-large overflow-hidden">
         <InfoBox
           heading="what we do"
           text="We help find the right problems to solve with a mind in design, and heart in the future."
         />
-        <Container fluid className="mt-6">
+        <Container fluid className="mt-6 overflow-hidden">
           <Row className="my-5">
             <Col className="ps-0" lg={4} md={12} style={{ order: 1 }}>
               <Row className="text-align-left">
@@ -103,14 +116,16 @@ const IndexPage = (props) => {
                 />
               </Row>
               <Row>
-                <h3 className="w-90 mb-2r display-2">Brand Building</h3>
+                <h3 className="w-90-md mb-2r display-2">Brand Building</h3>
               </Row>
               <Row>
-                <p className="w-100 mb-4">
-                  From brand positioning and promise and architecture to key
-                  narrative and messaging. We often collaborate or cross-over
-                  with creative partners.
-                </p>
+                <Col sm={12} md={10} lg={12}>
+                  <p className="w-100 mb-4">
+                    From brand positioning and promise and architecture to key
+                    narrative and messaging. We often collaborate or cross-over
+                    with creative partners.
+                  </p>
+                </Col>
               </Row>
             </Col>
             <Col className="ps-0" lg={4} md={12} style={{ order: 4 }}>
@@ -121,15 +136,17 @@ const IndexPage = (props) => {
                 />
               </Row>
               <Row>
-                <h3 className="w-90 mb-2r display-2">Research & Design</h3>
+                <h3 className="w-90-md mb-2r display-2">Research & Design</h3>
               </Row>
               <Row>
-                <p className="w-100 mb-4 ">
-                  A brand is a promise. We love to connect the dots between the
-                  brand promise and the product experience, through deep
-                  research and insight work, and early stage concept design &
-                  user testing.
-                </p>
+                <Col sm={12} md={10} lg={12}>
+                  <p className="w-100 mb-4 ">
+                    A brand is a promise. We love to connect the dots between
+                    the brand promise and the product experience, through deep
+                    research and insight work, and early stage concept design &
+                    user testing.
+                  </p>
+                </Col>
               </Row>
             </Col>
             <Col className="ps-0" lg={4} md={12} style={{ order: 7 }}>
@@ -140,15 +157,19 @@ const IndexPage = (props) => {
                 />
               </Row>
               <Row>
-                <h3 className="w-90 mb-2r display-2">Expansion & Innovation</h3>
+                <h3 className="w-90-md mb-2r display-2">
+                  Expansion & Innovation
+                </h3>
               </Row>
               <Row>
-                <p className="w-90 mb-5">
-                  Through cultural understanding and innovation practices we
-                  help with challenges around expanding into new markets, new
-                  verticals, new products, and future-proofing for now and down
-                  the road.
-                </p>
+                <Col sm={12} md={10} lg={12}>
+                  <p className="w-100  mb-5">
+                    Through cultural understanding and innovation practices we
+                    help with challenges around expanding into new markets, new
+                    verticals, new products, and future-proofing for now and
+                    down the road.
+                  </p>
+                </Col>
               </Row>
             </Col>
           </Row>
@@ -158,16 +179,21 @@ const IndexPage = (props) => {
           <Arrow />
         </Link>
       </div>
-      <div className="padding-large">
+      <div className="padding-large overflow-hidden">
         <Partners
           logos={logoNodes}
           text="We love clients who are brave enough to want to shake thing up."
         />
       </div>
       <Hero
-        offset={1}
+        headingClass={"quoteHeading"}
+        offsetMax={1}
+        offsetMid={1}
+        offsetMin={1}
         quote
-        size={7}
+        colSizeMax={10}
+        colSizeMin={6}
+        colSizeMid={7}
         bgImg="quote-hero"
         bg="bg-primary"
         heading="Their work helped us roadmap, but also have fruitful conversations across teams internally."
@@ -177,8 +203,14 @@ const IndexPage = (props) => {
       />
       <Hero
         cta
-        size={6}
-        offset={2}
+        btnBorder={"btnBorder"}
+        headingClass={"ctaHeading"}
+        colSizeMax={9}
+        colSizeMin={6}
+        colSizeMid={6}
+        offsetMax={3}
+        offsetMid={3}
+        offsetMin={2}
         bgImg="cta-hero"
         bg="bg-success"
         heading="Have a challenge? We love a good one."
