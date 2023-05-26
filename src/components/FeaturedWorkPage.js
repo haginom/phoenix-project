@@ -57,7 +57,7 @@ const FeaturedWorkPage = ({ ...props }) => {
               </Row>
             ))}
           </Col>
-          {_rawContent.map((block, index) => {
+          {_rawContent?.map((block, index) => {
             console.log(block._type);
             return (
               <React.Fragment key={index}>
