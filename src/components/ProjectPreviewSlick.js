@@ -5,9 +5,12 @@ import ProjectPreview from "./ProjectPreview";
 import Slider from "react-slick";
 import ArrowRight from "../svgs/arrowRight.svg";
 import { useRef } from "react";
+import { flattenArray } from "../helpers/helpers";
 
 function ProjectPreviewGrid(props) {
   const sliderRef = useRef(null);
+
+  const FlattenedNodes = flattenArray(props.nodes);
 
   const settings = {
     dots: false,
@@ -78,17 +81,23 @@ function ProjectPreviewGrid(props) {
         </div>
       </div>
       <Slider {...settings} ref={(slider) => (sliderRef.current = slider)}>
-        {props.nodes &&
-          props.nodes.map((node) => (
-            <div key={node.id} className="mb-3">
-              <ProjectPreview {...node} />
-            </div>
-          ))}
+        {}
+        {FlattenedNodes &&
+          FlattenedNodes.map((workItem, index) => {
+            return (
+              <div key={index} className="mb-3">
+                <ProjectPreview {...workItem} />
+              </div>
+            );
+          })}
       </Slider>
 
       {props.browseMoreHref && (
         <div>
-          <Link className="btn link-button btn-primary" to="/work">
+          <Link
+            className="btn link-button btn-primary"
+            to={props.browseMoreHref}
+          >
             See more work{"  "}
             <Arrow />
           </Link>

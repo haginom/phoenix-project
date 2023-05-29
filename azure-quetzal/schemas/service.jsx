@@ -1,7 +1,10 @@
+import {TiersIcon} from '@sanity/icons'
+
 export default {
   title: 'Services',
   name: 'services',
   type: 'document',
+  icon: TiersIcon,
   fields: [
     {
       title: 'Name',

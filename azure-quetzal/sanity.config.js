@@ -3,7 +3,7 @@ import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 
-import {deskStructure, defaultDocumentNodeResolver} from './deskStructure'
+import {deskStructure} from './deskStructure'
 
 export default defineConfig({
   name: 'default',
@@ -12,12 +12,10 @@ export default defineConfig({
   projectId: '3i8bbloq',
   dataset: 'production',
 
-  plugins: [
-    deskTool({structure: deskStructure, defaultDocumentNode: defaultDocumentNodeResolver}),
-    visionTool(),
-  ],
+  plugins: [deskTool({structure: deskStructure}), visionTool()],
 
   schema: {
     types: schemaTypes,
+    templates: (prev) => [...prev],
   },
 })

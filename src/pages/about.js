@@ -6,6 +6,8 @@ import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { mapEdgesToNodes } from "../library/helpers";
 import Partners from "../components/OurPartners";
+import HeroCover from "../components/Polygon";
+import CoverImage from "../images/about-3.jpg";
 
 export const Query = graphql`
   query AboutPageQuery {
@@ -19,7 +21,7 @@ export const Query = graphql`
         gatsbyImageData
       }
     }
-    logos: allSanityQuote {
+    logos: allSanityClients {
       edges {
         node {
           id
@@ -70,7 +72,12 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
-      <Hero bg="bg-primary" />
+      <HeroCover
+        bgColor="bg-primary"
+        bgImageUrl={CoverImage}
+        heading="Decoding the future of Messaging"
+        text="Defining a Roadmap"
+      />
       <div className="padding-medium">
         <Container fluid className="bg-success missionStatement">
           <div className="subheading mt-5 fw-5">Our Mission</div>
@@ -179,11 +186,11 @@ const AboutPage = ({ data }) => {
       <div className="padding-medium text-white mb-5 mt-n5">
         <div className="padding-team bg-primary">
           <p className="subheading">Our Team</p>
-          <h2 className="mb-4 display-2">Meet the Humans of Phoenix</h2>
+          <h2 className="mb-4 mb-o display-2">Meet the Humans of Phoenix</h2>
           <Row>
             {teamNodes.map((teamMember, index) => (
               <Col className="mt-5" key={index} md={4}>
-                <Row className="w-90 mb-2">
+                <Row className="w-97 mb-3">
                   <img
                     alt={`profile of ${teamMember.name}`}
                     src="https://picsum.photos/180"

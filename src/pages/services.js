@@ -1,13 +1,15 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import HeroCover from "../components/HeroPolgyon";
+// import HeroCover from "../components/HeroPolgyon";
 import Service from "../components/Service";
 import { Container } from "react-bootstrap";
 import InfoBox from "../components/InfoBox";
 import ServicesGraphic from "../svgs/Services-Graphic.svg";
 import Hero from "../components/Hero";
 import { mapEdgesToNodes } from "../library/helpers";
+import HeroCover from "../components/Polygon";
+import CoverImage from "../images/about-3.jpg";
 
 export const Query = graphql`
   query ServicePageQuery {
@@ -48,17 +50,18 @@ const ServicePage = ({ data }) => {
   return (
     <Layout>
       <HeroCover
-        offsetMax={1}
-        offsetMid={4}
-        offsetMin={1}
-        colSizeMax={10}
-        colSizeMin={6}
-        colSizeMid={5}
-        textColor={"text-white"}
-        polygon="clip-path-polygon"
-        bgPolygon="bg-primary"
-        svgColor={"Success"}
-        bg="bg-light"
+        chevron={"chevronSuccess"}
+        textColor={"text-light"}
+        lgTxtColSpan={6}
+        lgTxtOffset={0}
+        lgPolColSpan={6}
+        lgPolOffset={0}
+        rowTextOffset={0}
+        rowTextSpan={10}
+        rowTextClassName={"rowTextLeft"}
+        bgImageUrl={CoverImage}
+        bgColor="bg-primary"
+        polygonClass="polygonLeft"
         heading="We have the tools to help build your brand"
         text="We don’t like to be boxed into disciplines, but mix all the tools to come up with the ideal approach, bringing a blend of brand fundamentals, strategic design, deep user research and digital craft to each project. "
       />

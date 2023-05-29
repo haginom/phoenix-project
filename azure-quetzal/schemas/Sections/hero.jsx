@@ -1,7 +1,10 @@
+import {DesktopIcon} from '@sanity/icons'
+
 export default {
   name: 'hero',
   type: 'object',
   title: 'Hero',
+  icon: DesktopIcon,
   fields: [
     {
       name: 'heading',

@@ -53,8 +53,6 @@ const Footer = () => {
         style={{
           marginLeft: 0,
           marginRight: 0,
-          paddingLeft: 0,
-          paddingRight: 0,
         }}
         className="  
         bg-primary d-flex flex-row-reverse flex-md-row justify-content-between copyright padding-sides"

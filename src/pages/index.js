@@ -34,7 +34,7 @@ export const query = graphql`
         }
       }
     }
-    logos: allSanityQuote {
+    logos: allSanityClients {
       edges {
         node {
           id
@@ -98,7 +98,7 @@ const IndexPage = (props) => {
         <ProjectPreviewGrid
           title="Featured Work"
           nodes={SortedWorkByDate}
-          browseMoreHref="/featuredWork/"
+          browseMoreHref="/work/"
         />
       )}
       <div className="bg-success padding-large overflow-hidden">
@@ -203,6 +203,7 @@ const IndexPage = (props) => {
       />
       <Hero
         cta
+        linkTo="contact"
         btnBorder={"btnBorder"}
         headingClass={"ctaHeading"}
         colSizeMax={9}

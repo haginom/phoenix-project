@@ -1,7 +1,10 @@
+import { UsersIcon } from "@sanity/icons"
+
 export default {
   title: 'Team',
   name: 'team',
   type: 'document',
+  icon: UsersIcon,
   fields: [
     {
       title: 'Name',

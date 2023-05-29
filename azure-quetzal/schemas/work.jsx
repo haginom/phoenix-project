@@ -1,8 +1,10 @@
-// siteSettings.js
+import {CaseIcon} from '@sanity/icons'
+
 export default {
   name: 'featuredWork',
   type: 'document',
   title: 'Featured Work',
+  icon: CaseIcon,
   fields: [
     {
       name: 'title',

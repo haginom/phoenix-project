@@ -36,6 +36,7 @@ const WorkPage = (props) => {
   const featuredWorkNodes = (data || {}).featuredWork
     ? mapEdgesToNodes(data.featuredWork)
     : [];
+    
   const SortedWorkByDate = featuredWorkNodes.sort(
     (a, b) => new Date(a._createdAt) - new Date(b._createdAt)
   );
@@ -45,14 +46,13 @@ const WorkPage = (props) => {
   return (
     <Layout background="success">
       <Hero
-        contactType
         light="text-dark"
-        offsetMax={1}
+        offsetMax={2}
         offsetMid={1}
         offsetMin={1}
-        colSizeMax={11}
+        colSizeMax={10}
         colSizeMin={6}
-        colSizeMid={8}
+        colSizeMid={7}
         svgImage={<Svg className="contact-hero" />}
         bg="bg-success"
         heading="Helping brands grow by reinventing their point of view."
@@ -81,7 +81,7 @@ const WorkPage = (props) => {
                         } `}
                         md={colSize}
                       >
-                        <ProjectPreview headingClass={"display-2"} {...work} />
+                        <ProjectPreview headingClass={""} {...work} />
                       </Col>
                       {isFifthWork ? null : <Col md={6}></Col>}
                     </Row>

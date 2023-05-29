@@ -4,7 +4,7 @@ import { urlFor } from "../library/helpers";
 
 function ProjectPreview({ headingClass, ...props }) {
   return (
-    <Link className="previewCard ms-0" to={`work/${props?.id}`}>
+    <Link className="previewCard ms-0" to={`${props?.id}`}>
       <div className="leadMediaThumb mb-3">
         {props.previewPoster && props.previewPoster.asset && (
           <img

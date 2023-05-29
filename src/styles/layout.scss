@@ -5,13 +5,18 @@
   width: 93%;
 }
 .w-97{
-  width: 99%;
+  width: 98%;
 }
 
 .fw-5{
   font-weight: 500;
 }
 
+@media (min-width: 768px){
+  .w-90-md{
+    width: 90% !important;
+  }
+}
 
 @media (max-width: 768px){
   .mb-2md{
@@ -143,15 +148,9 @@
   padding: 1.1rem 8.125rem 1.1rem 8.125rem;
 }
 
+
 .padding-work{
   padding: 2rem 2rem 2rem 2rem;
-}
-
-
-@media(min-width: 768px){
-  .padding-work{
-    padding: 4rem 4rem 8rem 8rem;
-  }
 }
 
 @media(min-width: 566px){
@@ -159,6 +158,15 @@
     padding: 3rem 3rem 3rem 3rem;
   }
 }
+
+@media(min-width: 992px){
+  .padding-work{
+    padding: 4rem 4rem 8rem 8rem;
+  }
+}
+
+
+
 
 .padding-team{
   padding: 2rem;
@@ -460,7 +468,7 @@ footer {
 }
 @media (min-width: 1200px){
   .introText, .quoteText, .ctaText {
-    min-height: 36rem;
+    min-height: 34rem;
   }
 }
 
@@ -542,7 +550,7 @@ footer {
 }
 @media (min-width: 768px)  {
   .quote-hero{
-    background-position: -100%;
+    background-position: 100%;
   }
 }
 
@@ -601,6 +609,17 @@ footer {
   z-index: 5000;
 }
 
+.clip-path-polygon-opposite {
+  position: relative;
+  height: 100vw;
+  clip-path: polygon(83% 0, 92% 50%, 81% 100%, 0 100%, 0 0);
+  display: flex;
+  align-items: center;
+  color: #f7f7f7;
+  z-index: 5000;
+}
+
+
 .heroPolygonSuccess{
   position: absolute;
   height: 98vw;
@@ -644,24 +663,9 @@ footer {
 }
 
 
-
-.clip-path-polygon-opposite {
-  position: relative;
-  height: 98vw;
-  height: 100vh;
-  clip-path: polygon(83% 0, 92% 50%, 81% 100%, 0 100%, 0 0);
-  margin-right: auto;
-  display: flex;
-  align-items: center;
-  color: #f7f7f7;
-  z-index: 5000;
-}
-
-
 .heroPolygonSuccessPlus{
   position: absolute;
-  width: 100%;
-  height: 100%;
+  height:96%;
   background-image: url("data:image/svg+xml,%3Csvg width='521' height='670' viewBox='0 0 521 670' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M127.979 -298.741L0.916368 -298.772L393.174 306.281L0.120117 911.961L127.182 911.991L520.236 306.311L127.979 -298.741Z' fill='%23C5D8FF'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: contain;
@@ -669,6 +673,7 @@ footer {
   z-index: 5000;
 
 }
+
 .heroPolygonPrimary{
   position: absolute;
   height:100vw;
@@ -679,33 +684,37 @@ footer {
 
 }
 
-@media (min-width: 768px)  {
-  .clip-path-polygon-opposite {
-    max-height: calc(100vh - 2.5rem);
-  }
-  .heroPolygonPrimary{
-    right:24%;
-    max-height: calc(100vh - 2.5rem);
-  }
-}
+// @media (min-width: 768px)  {
+//   .clip-path-polygon-opposite {
+//     max-height: calc(100vh - 2.5rem);
+//   }
+//   .heroPolygonPrimary{
+//     right:24%;
+//     max-height: calc(100vh - 2.5rem);
+//   }
+// }
 
-@media (min-width: 992px)  {
-  .clip-path-polygon-opposite {
-     clip-path: polygon(83% 0, 92% 50%, 81% 100%, 0 100%, 0 0);
-    max-height: calc(100vh - 2.5rem);
-  }
-  .heroPolygonPrimary{
-    right:2%;
-    max-height: calc(100vh - 2.5rem);
-  }
-}
+// @media (min-width: 992px)  {
+//   .clip-path-polygon-opposite {
+//      clip-path: polygon(75% 0, 98% 46%, 75% 100%, 0 100%, 0 0);
+//     max-height: calc(100vh - 2.5rem);
+//   }
+//   .heroPolygonPrimary{
+//     right:2%;
+//     max-height: calc(100vh - 2.5rem);
+//   }
+// }
 
 .polygonTextWrapper{
   max-width: 38rem;
   margin-right: 8rem;
 }
 
+.polygon-bkg-image{
+  min-height: 100vw;
+  background-image: url("../images/about-3.jpg");
 
+}
 /***************
  CLIENTS SECTION
 ****************/
@@ -985,6 +994,168 @@ svg{
     margin-left: 0.25rem;
     border-right: 3px solid #FC5A44;
     height: 350px;   
+  }
+}
+
+
+.polygonRight, .polygonLeft, .polygonLeftS{
+  height: 50vh;
+  width: 50vw;
+  transform: scale(0.5);
+}
+
+.rowTextRight, .rowTextLeft{
+  padding: 3rem 2rem 3rem 2rem;
+  min-height: 12rem;
+}
+
+.polygonRight::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 0;
+  height: 0;
+  border-top: 50vh solid transparent;
+  border-bottom: 50vh solid transparent;
+  border-right:  40vh solid #FC5A44; /* Adjust the color as needed */
+  transform: rotate(180deg);
+  margin-right: -10vh;
+}
+
+.polygonLeft::after, .polygonLeftS::after{
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 50vh solid transparent;
+  border-bottom: 50vh solid transparent;
+  transform: rotate(0deg);
+  display: none;
+}
+
+.polygonLeft::after{
+  border-right:  40vh solid #FC5A44; /* Adjust the color as needed */
+
+} 
+
+ .polygonLeftS::after{
+  border-right:  40vh solid #C5D8FF; /* Adjust the color as needed */
+
+}
+
+.polygonRight::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 0;
+  height: 0;
+  border-top: 50vh solid transparent;
+  border-bottom: 50vh solid transparent;
+  border-right:  40vh solid #C5D8FF; /* Adjust the color as needed */
+  transform: rotate(180deg) translateX(-10%) scale(1.8);
+  margin-right: -10vh;
+}
+
+.polygonLeft::before{
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -220%;
+  width: 0;
+  height: 0;
+  border-top: 50vh solid transparent;
+  border-bottom: 50vh solid transparent;
+  border-right:  40vh solid #FC5A44; /* Adjust the color as needed */
+  margin-right: -10vh;
+  transform: rotate(0deg) translateX(-10%) scale(1.8);
+}
+
+.polygonLeftS::before, .polygonLeft::before{
+  border-right:  40vh solid #FC5A44; /* Adjust the color as needed */
+
+} 
+
+.polygonLeftS::before, .polygonLeft::before{
+  border-right:  40vh solid #C5D8FF; /* Adjust the color as needed */
+
+}
+
+
+.textBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+ 
+}
+
+@media (min-width: 992px){
+  .polygonRight, .polygonLeft, .polygonLeftS{
+    height: 100vh;
+    width: 50vw;
+    transform: scale(1);
+  }
+
+  .polygonRight::after, .polygonRight::before {
+    // left: 58.33333333%;
+    top: 0;
+  }
+
+  .rowTextRight{
+    margin-right: -8rem;
+    margin-left: 25%;
+    
+  }
+
+  .polygonLeft::after, .polygonLeftS::after {
+    display: block;
+    top: 0;
+  }
+
+  .polygonLeft::before, .polygonLeftS::before{
+    display: none;
+  }
+
+}
+
+
+
+.chevronSuccess{
+  position: absolute;
+  top: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 -10 475 671'  fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M116.78 -216.571L0.845658 -216.599L358.75 335.465L0.119141 888.102L116.054 888.13L474.685 335.493L116.78 -216.571Z' fill='%23C5D8FF'/%3E%3C/svg%3E%0A");
+  background-position: calc(80% - 0.5vw);
+  height:100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.chevronPrimary{
+  position: absolute;
+  top: 0;
+  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 517.79 1205.34'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: %23fc5a44; %7D %3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='m127.29.03L.79,0l390.5,602.34L0,1205.31l126.49.03,391.29-602.97L127.29.03Z'/%3E%3C/svg%3E");
+  background-position: calc(80% - 0.5vw);
+  height:100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
+@media (min-width: 992px){
+  .chevronSuccess{
+    background-position:6%;
+  }
+}
+
+@media (min-width: 1200px){
+  .chevronSuccess{
+    background-position:26%;
   }
 }
 

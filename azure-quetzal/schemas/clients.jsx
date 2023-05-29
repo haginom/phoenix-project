@@ -1,7 +1,11 @@
+import {CommentIcon} from '@sanity/icons'
+
+
 export default {
   title: 'Clients',
   name: 'clients',
   type: 'document',
+  icon: CommentIcon,
   fields: [
     {
       title: 'Company Name',

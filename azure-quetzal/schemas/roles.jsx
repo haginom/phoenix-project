@@ -1,7 +1,11 @@
+import {AddCircleIcon} from '@sanity/icons'
+
+
 export default {
   title: 'Open Roles',
   name: 'openRoles',
   type: 'document',
+  icon: AddCircleIcon,
   fields: [
     {
       title: 'Role Title',

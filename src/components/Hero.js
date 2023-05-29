@@ -61,7 +61,7 @@ const Hero = ({
                 : cta
                 ? `ctaText`
                 : null
-            } ${contactType ? `contactTypeMargin` : null}`}
+            }`}
           >
             {quote ? <Quote className="quote" /> : null}
 
@@ -69,8 +69,10 @@ const Hero = ({
               className={`${headingClass} ${
                 notFound
                   ? "display-6"
-                  : quote || contactType
-                  ? null
+                  : quote
+                  ? ""
+                  : contactType
+                  ? ""
                   : "display-3"
               } mb-4`}
             >
