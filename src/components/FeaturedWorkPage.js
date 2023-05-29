@@ -62,10 +62,20 @@ const FeaturedWorkPage = ({ GroupedWork, FeatureWorks }) => {
     property,
     "keywords"
   );
-  const mergedKeywords = [
-    ...KeywordsSection.tags,
-    ...KeywordsSection.otherKeywords,
-  ];
+
+  let mergedKeywords = [];
+
+  if (
+    KeywordsSection &&
+    KeywordsSection.tags &&
+    KeywordsSection.otherKeywords
+  ) {
+    mergedKeywords = [
+      ...KeywordsSection.tags,
+      ...KeywordsSection.otherKeywords,
+    ];
+  }
+
   const TitleSection = filterByProperty(
     caseStudyBuilder,
     property,
@@ -106,16 +116,17 @@ const FeaturedWorkPage = ({ GroupedWork, FeatureWorks }) => {
       <div className="padding-large">
         <Row>
           <Col md={3}>
-            {mergedKeywords.map((keyword, index) => (
-              <Row key={index}>
-                <p>{keyword}</p>
-              </Row>
-            ))}
+            {mergedKeywords &&
+              mergedKeywords.map((keyword, index) => (
+                <Row key={index}>
+                  <p>{keyword}</p>
+                </Row>
+              ))}
           </Col>
           <Col md={9}>
             <h1 className="display-3 mb-5">{TitleSection.caseStudyIntro}</h1>
             <div className="mt-2">
-              {TextSections[0].map((textSection, index) => {
+              {TextSections[0] && TextSections[0].map((textSection, index) => {
                 return (
                   <div key={index} className="mb-5">
                     <h2>{textSection.subHeading}</h2>
