@@ -126,26 +126,30 @@ const FeaturedWorkPage = ({ GroupedWork, FeatureWorks }) => {
           <Col md={9}>
             <h1 className="display-3 mb-5">{TitleSection.caseStudyIntro}</h1>
             <div className="mt-2">
-              {TextSections[0] && TextSections[0].map((textSection, index) => {
-                return (
-                  <div key={index} className="mb-5">
-                    <h2>{textSection.subHeading}</h2>
-                    {textSection._rawContent?.map((block, index) => {
-                      return (
-                        <div key={index}>
-                          <PortableText
-                            value={[block]}
-                            components={myPortableTextComponents}
-                          />
-                        </div>
-                      );
-                    })}
-                  </div>
-                );
-              })}
+              {TextSections[0] &&
+                TextSections[0].map((textSection, index) => {
+                  return (
+                    <div key={index} className="mb-5">
+                      <h2>{textSection.subHeading}</h2>
+                      {textSection._rawContent?.map((block, index) => {
+                        return (
+                          <div key={index}>
+                            <PortableText
+                              value={[block]}
+                              components={myPortableTextComponents}
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  );
+                })}
             </div>
           </Col>
-          <Col md={12}>
+          <Col
+            className="d-flex justify-content-center align-items-center"
+            md={12}
+          >
             {SingleImageSection && (
               <img
                 className="my-5"
