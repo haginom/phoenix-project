@@ -10,12 +10,12 @@ const ResearchPage = () => {
       <HeroCover
         chevron={"chevronPrimary"}
         textColor={"text-dark"}
-        lgTxtColSpan={6}
+        lgTxtColSpan={7}
         lgTxtOffset={0}
-        lgPolColSpan={6}
+        lgPolColSpan={5}
         lgPolOffset={0}
         rowTextOffset={0}
-        rowTextSpan={10}
+        rowTextSpan={12}
         bgImageUrl={CoverImage}
         rowTextClassName={"rowTextLeft"}
         bgColor="bg-success"

@@ -204,7 +204,7 @@ const AboutPage = ({ data }) => {
           </Row>
         </div>
       </div>
-      <div className="padding-medium mt-n5 mb-5">
+      <div className="padding-medium mt-n5 mb-6">
         <Partners
           text={
             "Our clients have big names in the med tech and wellness space."

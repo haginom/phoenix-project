@@ -13,12 +13,12 @@ const LogoWithQuote = ({ companyName, quote, logo, handleLogoHover }) => {
 
   return (
     <Col
-      md={2}
+      md={3}
       className="logo-container"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <img className="logo" src={logo} alt={companyName} />
+      <img className="logo p-4" src={logo} alt={companyName} />
     </Col>
   );
 };
@@ -31,8 +31,8 @@ const LogoContainer = ({ logos }) => {
   };
 
   return (
-    <div className=" mb-5 mt-6">
-      <Row>
+    <div className="mb-5 mt-6">
+      <Row className="gx-md-3">
         {logos.slice(0, 4).map((logo) => (
           <LogoWithQuote
             key={logo.id}

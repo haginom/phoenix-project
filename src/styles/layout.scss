@@ -447,12 +447,21 @@ footer {
   overflow: hidden;
   flex-wrap: wrap-reverse;
   align-items: start;
+
 }
 
 @media (min-width: 992px) {
   .hero {
     flex-wrap: nowrap;
     align-items: center;
+
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    max-height: calc(100vh - 4.5vh);
+
   }
 }
 
@@ -723,17 +732,17 @@ footer {
 ****************/
 
 
-.logo-container{
-  width: 240px  ;
+.logo{
+  min-width: 200px  ;
+  height: 75px;
   border-radius: 20px;
-  height: 100px;
   text-align: center;
   background-color: #D9D9D9;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem;
 }
+
 
 .logoText{
   font-size: 2rem;
@@ -745,7 +754,7 @@ footer {
 
 @media (min-width: 540px)  {
   .logoText{
-    font-size: 3rem;
+    font-size: 2.5rem;
     line-height: 4rem;
   }
 }
@@ -753,8 +762,8 @@ footer {
 
 .logoInfo{
  max-width: 60rem;
- margin: 5rem auto;
- min-height: 13rem;
+ margin: 1rem auto;
+ min-height: 20rem;
 }
 
 svg{
@@ -1007,8 +1016,13 @@ svg{
   transform: scale(0.5);
 }
 
-.rowTextRight, .rowTextLeft{
+.rowTextRight{
   padding: 3rem 2rem 3rem 2rem;
+  min-height: 12rem;
+}
+
+.rowTextLeft{
+  padding: 1rem 3rem 1rem 4rem;
   min-height: 12rem;
 }
 
@@ -1030,7 +1044,7 @@ svg{
   content: "";
   position: absolute;
   top: -50%;
-  right: 0;
+  right: 15%;
   width: 0;
   height: 0;
   border-top: 50vh solid transparent;
@@ -1145,7 +1159,7 @@ svg{
 .chevronPrimary{
   position: absolute;
   top: 0;
-  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 517.79 1205.34'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: %23fc5a44; %7D %3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='m127.29.03L.79,0l390.5,602.34L0,1205.31l126.49.03,391.29-602.97L127.29.03Z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='519' height='667' viewBox='0 0 519 667' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M128.047 -297.404L1.55343 -297.434L392.055 304.909L0.760742 907.877L127.254 907.908L518.548 304.94L128.047 -297.404Z' fill='%23FC5A44'/%3E%3C/svg%3E%0A");
   background-position: calc(80% - 0.5vw);
   height:100%;
   width: 100%;
