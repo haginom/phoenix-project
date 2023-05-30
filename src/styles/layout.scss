@@ -189,9 +189,12 @@
   }
 }
 
-.w-90{
-  width: 90%;
+@media (max-width: 568px){
+  .padding-sides{
+    padding: 0.75rem 0.25rem 0.75rem 0.25rem;
+  }
 }
+
 
 //customise buttons
 
@@ -602,87 +605,87 @@ footer {
  HERO POLYGON SECTION
 ****************/
 
-.clip-path-polygon {
-  position: relative;
-  height: 100vw;
-  clip-path: polygon(72% 0, 100% 0, 100% 100%, 72% 100%, 40% 47%);
-  z-index: 5000;
-}
+// .clip-path-polygon {
+//   position: relative;
+//   height: 100vw;
+//   clip-path: polygon(72% 0, 100% 0, 100% 100%, 72% 100%, 40% 47%);
+//   z-index: 5000;
+// }
 
-.clip-path-polygon-opposite {
-  position: relative;
-  height: 100vw;
-  clip-path: polygon(83% 0, 92% 50%, 81% 100%, 0 100%, 0 0);
-  display: flex;
-  align-items: center;
-  color: #f7f7f7;
-  z-index: 5000;
-}
-
-
-.heroPolygonSuccess{
-  position: absolute;
-  height: 98vw;
-  background-image: url("data:image/svg+xml,%3Csvg width='521' height='670' viewBox='0 0 521 670' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M127.979 -298.741L0.916368 -298.772L393.174 306.281L0.120117 911.961L127.182 911.991L520.236 306.311L127.979 -298.741Z' fill='%23C5D8FF'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 5000;
-}
-
-.serviceText{
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  padding-right: 0.75rem;
-}
-
-@media (min-width: 768px)  {
-  .clip-path-polygon {
-    max-height: calc(100vh - 2.5rem);
-    clip-path: polygon(90% 0, 100% 0, 100% 100%,90% 100%, 15% 45%);
-  }
-  .heroPolygonSuccess{
-    right:20%;
-    max-height: calc(100vh - 2.5rem);
-  }
-}
-
-@media (min-width: 992px)  {
-  .clip-path-polygon {
-  max-height: calc(100vh - 2.5rem);
-  clip-path: polygon(85% 0, 100% 0, 100% 100%, 85% 100%, 32% 45%);
-  }
-  .heroPolygonSuccess{
-    right: 1%;
-    height: calc(100vh - 2.5rem);
-  }
- .serviceText{
-  padding: 1rem;
-  padding-left: 0rem;
-  padding-right:4rem;
- }
-}
+// .clip-path-polygon-opposite {
+//   position: relative;
+//   height: 100vw;
+//   clip-path: polygon(83% 0, 92% 50%, 81% 100%, 0 100%, 0 0);
+//   display: flex;
+//   align-items: center;
+//   color: #f7f7f7;
+//   z-index: 5000;
+// }
 
 
-.heroPolygonSuccessPlus{
-  position: absolute;
-  height:96%;
-  background-image: url("data:image/svg+xml,%3Csvg width='521' height='670' viewBox='0 0 521 670' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M127.979 -298.741L0.916368 -298.772L393.174 306.281L0.120117 911.961L127.182 911.991L520.236 306.311L127.979 -298.741Z' fill='%23C5D8FF'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position-x: 94%;
-  z-index: 5000;
+// .heroPolygonSuccess{
+//   position: absolute;
+//   height: 98vw;
+//   background-image: url("data:image/svg+xml,%3Csvg width='521' height='670' viewBox='0 0 521 670' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M127.979 -298.741L0.916368 -298.772L393.174 306.281L0.120117 911.961L127.182 911.991L520.236 306.311L127.979 -298.741Z' fill='%23C5D8FF'/%3E%3C/svg%3E");
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   z-index: 5000;
+// }
 
-}
+// .serviceText{
+//   margin-top: 2rem;
+//   margin-bottom: 1rem;
+//   padding-right: 0.75rem;
+// }
 
-.heroPolygonPrimary{
-  position: absolute;
-  height:100vw;
-  background-image: url('data:image/svg+xml,<svg width="519" height="667" viewBox="0 0 519 667" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M128.047 -297.404L1.55343 -297.434L392.055 304.909L0.760742 907.877L127.254 907.908L518.548 304.94L128.047 -297.404Z" fill="%23FC5A44"/></svg>');
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 5000;
+// @media (min-width: 768px)  {
+//   .clip-path-polygon {
+//     max-height: calc(100vh - 2.5rem);
+//     clip-path: polygon(90% 0, 100% 0, 100% 100%,90% 100%, 15% 45%);
+//   }
+//   .heroPolygonSuccess{
+//     right:20%;
+//     max-height: calc(100vh - 2.5rem);
+//   }
+// }
 
-}
+// @media (min-width: 992px)  {
+//   .clip-path-polygon {
+//   max-height: calc(100vh - 2.5rem);
+//   clip-path: polygon(85% 0, 100% 0, 100% 100%, 85% 100%, 32% 45%);
+//   }
+//   .heroPolygonSuccess{
+//     right: 1%;
+//     height: calc(100vh - 2.5rem);
+//   }
+//  .serviceText{
+//   padding: 1rem;
+//   padding-left: 0rem;
+//   padding-right:4rem;
+//  }
+// }
+
+
+// .heroPolygonSuccessPlus{
+//   position: absolute;
+//   height:96%;
+//   background-image: url("data:image/svg+xml,%3Csvg width='521' height='670' viewBox='0 0 521 670' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M127.979 -298.741L0.916368 -298.772L393.174 306.281L0.120117 911.961L127.182 911.991L520.236 306.311L127.979 -298.741Z' fill='%23C5D8FF'/%3E%3C/svg%3E");
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   background-position-x: 94%;
+//   z-index: 5000;
+
+// }
+
+// .heroPolygonPrimary{
+//   position: absolute;
+//   height:100vw;
+//   background-image: url('data:image/svg+xml,<svg width="519" height="667" viewBox="0 0 519 667" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M128.047 -297.404L1.55343 -297.434L392.055 304.909L0.760742 907.877L127.254 907.908L518.548 304.94L128.047 -297.404Z" fill="%23FC5A44"/></svg>');
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   z-index: 5000;
+
+// }
 
 // @media (min-width: 768px)  {
 //   .clip-path-polygon-opposite {
@@ -703,18 +706,18 @@ footer {
 //     right:2%;
 //     max-height: calc(100vh - 2.5rem);
 //   }
+// // }
+
+// .polygonTextWrapper{
+//   max-width: 38rem;
+//   margin-right: 8rem;
 // }
 
-.polygonTextWrapper{
-  max-width: 38rem;
-  margin-right: 8rem;
-}
+// .polygon-bkg-image{
+//   min-height: 100vw;
+//   background-image: url("../images/about-3.jpg");
 
-.polygon-bkg-image{
-  min-height: 100vw;
-  background-image: url("../images/about-3.jpg");
-
-}
+// }
 /***************
  CLIENTS SECTION
 ****************/
@@ -1060,7 +1063,7 @@ svg{
   margin-right: -10vh;
 }
 
-.polygonLeft::before{
+.polygonLeft::before, .polygonLeftS::before{
   content: "";
   position: absolute;
   top: -50%;
@@ -1074,15 +1077,19 @@ svg{
   transform: rotate(0deg) translateX(-10%) scale(1.8);
 }
 
-.polygonLeftS::before, .polygonLeft::before{
+.polygonLeftS::before{
+  border-right:  40vh solid #C5D8FF; /* Adjust the color as needed */
+} 
+
+.polygonLeft::before{
   border-right:  40vh solid #FC5A44; /* Adjust the color as needed */
 
 } 
 
-.polygonLeftS::before, .polygonLeft::before{
-  border-right:  40vh solid #C5D8FF; /* Adjust the color as needed */
+// .polygonLeftS::before, .polygonLeft::before{
+//   border-right:  40vh solid #FC5A44; /* Adjust the color as needed */
 
-}
+// }
 
 
 .textBox{

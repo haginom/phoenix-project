@@ -36,7 +36,7 @@ const WorkPage = (props) => {
   const featuredWorkNodes = (data || {}).featuredWork
     ? mapEdgesToNodes(data.featuredWork)
     : [];
-    
+
   const SortedWorkByDate = featuredWorkNodes.sort(
     (a, b) => new Date(a._createdAt) - new Date(b._createdAt)
   );
@@ -110,6 +110,7 @@ const WorkPage = (props) => {
       />
       <Hero
         cta
+        linkTo="contact"
         btnBorder={"btnBorder"}
         headingClass={"ctaHeading"}
         colSizeMax={9}

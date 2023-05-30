@@ -72,12 +72,6 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
-      <HeroCover
-        bgColor="bg-primary"
-        bgImageUrl={CoverImage}
-        heading="Decoding the future of Messaging"
-        text="Defining a Roadmap"
-      />
       <div className="padding-medium">
         <Container fluid className="bg-success missionStatement">
           <div className="subheading mt-5 fw-5">Our Mission</div>

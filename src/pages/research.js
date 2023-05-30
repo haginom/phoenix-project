@@ -26,6 +26,7 @@ const ResearchPage = () => {
 
       <Hero
         cta
+        linkTo="contact"
         btnBorder={"btnBorder"}
         headingClass={"ctaHeading"}
         colSizeMax={9}
