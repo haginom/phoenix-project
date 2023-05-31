@@ -18,7 +18,7 @@ function ProjectPreviewGrid(props) {
     infinite: true,
     adaptiveHeight: false,
     slidesToShow: 2.2,
-    slidesToScroll: 2.2,
+    slidesToScroll: 1,
     initialSlide: 1,
     centerMode: true,
     centerPadding: "8%",
@@ -30,7 +30,7 @@ function ProjectPreviewGrid(props) {
         settings: {
           centerMode: true,
           slidesToShow: 2.3,
-          slidesToScroll: 2.2,
+          slidesToScroll: 1,
           initialSlide: 0,
           infinite: true,
         },

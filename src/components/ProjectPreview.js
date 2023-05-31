@@ -2,10 +2,9 @@ import React from "react";
 import { Link } from "gatsby";
 import { urlFor } from "../library/helpers";
 
-function ProjectPreview({ location, headingClass, ...props }) {
-  console.log(location);
+function ProjectPreview({ headingClass, ...props }) {
   return (
-    <Link className="previewCard ms-0" to={`../work/${props?.id}`}>
+    <Link className="previewCard ms-0" to={`/work/${props?.id}`}>
       <div className="leadMediaThumb mb-3">
         {props.previewPoster && props.previewPoster.asset && (
           <img

@@ -57,14 +57,18 @@ const Footer = () => {
         className="  
         bg-primary d-flex flex-row-reverse flex-md-row justify-content-between copyright padding-sides"
       >
-        <Col xs={7}>
+        <Col xs={7} md={9}>
           <span>Copyright Phoenix Brand Strategy 2022</span>
         </Col>
-
-        <Col xs={5}>
-          {" "}
-          <span className="pe-3">Terms</span>
-          <span>Privacy</span>
+        <Col xs={5} md={3}>
+          <Row>
+            <Col xs={6} md={6}>
+              <span className="pe-3">Terms</span>
+            </Col>
+            <Col xs={6} md={6}>
+              <span>Privacy</span>
+            </Col>
+          </Row>
         </Col>
       </Row>
     </footer>

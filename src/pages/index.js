@@ -5,9 +5,6 @@ import InfoBox from "../components/InfoBox";
 import AnimatedBanner from "../components/AnimatedBar";
 import { Container, Row, Col } from "react-bootstrap";
 import Arrow from "../svgs/arrowRight.svg";
-import BrandIcon from "../svgs/Brand-Icon.svg";
-import ResearchIcon from "../svgs/Research-Icon.svg";
-import ExpansionIcon from "../svgs/Expansion-Icon.svg";
 import { mapEdgesToNodes } from "../library/helpers";
 import ProjectPreviewGrid from "../components/ProjectPreviewSlick";
 import Layout from "../components/Layout";
@@ -49,6 +46,23 @@ export const query = graphql`
       }
     }
 
+    services: allSanityServices {
+      edges {
+        node {
+          name
+          order
+          icon {
+            asset {
+              publicUrl
+              url
+            }
+          }
+          description
+          id
+        }
+      }
+    }
+
     logo: file(relativePath: { eq: "logo-black.png" }) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
@@ -59,6 +73,11 @@ export const query = graphql`
 const IndexPage = (props) => {
   const { data, errors } = props;
 
+  const serviceNodes = (data || {}).services
+    ? mapEdgesToNodes(data.services)
+    : [];
+
+  const ServicesSortedByOrder = serviceNodes.sort((a, b) => a.order - b.order);
   if (errors) {
     return <p>{errors} an error occured </p>;
   }
@@ -79,8 +98,8 @@ const IndexPage = (props) => {
         offsetMax={1}
         offsetMid={1}
         offsetMin={1}
-        colSizeMax={11}
-        colSizeMin={7}
+        colSizeMax={10}
+        colSizeMin={6}
         colSizeMid={6}
         bg="bg-primary"
         heading="We’re a global brand strategy, research & insights consultancy "
@@ -108,70 +127,35 @@ const IndexPage = (props) => {
         />
         <Container fluid className="mt-6 overflow-hidden">
           <Row className="my-5">
-            <Col className="ps-0" lg={4} md={12} style={{ order: 1 }}>
-              <Row className="text-align-left">
-                <BrandIcon
-                  style={{ width: "105px", height: "105px" }}
-                  className="mb-4"
-                />
-              </Row>
-              <Row>
-                <h3 className="w-90-md mb-2r display-2">Brand Building</h3>
-              </Row>
-              <Row>
-                <Col sm={12} md={10} lg={12}>
-                  <p className="w-100 mb-4">
-                    From brand positioning and promise and architecture to key
-                    narrative and messaging. We often collaborate or cross-over
-                    with creative partners.
-                  </p>
-                </Col>
-              </Row>
-            </Col>
-            <Col className="ps-0" lg={4} md={12} style={{ order: 4 }}>
-              <Row>
-                <ResearchIcon
-                  style={{ width: "105px", height: "105px" }}
-                  className="mb-4"
-                />
-              </Row>
-              <Row>
-                <h3 className="w-90-md mb-2r display-2">Research & Design</h3>
-              </Row>
-              <Row>
-                <Col sm={12} md={10} lg={12}>
-                  <p className="w-100 mb-4 ">
-                    A brand is a promise. We love to connect the dots between
-                    the brand promise and the product experience, through deep
-                    research and insight work, and early stage concept design &
-                    user testing.
-                  </p>
-                </Col>
-              </Row>
-            </Col>
-            <Col className="ps-0" lg={4} md={12} style={{ order: 7 }}>
-              <Row>
-                <ExpansionIcon
-                  style={{ width: "105px", height: "105px" }}
-                  className="mb-4"
-                />
-              </Row>
-              <Row>
-                <h3 className="w-90-md mb-2r display-2">
-                  Expansion & Innovation
-                </h3>
-              </Row>
-              <Row>
-                <Col sm={12} md={10} lg={12}>
-                  <p className="w-100  mb-5">
-                    Through cultural understanding and innovation practices we
-                    help with challenges around expanding into new markets, new
-                    verticals, new products, and future-proofing for now and
-                    down the road.
-                  </p>
-                </Col>
-              </Row>
-            </Col>
+            {ServicesSortedByOrder.map((service, index) => (
+              <Col
+                key={index}
+                className="ps-0"
+                lg={4}
+                md={12}
+                style={{
+                  order: service.order === 1 ? 1 : service.order === 2 ? 4 : 7,
+                }}
+              >
+                <Row className="text-align-left">
+                  <img
+                    alt=""
+                    src={service.icon.asset.url}
+                    style={{ width: "120px" }}
+                    className="mb-4"
+                  />
+                </Row>
+                <Row>
+                  <h3 className="w-90-md mb-2r display-2">{service.name}</h3>
+                </Row>
+                <Row>
+                  <Col sm={12} md={10} lg={12}>
+                    <p className="w-100 mb-4">{service.description}</p>
+                    <p>{}</p>
+                  </Col>
+                </Row>
+              </Col>
+            ))}
           </Row>
         </Container>
         <Link to="services" className="mb-5 btn btn-primary">

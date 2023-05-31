@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 import HeroCover from "../components/Polygon";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { filterByProperty, splitArray } from "../helpers/helpers";
+import { filterByProperty } from "../helpers/helpers";
 import Hero from "./Hero";
 import ProjectPreviewGrid from "../components/ProjectPreviewSlick";
 
@@ -78,24 +78,11 @@ const FeaturedWorkPage = ({ GroupedWork, FeatureWorks }) => {
     ];
   }
 
-  const TitleSection = filterByProperty(
-    caseStudyBuilder,
-    property,
-    "sectionIntro"
+  const filteredData = caseStudyBuilder.filter(
+    (obj) => obj._type !== "hero" && obj._type !== "keywords"
   );
-  const TextSections = splitArray(
-    filterByProperty(caseStudyBuilder, property, "sectionText")
-  );
-  const SingleImageSection = filterByProperty(
-    caseStudyBuilder,
-    property,
-    "sectionSingleImage"
-  );
-  const ImageGallerySection = filterByProperty(
-    caseStudyBuilder,
-    property,
-    "sectionImageGallery"
-  );
+
+  console.log(filteredData);
 
   return (
     <Layout>
@@ -125,97 +112,66 @@ const FeaturedWorkPage = ({ GroupedWork, FeatureWorks }) => {
                 </Row>
               ))}
           </Col>
-          <Col md={9}>
-            <h1 className="display-3 mb-5">{TitleSection.caseStudyIntro}</h1>
-            <div className="mt-2">
-              {TextSections[0] &&
-                TextSections[0].map((textSection, index) => {
-                  return (
-                    <div key={index} className="mb-5">
-                      <h2>{textSection.subHeading}</h2>
-                      {textSection._rawContent?.map((block, index) => {
-                        return (
-                          <div key={index}>
-                            <PortableText
-                              value={[block]}
-                              components={myPortableTextComponents}
-                            />
-                          </div>
-                        );
-                      })}
-                    </div>
-                  );
-                })}
-            </div>
-          </Col>
-          <Col
-            className="d-flex justify-content-center align-items-center"
-            md={12}
-          >
-            {SingleImageSection && (
-              <img
-                className="my-5"
-                src={SingleImageSection.image?.asset.publicUrl}
-                alt=""
-              />
-            )}
-          </Col>
-          <Col md={{ span: 10, offset: 2 }}>
-            {TextSections[1] &&
-              TextSections[1].map((textSection, index) => {
-                return (
-                  <div key={index}>
-                    <h2>{textSection.subHeading}</h2>
-                    {textSection._rawContent?.map((block, index) => {
-                      return (
-                        <div key={index}>
-                          <PortableText
-                            value={[block]}
-                            components={myPortableTextComponents}
-                          />
-                        </div>
-                      );
-                    })}
+          {filteredData &&
+            filteredData.map((item, index) => {
+              return (
+                <Col md={9} key={index}>
+                  {item._type === "sectionIntro" && (
+                    <h1 className="display-3 mb-5">{item.caseStudyIntro}</h1>
+                  )}
+                </Col>
+              );
+            })}
+        </Row>
+
+        {filteredData &&
+          filteredData.map((item, index) => (
+            <Row key={index}>
+              {item._type === "sectionText" && (
+                <Col md={{ span: 9, offset: 3 }}>
+                  <div className="my-4">
+                    <h2 className="mb-4">{item.subHeading}</h2>
+                    {item._rawContent?.map((block, index) => (
+                      <div key={index}>
+                        <PortableText
+                          value={[block]}
+                          components={myPortableTextComponents}
+                        />
+                      </div>
+                    ))}
                   </div>
-                );
-              })}
-            <Row className="my-5">
-              {ImageGallerySection &&
-                ImageGallerySection.images?.map((image, index) => {
+                </Col>
+              )}
+              {item._type === "sectionSingleImage" && (
+                <Row>
+                  <Col
+                    className="d-flex justify-content-center align-items-center"
+                    md={{ span: 12, offset: 0 }}
+                  >
+                    <img
+                      className="my-5"
+                      src={item.image?.asset.publicUrl}
+                      alt=""
+                    />
+                  </Col>
+                </Row>
+              )}
+              {item._type === "sectionImageGallery" &&
+                item.images?.map((image, index) => {
                   const isEvenIndex = index % 2 === 0;
                   const colProps = isEvenIndex
                     ? { md: { span: 7 } }
                     : { md: { span: 7, offset: 5 } };
-
                   return (
-                    <Col {...colProps} key={index} className="my-3">
-                      <img src={image.asset.publicUrl} alt="" />
-                    </Col>
+                    <Row>
+                      <Col {...colProps} key={index} className="my-3">
+                        <img src={image.asset.publicUrl} alt="" />
+                      </Col>
+                    </Row>
                   );
                 })}
             </Row>
-          </Col>
-          <Col md={{ span: 10, offset: 2 }}>
-            {TextSections[2] &&
-              TextSections[2].map((textSection, index) => {
-                return (
-                  <div key={index}>
-                    <h2>{textSection.subHeading}</h2>
-                    {textSection._rawContent?.map((block, index) => {
-                      return (
-                        <div key={index}>
-                          <PortableText
-                            value={[block]}
-                            components={myPortableTextComponents}
-                          />
-                        </div>
-                      );
-                    })}
-                  </div>
-                );
-              })}
-          </Col>
-        </Row>
+          ))}
       </div>
       <Hero
         headingClass={"quoteHeading"}
