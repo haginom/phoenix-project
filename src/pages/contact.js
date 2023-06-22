@@ -16,7 +16,7 @@ const ContactPage = () => {
         colSizeMax={10}
         colSizeMin={6}
         colSizeMid={5}
-        svgImage={<Contact className="contact-hero" />}
+        svgImage={<Contact className="h-100 contact-hero" />}
         bg="bg-primary"
         heading={
           "Say hi / hoi / hola / hello / درود / zdravei / ciao /\nこんにちは!"

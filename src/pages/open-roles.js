@@ -48,11 +48,16 @@ const OpenRolesPage = (props) => {
         coverImageClassName="x-Mobile"
       />
       <div className="padding-large">
+        {openRolesNodes.length === 0 && (
+          <div>
+            <h1>There are no open roles at the moment</h1>
+          </div>
+        )}
         {openRolesNodes.map((openRoles, index) => (
           <div key={index}>
-            <h2>{openRoles.roleTitle}</h2>
-            <p>{openRoles.roleDescription}</p>
-            <Link to="/contact" className="btn btn-primary">
+            <h2 className="mb-5">{openRoles.roleTitle}</h2>
+            <p className="mb-5">{openRoles.roleDescription}</p>
+            <Link to="/contact" className="btn btn-primary mb-5">
               Apply now
               <Arrow />
             </Link>

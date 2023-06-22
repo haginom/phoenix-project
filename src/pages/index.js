@@ -35,6 +35,7 @@ export const query = graphql`
       edges {
         node {
           id
+          order
           companyName
           quote
           logo {
@@ -91,7 +92,7 @@ const IndexPage = (props) => {
   );
 
   const logoNodes = (data || {}).logos ? mapEdgesToNodes(data.logos) : [];
-
+  const LogosSortedByOrder = logoNodes.sort((a, b) => a.order - b.order);
   return (
     <Layout data={data}>
       <Hero
@@ -165,7 +166,7 @@ const IndexPage = (props) => {
       </div>
       <div className="padding-large overflow-hidden">
         <Partners
-          logos={logoNodes}
+          logos={LogosSortedByOrder}
           text="We love clients who are brave enough to want to shake thing up."
         />
       </div>

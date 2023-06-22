@@ -80,7 +80,7 @@ const Hero = ({
             </h1>
 
             {texts ? (
-              <div className="w-85 mb-4">
+              <div className="w-85 ">
                 {texts.map((text, index) => (
                   <p
                     key={index}

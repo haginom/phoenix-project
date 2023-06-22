@@ -1,6 +1,5 @@
 import {CommentIcon} from '@sanity/icons'
 
-
 export default {
   title: 'Clients',
   name: 'clients',
@@ -12,6 +11,11 @@ export default {
       name: 'companyName',
       type: 'string',
       validation: (Rule) => Rule.required(),
+    },
+    {
+      title: 'Order',
+      name: 'order',
+      type: 'number',
     },
     {
       title: 'Active',
