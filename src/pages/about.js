@@ -242,7 +242,7 @@ const AboutPage = ({ data }) => {
         offsetMax={3}
         offsetMid={3}
         offsetMin={2}
-        linkTo="open-roles"
+        linkTo="/open-roles"
         bgImg="cta-hero"
         bg="bg-success"
         heading="Have a challenge? We love a good one."
