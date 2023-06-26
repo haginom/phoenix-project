@@ -55,7 +55,7 @@ const ContactPage = () => {
       </Container>
       <Hero
         cta
-        linkTo="/contact"
+        linkTo="/open-roles"
         btnBorder={"btnBorder"}
         headingClass={"ctaHeading"}
         colSizeMax={9}
