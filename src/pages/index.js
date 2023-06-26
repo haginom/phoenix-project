@@ -96,12 +96,14 @@ const IndexPage = (props) => {
   return (
     <Layout data={data}>
       <Hero
+        heroClass="hero-top"
+        colWidthAdjustIndex={"colWidthAdjustIndex"}
         offsetMax={1}
         offsetMid={1}
         offsetMin={1}
         colSizeMax={10}
         colSizeMin={6}
-        colSizeMid={6}
+        colSizeMid={5}
         bg="bg-primary"
         heading="We’re a global brand strategy, research & insights consultancy "
         texts={[
@@ -110,8 +112,8 @@ const IndexPage = (props) => {
         coverImage={X}
         coverImageClassName="x-bkg"
       />
-      <div className="padding-large">
-        <InfoBox text="We work closely with clients to solve big challenges: " />
+      <div className="padding-large-sides ">
+        <InfoBox text="We work closely with clients to solve big brand and business challenges: " />
       </div>
       <AnimatedBanner />
       {SortedWorkByDate && (
@@ -126,12 +128,11 @@ const IndexPage = (props) => {
           heading="what we do"
           text="We help find the right problems to solve with a mind in design, and heart in the future."
         />
-        <Container fluid className="mt-6 overflow-hidden">
-          <Row className="my-5">
+        <div className="mt-5  mb-1 overflow-hidden">
+          <Row className="my-4 gx-5">
             {ServicesSortedByOrder.map((service, index) => (
               <Col
                 key={index}
-                className="ps-0"
                 lg={4}
                 md={12}
                 style={{
@@ -142,24 +143,33 @@ const IndexPage = (props) => {
                   <img
                     alt=""
                     src={service.icon.asset.url}
-                    style={{ width: "120px" }}
-                    className="mb-4"
+                    style={{ width: "110px" }}
+                    className="mb-3"
                   />
                 </Row>
                 <Row>
-                  <h3 className="w-90-md mb-2r display-2">{service.name}</h3>
+                  <h3 className="w-90-md mb-3 display-2">
+                    {service.name.split(" ").length === 2 ? (
+                      <>
+                        {service.name.split(" ")[0]}
+                        <br />
+                        {service.name.split(" ")[1]}
+                      </>
+                    ) : (
+                      service.name
+                    )}
+                  </h3>{" "}
                 </Row>
                 <Row>
                   <Col sm={12} md={10} lg={12}>
                     <p className="w-100 mb-4">{service.description}</p>
-                    <p>{}</p>
                   </Col>
                 </Row>
               </Col>
             ))}
           </Row>
-        </Container>
-        <Link to="services" className="mb-5 btn btn-primary">
+        </div>
+        <Link to="services" className="btn btn-primary">
           See our services
           <Arrow />
         </Link>

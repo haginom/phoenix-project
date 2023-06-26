@@ -35,6 +35,7 @@ const OpenRolesPage = (props) => {
   return (
     <Layout>
       <Hero
+        heroClass="hero-top"
         offsetMax={1}
         offsetMid={1}
         offsetMin={1}

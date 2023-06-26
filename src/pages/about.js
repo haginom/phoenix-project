@@ -3,24 +3,15 @@ import Layout from "../components/Layout";
 import { Container, Row, Col } from "react-bootstrap";
 import Hero from "../components/Hero";
 import { graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
 import { mapEdgesToNodes } from "../library/helpers";
 import Partners from "../components/OurPartners";
 import HeroCover from "../components/Polygon";
-import CoverImage from "../images/about-3.jpg";
+import CoverImage from "../images/about-header.jpg";
+import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export const Query = graphql`
   query AboutPageQuery {
-    aboutOne: file(relativePath: { eq: "about-1.jpg" }) {
-      childImageSharp {
-        gatsbyImageData
-      }
-    }
-    aboutFour: file(relativePath: { eq: "about-4.jpg" }) {
-      childImageSharp {
-        gatsbyImageData
-      }
-    }
     logos: allSanityClients {
       edges {
         node {
@@ -40,12 +31,14 @@ export const Query = graphql`
       edges {
         node {
           name
+          order
           jobTitle
           shortBio
           image {
             asset {
               id
               url
+              gatsbyImageData
             }
             crop {
               top
@@ -69,17 +62,47 @@ export const Query = graphql`
 const AboutPage = ({ data }) => {
   const teamNodes = (data || {}).team ? mapEdgesToNodes(data.team) : [];
   const logoNodes = (data || {}).logos ? mapEdgesToNodes(data.logos) : [];
+  const LogosSortedByOrder = logoNodes.sort((a, b) => a.order - b.order);
+  const TeamSortedByOrder = teamNodes.sort((a, b) => {
+    if (a.order === null && b.order === null) {
+      return 0;
+    } else if (a.order === null) {
+      return 1;
+    } else if (b.order === null) {
+      return -1;
+    } else {
+      return a.order - b.order;
+    }
+  });
 
   return (
-    <Layout>
-      <div className="padding-medium">
+    <Layout background="success">
+      <HeroCover
+        heroClass="hero-top"
+        adjustPolyWidth={"adjustPolyWidthAbout"}
+        //  chevron={"chevronAbout"}
+        backgroundPositionCoverImage={"right -35% top"}
+        rowTextClassName="rowTextLeft"
+        textColor={"text-dark"}
+        lgTxtColSpan={5}
+        lgTxtOffset={1}
+        lgPolColSpan={4}
+        lgPolOffset={0}
+        rowTextOffset={0}
+        rowTextSpan={11}
+        bgImageUrl={CoverImage}
+        bgColor="bg-success"
+        polygonClass="polygonRight"
+        heading="A collective of thinkers from across the globe"
+      />
+      <div className="padding-large">
         <Container fluid className="bg-success missionStatement">
-          <div className="subheading mt-5 fw-5">Our Mission</div>
+          <div className="subheading fw-5">Our Mission</div>
           <h3 className="display-2 mb-2r">
             Our job is to help clients make decisions about what to do, or not
             do.
           </h3>
-          <p className="mb-2r">
+          <p>
             Brand is how every aspect of your business is delivered. A brand is
             a promise to change something in people’s lives, the story through
             which people understand why you exist, and most importantly - a
@@ -93,20 +116,22 @@ const AboutPage = ({ data }) => {
         <div className="w-100 mb-6 p-1">
           <Row className="aboutTable">
             <Col sm={6}>
-              <img alt="" src="https://picsum.photos/580" />
+              <StaticImage alt="" src="../images/about-01.jpg" />
             </Col>
             <Col className="d-flex flex-column justify-content-center" sm={6}>
-              <h2 className="subheading mt-3">DIVERSITY OF PERSPECTIVE</h2>
-              <h3 className="display-2 mb-4 ">
+              <h2 className="subheading w-75">PERSPECTIVE MATTERS</h2>
+              <h3 className="display-2 mb-2 ">
                 Our team is tiny but truly global.
               </h3>
               <p className="aboutWidth">
-                Our core team spans seven nationalities and ten languages. And
-                we’ve also built a network of trusted partners around the world,
-                giving us nuance and depth in each region. Whether you want to
-                do retail research in the Philippines, positioning in India,
-                semiotics in Paris, or get Aussie reactions to brand tone of
-                voice, we’ve got you covered. Wherever you’re growing or
+                Our core team spans seven nationalities and ten languages.
+              </p>
+              <p className="aboutWidth">
+                And we’ve also built a network of trusted partners around the
+                world, giving us nuance and depth in each region. Whether you
+                want to do retail research in the Philippines, positioning in
+                India, semiotics in Paris, or get Aussie reactions to brand tone
+                of voice, we’ve got you covered. Wherever you’re growing or
                 planning on going we’re there.
               </p>
             </Col>
@@ -129,20 +154,16 @@ const AboutPage = ({ data }) => {
               </p>
             </Col>
             <Col xs={{ span: 12, order: "first" }} sm={6}>
-              {" "}
-              <img alt="" src="https://picsum.photos/580" />
+              <StaticImage alt="" src="../images/about-02.jpg" />
             </Col>
           </Row>
           <Row className="aboutTable">
             <Col sm={6}>
-              <GatsbyImage
-                image={data.aboutFour.childImageSharp.gatsbyImageData}
-                alt=""
-              />
+              <StaticImage alt="" src="../images/about-03.jpg" />
             </Col>
             <Col className="d-flex flex-column justify-content-center" sm={6}>
-              <h2 className="subheading mt-3">female-led</h2>
-              <h3 className="display-2 mb-4">Part of the few.</h3>
+              <h2 className="subheading mt-2">female-led</h2>
+              <h3 className="display-2 mb-2">Part of the few.</h3>
               <p className="aboutWidth">
                 We’re part of the 0.1% of strategy shops founded and run by
                 women. We think that’s nuts, but we’re driving the change and
@@ -171,8 +192,7 @@ const AboutPage = ({ data }) => {
               </p>
             </Col>
             <Col xs={{ span: 12, order: "first" }} sm={6}>
-              {" "}
-              <img alt="" src="https://picsum.photos/580" />
+              <StaticImage alt="" src="../images/about-04.jpg" />
             </Col>
           </Row>
         </div>
@@ -181,13 +201,13 @@ const AboutPage = ({ data }) => {
         <div className="padding-team bg-primary">
           <p className="subheading">Our Team</p>
           <h2 className="mb-4 mb-o display-2">Meet the Humans of Phoenix</h2>
-          <Row>
-            {teamNodes.map((teamMember, index) => (
-              <Col className="mt-5" key={index} md={4}>
+          <Row className="ms-1">
+            {TeamSortedByOrder.map((teamMember, index) => (
+              <Col className="mt-5 gx-5 " key={index} md={4}>
                 <Row className="w-97 mb-3">
-                  <img
+                  <GatsbyImage
                     alt={`profile of ${teamMember.name}`}
-                    src="https://picsum.photos/180"
+                    image={teamMember.image?.asset?.gatsbyImageData}
                   />
                 </Row>
                 <Row className="mb-3 mb-o">
@@ -204,12 +224,12 @@ const AboutPage = ({ data }) => {
           </Row>
         </div>
       </div>
-      <div className="padding-medium mt-n5 mb-6">
+      <div className="padding-medium mt-5 mb-6 overflow-hidden">
         <Partners
           text={
             "Our clients have big names in the med tech and wellness space."
           }
-          logos={logoNodes}
+          logos={LogosSortedByOrder}
         />
       </div>
       <Hero

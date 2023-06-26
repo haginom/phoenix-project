@@ -12,14 +12,13 @@ const LogoWithQuote = ({ companyName, quote, logo, handleLogoHover }) => {
   };
 
   return (
-    <Col
-      md={3}
+    <div
       className="logo-container"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <img className="logo p-4" src={logo} alt={companyName} />
-    </Col>
+      <img className="logo" src={logo?.asset?.url} alt={companyName} />
+    </div>
   );
 };
 
@@ -31,9 +30,9 @@ const LogoContainer = ({ logos }) => {
   };
 
   return (
-    <div className="mb-5 mt-6">
-      <Row className="gx-md-3">
-        {logos.slice(0, 4).map((logo) => (
+    <div className="mb-4 mt-6">
+      <div className="logo-container-row">
+        {logos.slice(0, 6).map((logo) => (
           <LogoWithQuote
             key={logo.id}
             companyName={logo.companyName}
@@ -42,7 +41,7 @@ const LogoContainer = ({ logos }) => {
             handleLogoHover={handleLogoHover}
           />
         ))}
-      </Row>
+      </div>
       <div className="d-flex justify-content-center align-items-center logoInfo">
         <Chevron className="quote-chevron" />
         <span className="logoText">
@@ -50,8 +49,8 @@ const LogoContainer = ({ logos }) => {
             "Hover over any logo to see what kind of journeys we’ve been on!"}
         </span>
       </div>
-      <Row>
-        {logos.slice(4, 8).map((logo) => (
+      <div className="logo-container-row">
+        {logos.slice(6, 12).map((logo) => (
           <LogoWithQuote
             key={logo.id}
             companyName={logo.companyName}
@@ -60,7 +59,7 @@ const LogoContainer = ({ logos }) => {
             handleLogoHover={handleLogoHover}
           />
         ))}
-      </Row>
+      </div>
     </div>
   );
 };

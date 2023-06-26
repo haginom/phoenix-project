@@ -2,11 +2,10 @@ import React from "react";
 import { PortableText } from "@portabletext/react";
 import Layout from "../components/Layout";
 import HeroCover from "../components/Polygon";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { filterByProperty } from "../helpers/helpers";
 import Hero from "./Hero";
 import ProjectPreviewGrid from "../components/ProjectPreviewSlick";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const myPortableTextComponents = {
   types: {
@@ -87,91 +86,138 @@ const FeaturedWorkPage = ({ GroupedWork, FeatureWorks }) => {
   return (
     <Layout>
       <HeroCover
+        heroClass={"hero-top"}
+        backgroundPositionCoverImage="backgroundPositionImage"
+        chevron={"chevronSuccessCS"}
         key={0}
         textColor={"text-light"}
-        lgTxtColSpan={8}
+        lgTxtColSpan={7}
         lgTxtOffset={0}
-        lgPolColSpan={1}
-        lgPolOffset={3}
-        rowTextClassName="rowTextRight"
-        rowTextOffset={3}
-        rowTextSpan={9}
+        lgPolColSpan={4}
+        lgPolOffset={0}
+        rowTextOffset={1}
+        rowTextSpan={11}
+        rowTextClassName="rowTextLeft"
         bgColor="bg-primary"
         bgImageUrl={HeroSection.image?.asset.publicUrl}
-        polygonClass="polygonRight"
+        polygonClass="polygonRightP"
         heading={HeroSection.heading}
         text={HeroSection.tagline}
       />
       <div className="padding-large">
-        <Row>
-          <Col md={3}>
+        <div className="work-detail-container">
+          <div
+            className="work-detail-keywords"
+            style={{ gridColumn: "1 / span 2", gridRow: "1 / span 3" }}
+          >
             {mergedKeywords &&
               mergedKeywords.map((keyword, index) => (
-                <Row key={index}>
-                  <p>{keyword}</p>
-                </Row>
+                <p key={index}>{keyword}</p>
               ))}
-          </Col>
+          </div>
           {filteredData &&
             filteredData.map((item, index) => {
-              return (
-                <Col md={9} key={index}>
-                  {item._type === "sectionIntro" && (
-                    <h1 className="display-3 mb-5">{item.caseStudyIntro}</h1>
-                  )}
-                </Col>
-              );
-            })}
-        </Row>
+              const isAfterSingleImage =
+                index >
+                filteredData.findIndex(
+                  (elem) => elem._type === "sectionSingleImage"
+                );
 
-        {filteredData &&
-          filteredData.map((item, index) => (
-            <Row key={index}>
-              {item._type === "sectionText" && (
-                <Col md={{ span: 9, offset: 3 }}>
-                  <div className="my-4">
-                    <h2 className="mb-4">{item.subHeading}</h2>
-                    {item._rawContent?.map((block, index) => (
-                      <div key={index}>
-                        <PortableText
-                          value={[block]}
-                          components={myPortableTextComponents}
+              return (
+                <div
+                  key={index}
+                  className={`work-detail-main`}
+                  style={{
+                    gridColumn:
+                      item._type === "sectionSingleImage"
+                        ? "1 / span 3"
+                        : isAfterSingleImage
+                        ? "2/ span 2"
+                        : "3 / span 1",
+                  }}
+                >
+                  {item._type === "sectionIntro" && (
+                    <h1 className="display-3 mb-4 w-75">
+                      {item.caseStudyIntro}
+                    </h1>
+                  )}
+                  {item._type === "sectionText" && (
+                    <div className="work-detail-section-text w-90">
+                      <div className="my-4">
+                        <h2 className="mb-4">{item.subHeading}</h2>
+                        {item._rawContent?.map((block, index) => (
+                          <div key={index}>
+                            <PortableText
+                              value={[block]}
+                              components={myPortableTextComponents}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {item._type === "sectionSingleImage" && (
+                    <div className="d-flex justify-content-center align-items-center work-detail-single-image">
+                      <GatsbyImage
+                        className="my-5"
+                        image={item.image?.asset.gatsbyImageData}
+                        alt=""
+                      />
+                    </div>
+                  )}
+                  {item._type === "sectionImageGallery" &&
+                    item.images?.map((image, index) => {
+                      const isFirstRow = index < 3;
+                      const isFirstColumn = index % 2 === 0;
+                      const isLastColumn = index % 2 !== 0;
+                      const gridRow = isFirstRow ? 2 : 3;
+                      const gridColumn = isFirstColumn
+                        ? "1 / span 4"
+                        : isLastColumn
+                        ? "3 / span 4"
+                        : "3 / span 2";
+
+                      return (
+                        <div
+                          className="work-detail-image-gallery w-90 my-2"
+                          key={index}
+                        >
+                          <div
+                            className={`my-3`}
+                            style={{ gridRow, gridColumn }}
+                          >
+                            <GatsbyImage
+                              image={image.asset.gatsbyImageData}
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                      );
+                    })}
+                  {item._type === "textWithIllustration" && (
+                    <div
+                      className={`d-flex work-detail-text-illustration w-90 ${
+                        item.imagePosition === "left" && "flex-row-reverse"
+                      }`}
+                      key={index}
+                    >
+                      <div>
+                        {item.excerpt.split("\n\n").map((paragraph, index) => (
+                          <p key={index}>{paragraph}</p>
+                        ))}
+                      </div>
+                      <div className={`my-3`}>
+                        <GatsbyImage
+                          image={item.image?.asset.gatsbyImageData}
+                          alt=""
                         />
                       </div>
-                    ))}
-                  </div>
-                </Col>
-              )}
-              {item._type === "sectionSingleImage" && (
-                <Row>
-                  <Col
-                    className="d-flex justify-content-center align-items-center"
-                    md={{ span: 12, offset: 0 }}
-                  >
-                    <img
-                      className="my-5"
-                      src={item.image?.asset.publicUrl}
-                      alt=""
-                    />
-                  </Col>
-                </Row>
-              )}
-              {item._type === "sectionImageGallery" &&
-                item.images?.map((image, index) => {
-                  const isEvenIndex = index % 2 === 0;
-                  const colProps = isEvenIndex
-                    ? { md: { span: 7 } }
-                    : { md: { span: 7, offset: 5 } };
-                  return (
-                    <Row>
-                      <Col {...colProps} key={index} className="my-3">
-                        <img src={image.asset.publicUrl} alt="" />
-                      </Col>
-                    </Row>
-                  );
-                })}
-            </Row>
-          ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+        </div>
       </div>
       <Hero
         headingClass={"quoteHeading"}

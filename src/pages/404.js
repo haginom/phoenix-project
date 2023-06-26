@@ -8,6 +8,7 @@ const ContactPage = () => {
   return (
     <Layout>
       <Hero
+        heroClass="hero-top"
         notFound
         offsetMax={1}
         offsetMid={1}

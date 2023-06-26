@@ -46,8 +46,9 @@ const WorkPage = (props) => {
   return (
     <Layout background="success">
       <Hero
+        heroClass="hero-top"
         light="text-dark"
-        offsetMax={2}
+        offsetMax={1}
         offsetMid={1}
         offsetMin={1}
         colSizeMax={10}
@@ -62,23 +63,24 @@ const WorkPage = (props) => {
         coverImage={X}
         coverImageClassName="x-Mobile"
       />
-      <div className="padding-work">
+      <div className="padding-large">
         <h3 className="subheading">Work</h3>
         {GroupedWork ? (
           <Row>
             {GroupedWork.map((subarray, subarrayIndex) => (
-              <div key={subarrayIndex} className="mt-6">
+              <div key={subarrayIndex}>
                 {subarray.map((work, index) => {
                   const isFifthWork = (index + 1) % 5 === 0;
                   const colSize = isFifthWork ? 12 : 6;
                   const isOffset = (index + 1) % 2 === 0;
 
                   return (
-                    <Row key={index} className="mt-6 ">
+                    <Row key={index} className="mt-2 ">
                       <Col
-                        className={`preview-card-wrapper ${
+                        className={`preview-card-wrapper h-75 ${
                           isOffset ? "offset-md-6 mt-n6" : "offset-md-0"
-                        } `}
+                        } 
+                        ${isFifthWork ? "my-5" : ""} `}
                         md={colSize}
                       >
                         <ProjectPreview headingClass={""} {...work} />

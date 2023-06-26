@@ -6,7 +6,7 @@ const text = ["New market", "Next Product"];
 
 const AnimatedBanner = () => {
   return (
-    <div className="marqueeContainer marqueeIndexSpacing">
+    <div className="marqueeContainer marqueeIndexSpacing mt-5">
       <Marquee
         style={{ marginRight: "-1rem", width: "100%" }}
         startPosition={0}
@@ -18,7 +18,7 @@ const AnimatedBanner = () => {
       >
         {text.map((item, index) => (
           <div className="marqueeList" key={index}>
-            <Chevron />
+            <Chevron style={{ marginRight: "1.5rem" }} />
             <div className="marqueeText">{item}</div>
           </div>
         ))}

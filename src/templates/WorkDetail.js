@@ -17,6 +17,7 @@ export const query = graphql`
               _id
               url
               altText
+              gatsbyImageData
             }
           }
         }
@@ -30,7 +31,6 @@ export const query = graphql`
           _key
           _type
           heading
-          tagline
           image {
             _key
             _type
@@ -39,6 +39,8 @@ export const query = graphql`
             _rawCrop
             asset {
               publicUrl
+              url
+              gatsbyImageData
             }
           }
         }
@@ -65,8 +67,23 @@ export const query = graphql`
           images {
             asset {
               publicUrl
+              url
+              gatsbyImageData
             }
           }
+        }
+        ... on SanityTextWithIllustration {
+          _key
+          _type
+          imagePosition
+          image {
+            asset {
+              publicUrl
+              url
+              gatsbyImageData
+            }
+          }
+          excerpt
         }
         ... on SanitySectionSingleImage {
           _key
@@ -74,7 +91,9 @@ export const query = graphql`
           image {
             asset {
               id
+              url
               publicUrl
+              gatsbyImageData
             }
             crop {
               _key

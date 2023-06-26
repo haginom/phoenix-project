@@ -9,6 +9,7 @@ const ContactPage = () => {
   return (
     <Layout>
       <Hero
+        heroClass="hero-top"
         headingClass={"mb-5"}
         offsetMax={1}
         offsetMid={1}

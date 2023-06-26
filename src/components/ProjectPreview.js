@@ -5,7 +5,7 @@ import { urlFor } from "../library/helpers";
 function ProjectPreview({ headingClass, ...props }) {
   return (
     <Link className="previewCard ms-0" to={`/work/${props?.id}`}>
-      <div className="leadMediaThumb mb-3">
+      <div className="leadMediaThumb mb-1">
         {props.previewPoster && props.previewPoster.asset && (
           <img
             className="previewPosterImg"
@@ -21,7 +21,7 @@ function ProjectPreview({ headingClass, ...props }) {
       <h3 className={headingClass}>{props.title}</h3>
 
       <div>
-        <p>{props.description}</p>
+        <p className="mb-0">{props.description}</p>
       </div>
     </Link>
   );

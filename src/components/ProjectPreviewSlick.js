@@ -67,9 +67,9 @@ function ProjectPreviewGrid(props) {
     sliderRef.current.slickPrev();
   };
   return (
-    <div className="padding-large-no-right mb-5 overflow-hidden">
+    <div className="padding-large-no-right overflow-hidden">
       <div className="d-flex justify-content-between overflow-hidden">
-        {props.title && <h2 className="subheading mb-5">{props.title}</h2>}
+        {props.title && <h2 className="subheading mb-2">{props.title}</h2>}
         <div className="btn-wrap">
           <button className="arrow-btn prev-btn" onClick={goToPrevSlide}>
             {" "}

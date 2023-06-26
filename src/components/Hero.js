@@ -6,6 +6,7 @@ import { Row, Col } from "react-bootstrap";
 import { Link } from "gatsby";
 
 const Hero = ({
+  heroClass,
   contactType,
   btnBorder,
   headingClass,
@@ -30,11 +31,12 @@ const Hero = ({
   quote,
   quoteName,
   quoteText,
+  colWidthAdjustIndex,
 }) => {
   return (
     <Container
       fluid
-      className={`${bg} dark ${bgImg} ${light} overflow-hidden position-relative hero`}
+      className={`${bg} dark ${bgImg} ${light} overflow-hidden position-relative hero ${heroClass}`}
     >
       <Row
         style={{
@@ -47,13 +49,13 @@ const Hero = ({
           xs={{ span: `${colSizeMax}`, offset: `${offsetMin}` }}
           sm={{ span: `${colSizeMax}`, offset: `${offsetMin}` }}
           md={{ span: `${colSizeMid}`, offset: `${offsetMid}` }}
-          lg={{ span: `${colSizeMid}`, offset: `${offsetMid}` }}
+          lg={{ span: `${colSizeMin}`, offset: `${offsetMid}` }}
           xl={{ span: `${colSizeMin}`, offset: `${offsetMax}` }}
-          className={`px-sm-0 me-md-4`}
+          className={`px-sm-0 me-md-4 h-100 ${colWidthAdjustIndex} `}
           style={{ paddingLeft: 0, paddingRight: 0 }}
         >
           <div
-            className={`d-flex flex-column align-items-stretch justify-content-center ${
+            className={`d-flex flex-column align-items-stretch justify-content-center h-100  ${
               coverImage
                 ? `introText`
                 : quote
@@ -94,7 +96,7 @@ const Hero = ({
 
             {quoteText ? (
               <>
-                <p className="h4 mt-5">{quoteName}</p>
+                <p className="h4 mt-4">{quoteName}</p>
                 <p className="h4 clientTitle">
                   <strong>{quoteText}</strong>
                 </p>
@@ -102,7 +104,7 @@ const Hero = ({
             ) : null}
 
             {cta ? (
-              <Link to={linkTo} className={`btn btn-primary ${btnBorder}`}>
+              <Link to={linkTo} className={`btn btn-primary mt-3 ${btnBorder}`}>
                 Let's Talk <Arrow />
               </Link>
             ) : null}

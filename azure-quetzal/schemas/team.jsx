@@ -1,4 +1,4 @@
-import { UsersIcon } from "@sanity/icons"
+import {UsersIcon} from '@sanity/icons'
 
 export default {
   title: 'Team',
@@ -18,6 +18,11 @@ export default {
       type: 'string',
     },
     {
+      title: 'Order',
+      name: 'order',
+      type: 'number',
+    },
+    {
       title: 'Image',
       name: 'image',
       type: 'image',
@@ -26,7 +31,7 @@ export default {
       title: 'Short Bio',
       name: 'shortBio',
       type: 'string',
-      validation: (Rule) => Rule.required().min(30).max(262),
+      validation: (Rule) => Rule.required().min(30).max(362),
     },
   ],
 }

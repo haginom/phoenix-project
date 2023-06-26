@@ -22,7 +22,7 @@ const Footer = () => {
                   LinkedIn
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a href="/">Medium</a>
               </li>
             </ul>

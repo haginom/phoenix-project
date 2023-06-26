@@ -9,7 +9,7 @@ import ServicesGraphic from "../svgs/Services-Graphic.svg";
 import Hero from "../components/Hero";
 import { mapEdgesToNodes } from "../library/helpers";
 import HeroCover from "../components/Polygon";
-import CoverImage from "../images/about-3.jpg";
+import CoverImage from "../images/services.jpg";
 
 export const Query = graphql`
   query ServicePageQuery {
@@ -50,14 +50,17 @@ const ServicePage = ({ data }) => {
   return (
     <Layout>
       <HeroCover
+        heroClass="hero-top"
+        backgroundPositionCoverImage="-3% top"
+        adjustPolyWidth={"adjustPolyWidthServices"}
         chevron={"chevronSuccess"}
         textColor={"text-light"}
         lgTxtColSpan={7}
         lgTxtOffset={0}
-        lgPolColSpan={5}
+        lgPolColSpan={4}
         lgPolOffset={0}
         rowTextOffset={0}
-        rowTextSpan={10}
+        rowTextSpan={11}
         rowTextClassName={"rowTextLeft"}
         bgImageUrl={CoverImage}
         bgColor="bg-primary"
