@@ -4,7 +4,6 @@ import Layout from "../components/Layout";
 import { mapEdgesToNodes } from "../library/helpers";
 import Svg from "../svgs/Work.svg";
 import ProjectPreview from "../components/ProjectPreview";
-import { Row, Col } from "react-bootstrap";
 import { splitArrayIntoGroups } from "../helpers/helpers";
 import Hero from "../components/Hero";
 import X from "../images/phoeni-X-orange.png";
@@ -20,8 +19,19 @@ export const WorkPageQuery = graphql`
           description
           previewPoster {
             asset {
-              url
+              gatsbyImageData
               altText
+              publicUrl
+              url
+              _id
+            }
+          }
+          logo {
+            asset {
+              gatsbyImageData
+              publicUrl
+              url
+              _id
             }
           }
         }
@@ -63,38 +73,62 @@ const WorkPage = (props) => {
         coverImage={X}
         coverImageClassName="x-Mobile"
       />
-      <div className="padding-large">
-        <h3 className="subheading">Work</h3>
+      <div className="padding-large mw-large">
+        <h3 className="subheading mb-5">Work</h3>
         {GroupedWork ? (
-          <Row>
-            {GroupedWork.map((subarray, subarrayIndex) => (
-              <div key={subarrayIndex}>
-                {subarray.map((work, index) => {
-                  const isFifthWork = (index + 1) % 5 === 0;
-                  const colSize = isFifthWork ? 12 : 6;
-                  const isOffset = (index + 1) % 2 === 0;
+          <div>
+            {GroupedWork.map((subarray, subarrayIndex) => {
+              const numRows = subarray.length;
+              const rowFractions =
+                "0.23fr ".repeat(numRows - 1) + "0.25fr 0.25fr";
+              return (
+                <div
+                  className="work-grid-container"
+                  style={{ gridTemplateRows: rowFractions }}
+                  key={subarrayIndex}
+                >
+                  {subarray.map((work, index) => {
+                    const isFifthWork = (index + 1) % 5 === 0;
+                    const isOffset = (index + 1) % 2 === 0;
 
-                  return (
-                    <Row key={index} className="mt-2 ">
-                      <Col
-                        className={`preview-card-wrapper h-75 ${
-                          isOffset ? "offset-md-6 mt-n6" : "offset-md-0"
-                        } 
-                        ${isFifthWork ? "my-5" : ""} `}
-                        md={colSize}
+                    return (
+                      <div
+                        className={`work-grid preview-card-wrapper-${index}`}
+                        key={index}
                       >
-                        <ProjectPreview headingClass={""} {...work} />
-                      </Col>
-                      {isFifthWork ? null : <Col md={6}></Col>}
-                    </Row>
-                  );
-                })}
-              </div>
-            ))}
-          </Row>
+                        <ProjectPreview
+                          isOffset={isOffset}
+                          isFifthWork={isFifthWork}
+                          work
+                          {...work}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
         ) : null}
+        <style jsx>{`
+          @media (max-width: 768px) {
+            .work-grid-container {
+              display: flex;
+              flex-direction: column
+            
+            }
+            .work-grid{
+              display: flex;
+              flex-direction: column;
+            }
+          }
+
+      
+          }
+        `}</style>
       </div>
       <Hero
+        heroClass={"hero-mid"}
         headingClass={"quoteHeading"}
         offsetMax={1}
         offsetMid={1}

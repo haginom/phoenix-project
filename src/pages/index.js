@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Hero from "../components/Hero";
 import InfoBox from "../components/InfoBox";
 import AnimatedBanner from "../components/AnimatedBar";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import Arrow from "../svgs/arrowRight.svg";
 import { mapEdgesToNodes } from "../library/helpers";
 import ProjectPreviewGrid from "../components/ProjectPreviewSlick";
@@ -23,9 +23,19 @@ export const query = graphql`
           description
           previewPoster {
             asset {
-              _id
-              url
+              gatsbyImageData
               altText
+              publicUrl
+              url
+              _id
+            }
+          }
+          logo {
+            asset {
+              gatsbyImageData
+              publicUrl
+              url
+              _id
             }
           }
         }
@@ -41,6 +51,7 @@ export const query = graphql`
           logo {
             asset {
               url
+              gatsbyImageData
             }
           }
         }
@@ -103,7 +114,7 @@ const IndexPage = (props) => {
         offsetMin={1}
         colSizeMax={10}
         colSizeMin={6}
-        colSizeMid={5}
+        colSizeMid={6}
         bg="bg-primary"
         heading="We’re a global brand strategy, research & insights consultancy "
         texts={[
@@ -123,64 +134,71 @@ const IndexPage = (props) => {
           browseMoreHref="/work/"
         />
       )}
+
       <div className="bg-success padding-large overflow-hidden">
-        <InfoBox
-          heading="what we do"
-          text="We help find the right problems to solve with a mind in design, and heart in the future."
-        />
-        <div className="mt-5  mb-1 overflow-hidden">
-          <Row className="my-4 gx-5">
-            {ServicesSortedByOrder.map((service, index) => (
-              <Col
-                key={index}
-                lg={4}
-                md={12}
-                style={{
-                  order: service.order === 1 ? 1 : service.order === 2 ? 4 : 7,
-                }}
-              >
-                <Row className="text-align-left">
-                  <img
-                    alt=""
-                    src={service.icon.asset.url}
-                    style={{ width: "110px" }}
-                    className="mb-3"
-                  />
-                </Row>
-                <Row>
-                  <h3 className="w-90-md mb-3 display-2">
-                    {service.name.split(" ").length === 2 ? (
-                      <>
-                        {service.name.split(" ")[0]}
-                        <br />
-                        {service.name.split(" ")[1]}
-                      </>
-                    ) : (
-                      service.name
-                    )}
-                  </h3>{" "}
-                </Row>
-                <Row>
-                  <Col sm={12} md={10} lg={12}>
-                    <p className="w-100 mb-4">{service.description}</p>
-                  </Col>
-                </Row>
-              </Col>
-            ))}
-          </Row>
+        <div className="mw-xl">
+          <InfoBox
+            heading="what we do"
+            text="We help find the right problems to solve with a mind in design, and heart in the future."
+          />
+          <div className="my-4 overflow-hidden">
+            <Row className=" gx-5">
+              {ServicesSortedByOrder.map((service, index) => (
+                <Col
+                  key={index}
+                  lg={4}
+                  md={12}
+                  style={{
+                    order:
+                      service.order === 1 ? 1 : service.order === 2 ? 4 : 7,
+                  }}
+                >
+                  <Row className="text-align-left">
+                    <img
+                      alt=""
+                      src={service.icon.asset.url}
+                      style={{ width: "110px" }}
+                      className="mb-3"
+                    />
+                  </Row>
+                  <Row>
+                    <h3 className="w-90-md mb-3 display-2">
+                      {service.name.split(" ").length === 2 ? (
+                        <>
+                          {service.name.split(" ")[0]}
+                          <br />
+                          {service.name.split(" ")[1]}
+                        </>
+                      ) : (
+                        service.name
+                      )}
+                    </h3>{" "}
+                  </Row>
+                  <Row>
+                    <Col sm={12} md={10} lg={12}>
+                      <p className="w-100 mb-4">{service.description}</p>
+                    </Col>
+                  </Row>
+                </Col>
+              ))}
+            </Row>
+          </div>
+          <Link to="/services" className="btn btn-primary mb-3">
+            See our services
+            <Arrow />
+          </Link>
         </div>
-        <Link to="/services" className="btn btn-primary">
-          See our services
-          <Arrow />
-        </Link>
       </div>
       <div className="padding-large overflow-hidden">
-        <Partners
-          logos={LogosSortedByOrder}
-          text="We love clients who are brave enough to want to shake thing up."
-        />
+        <div className="mw-xl mb-3">
+          <Partners
+            logos={LogosSortedByOrder}
+            text="We love clients who are brave enough to want to shake thing up."
+          />
+        </div>
       </div>
       <Hero
+        heroClass={"hero-mid"}
         headingClass={"quoteHeading"}
         offsetMax={1}
         offsetMid={1}
@@ -197,16 +215,17 @@ const IndexPage = (props) => {
         "
       />
       <Hero
+        heroClass={"hero-mid"}
         cta
         linkTo="contact"
         btnBorder={"btnBorder"}
         headingClass={"ctaHeading"}
-        colSizeMax={9}
+        colSizeMax={10}
         colSizeMin={6}
         colSizeMid={6}
         offsetMax={3}
         offsetMid={3}
-        offsetMin={2}
+        offsetMin={1}
         bgImg="cta-hero"
         bg="bg-success"
         heading="Have a challenge? We love a good one."

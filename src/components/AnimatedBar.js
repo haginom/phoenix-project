@@ -6,9 +6,9 @@ const text = ["New market", "Next Product"];
 
 const AnimatedBanner = () => {
   return (
-    <div className="marqueeContainer marqueeIndexSpacing mt-5">
+    <div className="marqueeContainer marqueeIndexSpacing">
       <Marquee
-        style={{ marginRight: "-1rem", width: "100%" }}
+        style={{ marginRight: "-1rem", minWidth: "100%" }}
         startPosition={0}
         gradientColor="#ffffff"
         backgroundColor="#ffffff"

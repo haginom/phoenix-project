@@ -54,6 +54,7 @@ const ContactPage = () => {
         </Row>
       </Container>
       <Hero
+        heroClass={"hero-mid"}
         cta
         linkTo="/open-roles"
         btnBorder={"btnBorder"}
@@ -63,8 +64,8 @@ const ContactPage = () => {
         colSizeMid={6}
         offsetMax={3}
         offsetMid={3}
-        offsetMin={2}
-        bgImg="cta-hero"
+        offsetMin={1}
+        // bgImg="cta-hero"
         bg="bg-success"
         heading="Think you might fit in here?"
         texts={[

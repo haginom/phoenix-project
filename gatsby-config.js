@@ -60,5 +60,13 @@ module.exports = {
     },
     `gatsby-plugin-netlify`,
     `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-sanity-image",
+      options: {
+        // Sanity project info (required)
+        projectId: "3i8bbloq",
+        dataset: "production",
+      },
+    },
   ],
 };

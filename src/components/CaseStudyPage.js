@@ -6,6 +6,7 @@ import { filterByProperty } from "../helpers/helpers";
 import Hero from "./Hero";
 import ProjectPreviewGrid from "../components/ProjectPreviewSlick";
 import { GatsbyImage } from "gatsby-plugin-image";
+import Video from "./Video";
 
 const myPortableTextComponents = {
   types: {
@@ -54,8 +55,6 @@ const myPortableTextComponents = {
 
 const FeaturedWorkPage = ({ GroupedWork, FeatureWorks }) => {
   const { caseStudyBuilder } = FeatureWorks;
-
-  console.log(caseStudyBuilder);
   const property = "_type";
   const HeroSection = filterByProperty(caseStudyBuilder, property, "hero");
   const KeywordsSection = filterByProperty(
@@ -81,8 +80,6 @@ const FeaturedWorkPage = ({ GroupedWork, FeatureWorks }) => {
     (obj) => obj._type !== "hero" && obj._type !== "keywords"
   );
 
-  console.log(filteredData);
-
   return (
     <Layout>
       <HeroCover
@@ -91,134 +88,167 @@ const FeaturedWorkPage = ({ GroupedWork, FeatureWorks }) => {
         chevron={"chevronSuccessCS"}
         key={0}
         textColor={"text-light"}
-        lgTxtColSpan={7}
-        lgTxtOffset={0}
+        lgTxtColSpan={8}
+        lgTxtOffset={1}
         lgPolColSpan={4}
         lgPolOffset={0}
-        rowTextOffset={1}
-        rowTextSpan={11}
+        rowTextOffset={0}
+        rowTextSpan={12}
         rowTextClassName="rowTextLeft"
         bgColor="bg-primary"
         bgImageUrl={HeroSection.image?.asset.publicUrl}
         polygonClass="polygonRightP"
         heading={HeroSection.heading}
         text={HeroSection.tagline}
+        adjustPolyWidth="adjustPolyWidth"
       />
-      <div className="padding-large">
-        <div className="work-detail-container">
-          <div
-            className="work-detail-keywords"
-            style={{ gridColumn: "1 / span 2", gridRow: "1 / span 3" }}
-          >
-            {mergedKeywords &&
-              mergedKeywords.map((keyword, index) => (
-                <p key={index}>{keyword}</p>
-              ))}
-          </div>
-          {filteredData &&
-            filteredData.map((item, index) => {
-              const isAfterSingleImage =
-                index >
-                filteredData.findIndex(
-                  (elem) => elem._type === "sectionSingleImage"
-                );
+      <div className="work-detail-container">
+        <div
+          className="work-detail-keywords"
+          style={{ gridArea: "1 / 4 / span 5 / span 4" }}
+        >
+          {mergedKeywords &&
+            mergedKeywords.map((keyword, index) => (
+              <p className="fw6" key={index}>
+                {keyword}
+              </p>
+            ))}
+        </div>
+        {filteredData &&
+          filteredData.map((item, index) => {
+            const sectionSingleImageIndex = filteredData.findIndex(
+              (elem) => elem._type === "sectionSingleImage"
+            );
+            const isAfterSingleImage =
+              sectionSingleImageIndex !== -1 && index > sectionSingleImageIndex;
 
-              return (
-                <div
-                  key={index}
-                  className={`work-detail-main`}
-                  style={{
-                    gridColumn:
-                      item._type === "sectionSingleImage"
-                        ? "1 / span 3"
-                        : isAfterSingleImage
-                        ? "2/ span 2"
-                        : "3 / span 1",
-                  }}
-                >
-                  {item._type === "sectionIntro" && (
-                    <h1 className="display-3 mb-4 w-75">
-                      {item.caseStudyIntro}
-                    </h1>
-                  )}
-                  {item._type === "sectionText" && (
-                    <div className="work-detail-section-text w-90">
-                      <div className="my-4">
-                        <h2 className="mb-4">{item.subHeading}</h2>
-                        {item._rawContent?.map((block, index) => (
-                          <div key={index}>
-                            <PortableText
-                              value={[block]}
-                              components={myPortableTextComponents}
-                            />
-                          </div>
-                        ))}
-                      </div>
+            return (
+              <div
+                key={index}
+                className={`work-detail-main`}
+                style={{
+                  gridArea:
+                    item._type === "sectionSingleImage"
+                      ? "auto / 4 / auto / span 18"
+                      : isAfterSingleImage
+                      ? "auto / 5 / auto / span 18 "
+                      : "auto / 9 / auto / span 12",
+                }}
+              >
+                {item._type === "sectionIntro" && (
+                  <h1 className="work-detail-intro display-3 mb-3 w-90">
+                    {item.caseStudyIntro}
+                  </h1>
+                )}
+                {item._type === "sectionText" && (
+                  <div className="work-detail-section-text w-90">
+                    <div className="my-5">
+                      <h2 className="mb-4">{item.subHeading}</h2>
+                      {item._rawContent?.map((block, index) => (
+                        <div key={index}>
+                          <PortableText
+                            value={[block]}
+                            components={myPortableTextComponents}
+                          />
+                        </div>
+                      ))}
                     </div>
-                  )}
-                  {item._type === "sectionSingleImage" && (
-                    <div className="d-flex justify-content-center align-items-center work-detail-single-image">
+                  </div>
+                )}
+                {item._type === "sectionSingleImage" &&
+                  item.mediaType === "image" && (
+                    <div className="d-flex justify-content-center align-items-center work-detail-single-image my-5">
                       <GatsbyImage
-                        className="my-5"
                         image={item.image?.asset.gatsbyImageData}
                         alt=""
                       />
                     </div>
                   )}
-                  {item._type === "sectionImageGallery" &&
-                    item.images?.map((image, index) => {
-                      const isFirstRow = index < 3;
-                      const isFirstColumn = index % 2 === 0;
-                      const isLastColumn = index % 2 !== 0;
-                      const gridRow = isFirstRow ? 2 : 3;
-                      const gridColumn = isFirstColumn
-                        ? "1 / span 4"
-                        : isLastColumn
-                        ? "3 / span 4"
-                        : "3 / span 2";
 
-                      return (
-                        <div
-                          className="work-detail-image-gallery w-90 my-2"
-                          key={index}
-                        >
-                          <div
-                            className={`my-3`}
-                            style={{ gridRow, gridColumn }}
-                          >
-                            <GatsbyImage
-                              image={image.asset.gatsbyImageData}
-                              alt=""
-                            />
-                          </div>
-                        </div>
-                      );
-                    })}
-                  {item._type === "textWithIllustration" && (
-                    <div
-                      className={`d-flex work-detail-text-illustration w-90 ${
-                        item.imagePosition === "left" && "flex-row-reverse"
-                      }`}
-                      key={index}
-                    >
-                      <div>
-                        {item.excerpt.split("\n\n").map((paragraph, index) => (
-                          <p key={index}>{paragraph}</p>
-                        ))}
-                      </div>
-                      <div className={`my-3`}>
-                        <GatsbyImage
-                          image={item.image?.asset.gatsbyImageData}
-                          alt=""
-                        />
-                      </div>
+                {item._type === "sectionSingleImage" &&
+                  item.mediaType === "video" && (
+                    <div className="d-flex justify-content-center align-items-center work-detail-single-image my-4">
+                      <Video source={item.video?.asset?.url} />
                     </div>
                   )}
-                </div>
-              );
-            })}
-        </div>
+
+                {item._type === "sectionImageGallery" &&
+                  item.images?.map((image, index) => {
+                    const isFirstRow = index < 3;
+                    const isFirstColumn = index % 2 === 0;
+                    const isLastColumn = index % 2 !== 0;
+                    const gridRow = isFirstRow ? 2 : 3;
+                    const gridColumn = isFirstColumn
+                      ? "1 / span 4"
+                      : isLastColumn
+                      ? "3 / span 4"
+                      : "3 / span 2";
+
+                    return (
+                      <div
+                        className="work-detail-image-gallery w-90 my-3"
+                        key={index}
+                      >
+                        <div className={`my-3`} style={{ gridRow, gridColumn }}>
+                          <GatsbyImage
+                            image={image.asset.gatsbyImageData}
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                {item._type === "textWithIllustration" && (
+                  <div
+                    className={`d-flex work-detail-text-illustration w-90 ${
+                      item.imagePosition === "left" && "flex-row-reverse"
+                    }`}
+                    key={index}
+                  >
+                    <div>
+                      {item.excerpt.split("\n\n").map((paragraph, index) => (
+                        <p key={index}>{paragraph}</p>
+                      ))}
+                    </div>
+                    <div className={`my-3`}>
+                      <GatsbyImage
+                        image={item.image?.asset.gatsbyImageData}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
       </div>
+      <style jsx>{`
+
+
+
+          @media (max-width: 992px) {
+            .work-detail-container {
+              display: flex;
+              flex-direction: column;
+              padding-left: 6rem;
+              padding-right: 6rem;
+            }
+
+            .work-detail-intro{
+              margin-top: 1rem;
+            }
+  
+          }
+          @media (max-width: 568px) {
+            .work-detail-container {
+              padding-left: 2rem;
+              padding-right: 2rem;
+            }
+
+        
+          }
+          }
+        `}</style>
       <Hero
         headingClass={"quoteHeading"}
         offsetMax={1}

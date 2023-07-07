@@ -8,21 +8,25 @@ const ResearchPage = () => {
   return (
     <Layout background="success">
       <HeroCover
-        heroClass="hero-top"
-        backgroundPositionCoverImage={"-10% top"}
-        adjustPolyWidth={"adjustPolyWidthResearch"}
+        rectangle={"rectangleSuccess"}
+        heroClass={"hero-top"}
+        backgroundPositionCoverImage="backgroundImageResearch"
         chevron={"chevronPrimary"}
+        key={0}
         textColor={"text-dark"}
         lgTxtColSpan={7}
+        xlTxtColSpan={8}
         lgTxtOffset={0}
-        lgPolColSpan={4}
+        lgPolColSpan={5}
         lgPolOffset={0}
+        xlPolColSpan={4}
         rowTextOffset={1}
-        rowTextSpan={11}
-        bgImageUrl={CoverImage}
-        rowTextClassName={"rowTextLeft"}
+        rowTextSpan={10}
+        rowTextClassName={"rowTextLeftResearch"}
         bgColor="bg-success"
+        bgImageUrl={CoverImage}
         polygonClass="polygonLeftS"
+        adjustPolyWidth="adjustPolyWidthAbout"
         heading="Thoughts, opinions and experiments around the world"
         text="Our teams expertiese is rooted in a desire to continue learning, thinking, and growing. Below are some of our recent studies and thoughts."
       />
@@ -32,6 +36,7 @@ const ResearchPage = () => {
 
       <Hero
         cta
+        heroClass={"hero-mid"}
         linkTo="/contact"
         btnBorder={"btnBorder"}
         headingClass={"ctaHeading"}

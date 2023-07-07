@@ -43,7 +43,7 @@ const Hero = ({
           marginLeft: 0,
           marginRight: 0,
         }}
-        className="w-100 h-100 align-items-center"
+        className="w-100 h-100 align-items-center hero-content"
       >
         <Col
           xs={{ span: `${colSizeMax}`, offset: `${offsetMin}` }}
@@ -68,6 +68,7 @@ const Hero = ({
             {quote ? <Quote className="quote" /> : null}
 
             <h1
+              style={{ zIndex: "100" }}
               className={`${headingClass} ${
                 notFound
                   ? "display-6"
@@ -76,7 +77,7 @@ const Hero = ({
                   : contactType
                   ? ""
                   : "display-3"
-              } mb-4`}
+              } mb-3`}
             >
               {heading}
             </h1>
@@ -85,6 +86,7 @@ const Hero = ({
               <div className="w-85 ">
                 {texts.map((text, index) => (
                   <p
+                    style={{ zIndex: "100" }}
                     key={index}
                     className={`${notFound ? "display-3 mb-0" : null}`}
                   >
@@ -95,12 +97,12 @@ const Hero = ({
             ) : null}
 
             {quoteText ? (
-              <>
-                <p className="h4 mt-4">{quoteName}</p>
-                <p className="h4 clientTitle">
+              <div className="quote-text-container">
+                <p className="clientTitle mt-2">{quoteName}</p>
+                <p className="clientTitle">
                   <strong>{quoteText}</strong>
                 </p>
-              </>
+              </div>
             ) : null}
 
             {cta ? (

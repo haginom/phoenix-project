@@ -37,6 +37,11 @@ export default {
       ],
     },
     {
+      title: 'Logo',
+      name: 'logo',
+      type: 'image',
+    },
+    {
       name: 'caseStudyBuilder',
       title: 'Case Study Builder',
       type: 'caseStudyBuilder',

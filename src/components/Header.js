@@ -12,6 +12,8 @@ import { Link } from "gatsby";
 
 const Header = ({ background, about }) => {
   const location = useLocation();
+  const isActiveWork = location.pathname.includes("work/");
+
   return (
     <>
       {[false].map((expand) => (
@@ -78,11 +80,7 @@ const Header = ({ background, about }) => {
                   >
                     Home
                   </Nav.Link>
-                  <Nav.Link
-                    href="/work"
-                    eventKey="/work"
-                    active={location.pathname === "/work/"}
-                  >
+                  <Nav.Link href="/work" eventKey="/work" active={isActiveWork}>
                     Work
                   </Nav.Link>
                   <Nav.Link

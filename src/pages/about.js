@@ -16,17 +16,18 @@ export const Query = graphql`
       edges {
         node {
           id
+          order
           companyName
           quote
           logo {
             asset {
               url
+              gatsbyImageData
             }
           }
         }
       }
     }
-
     team: allSanityTeam {
       edges {
         node {
@@ -79,17 +80,18 @@ const AboutPage = ({ data }) => {
     <Layout background="success">
       <HeroCover
         heroClass="hero-top"
-        adjustPolyWidth={"adjustPolyWidthAbout"}
-        //  chevron={"chevronAbout"}
-        backgroundPositionCoverImage={"right -35% top"}
+        // rectangle={"rectangleSuccessLeft"}
+        // adjustPolyWidth={"adjustPolyWidthAbout"}
+        chevron={"chevronPrimaryAbout"}
+        backgroundPositionCoverImage="backgroundPositionImageAbout"
         rowTextClassName="rowTextLeft"
         textColor={"text-dark"}
-        lgTxtColSpan={5}
+        lgTxtColSpan={4}
         lgTxtOffset={1}
         lgPolColSpan={4}
         lgPolOffset={0}
         rowTextOffset={0}
-        rowTextSpan={11}
+        rowTextSpan={12}
         bgImageUrl={CoverImage}
         bgColor="bg-success"
         polygonClass="polygonRight"
@@ -112,7 +114,7 @@ const AboutPage = ({ data }) => {
           </p>
         </Container>
       </div>
-      <div className="padding-medium">
+      <div className="padding-large-no-bottom">
         <div className="w-100 mb-6 p-1">
           <Row className="aboutTable">
             <Col sm={6}>
@@ -124,14 +126,12 @@ const AboutPage = ({ data }) => {
                 Our team is tiny but truly global.
               </h3>
               <p className="aboutWidth">
-                Our core team spans seven nationalities and ten languages.
-              </p>
-              <p className="aboutWidth">
-                And we’ve also built a network of trusted partners around the
-                world, giving us nuance and depth in each region. Whether you
-                want to do retail research in the Philippines, positioning in
-                India, semiotics in Paris, or get Aussie reactions to brand tone
-                of voice, we’ve got you covered. Wherever you’re growing or
+                Our core team spans seven nationalities and ten languages. And
+                we’ve also built a network of trusted partners around the world,
+                giving us nuance and depth in each region. Whether you want to
+                do retail research in the Philippines, positioning in India,
+                semiotics in Paris, or get Aussie reactions to brand tone of
+                voice, we’ve got you covered. Wherever you’re growing or
                 planning on going we’re there.
               </p>
             </Col>
@@ -234,6 +234,7 @@ const AboutPage = ({ data }) => {
       </div>
       <Hero
         cta
+        heroClass={"hero-mid"}
         btnBorder={"btnBorder"}
         headingClass={"ctaHeading"}
         colSizeMax={9}

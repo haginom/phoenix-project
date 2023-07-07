@@ -15,7 +15,7 @@ const HeroCover = ({
   margin,
 }) => {
   return (
-    <Container fluid className={`${bg} hero `}>
+    <Container fluid className={`${bg} hero hero-top`}>
       <Row
         style={{ marginLeft: 0, marginRight: "-1px", padding: 0 }}
         className="h-100"
@@ -28,13 +28,6 @@ const HeroCover = ({
         />
         <div className={`heroPolygon${svgColor}`} />
 
-        {/* <Col
-          sm={12}
-          md={{ span: 9 }}
-          lg={{ span: 9 }}
-          xl={{ span: 9 }}
-          className={`d-flex  flex-column justify-content-center px-0  ${bgPolygon} ${textColor}`}
-        ></Col> */}
         <Col
           className="serviceText"
           xs={{ span: 11, offset: 1 }}
@@ -42,8 +35,12 @@ const HeroCover = ({
           lg={{ span: 7, offset: 4 }}
           xl={{ span: 7, offset: 3 }}
         >
-          <h1 className="display-3 ">{heading}</h1>
-          <p className="w-90 mt-3">{text}</p>
+          <h1 style={{ zIndex: "100" }} className="display-3 ">
+            {heading}
+          </h1>
+          <p style={{ zIndex: "100" }} className="w-90 mt-3">
+            {text}
+          </p>
         </Col>
       </Row>
     </Container>

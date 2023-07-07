@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Row, Col } from "react-bootstrap";
 import Chevron from "../svgs/chevron.svg";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const LogoWithQuote = ({ companyName, quote, logo, handleLogoHover }) => {
   const handleMouseEnter = () => {
@@ -17,7 +17,15 @@ const LogoWithQuote = ({ companyName, quote, logo, handleLogoHover }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <img className="logo" src={logo?.asset?.url} alt={companyName} />
+      <div className="logo">
+        <GatsbyImage
+          objectFit="contain"
+          style={{ maxHeight: "100%" }}
+          imgStyle={{ maxHeight: "100%" }}
+          image={logo?.asset.gatsbyImageData}
+          alt={companyName}
+        />
+      </div>
     </div>
   );
 };
@@ -29,18 +37,22 @@ const LogoContainer = ({ logos }) => {
     setHoveredQuote(quote);
   };
 
+  const numberLogosDisplayed = 8;
+
   return (
-    <div className="mb-4 mt-6">
-      <div className="logo-container-row">
-        {logos.slice(0, 6).map((logo) => (
-          <LogoWithQuote
-            key={logo.id}
-            companyName={logo.companyName}
-            quote={logo.quote}
-            logo={logo.logo}
-            handleLogoHover={handleLogoHover}
-          />
-        ))}
+    <div className="mt-6 mb-2">
+      <div className="logo-container-row mt-4">
+        {logos.slice(0, Math.ceil(numberLogosDisplayed / 2)).map((logo) => {
+          return (
+            <LogoWithQuote
+              key={logo.id}
+              companyName={logo.companyName}
+              quote={logo.quote}
+              logo={logo.logo}
+              handleLogoHover={handleLogoHover}
+            />
+          );
+        })}
       </div>
       <div className="d-flex justify-content-center align-items-center logoInfo">
         <Chevron className="quote-chevron" />
@@ -50,15 +62,17 @@ const LogoContainer = ({ logos }) => {
         </span>
       </div>
       <div className="logo-container-row">
-        {logos.slice(6, 12).map((logo) => (
-          <LogoWithQuote
-            key={logo.id}
-            companyName={logo.companyName}
-            quote={logo.quote}
-            logo={logo.logo}
-            handleLogoHover={handleLogoHover}
-          />
-        ))}
+        {logos
+          .slice(Math.ceil(numberLogosDisplayed / 2), numberLogosDisplayed)
+          .map((logo) => (
+            <LogoWithQuote
+              key={logo.id}
+              companyName={logo.companyName}
+              quote={logo.quote}
+              logo={logo.logo}
+              handleLogoHover={handleLogoHover}
+            />
+          ))}
       </div>
     </div>
   );

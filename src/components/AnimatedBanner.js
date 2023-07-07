@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 
 const AnimatedBanner = ({ text, miniIcon }) => {
   return (
-    <div className="marqueeContainer mt-5">
+    <div className="marqueeContainer my-3">
       <Marquee
         style={{ width: "100%" }}
         startPosition={0}

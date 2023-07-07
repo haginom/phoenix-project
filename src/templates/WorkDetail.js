@@ -31,6 +31,7 @@ export const query = graphql`
           _key
           _type
           heading
+          tagline
           image {
             _key
             _type
@@ -88,6 +89,13 @@ export const query = graphql`
         ... on SanitySectionSingleImage {
           _key
           _type
+          mediaType
+          video {
+            asset {
+              id
+              url
+            }
+          }
           image {
             asset {
               id

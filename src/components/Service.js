@@ -17,7 +17,7 @@ const Service = ({
       />
       <Container
         fluid
-        className="padding-large serviceTable w-100 mx-auto overflow-hidden"
+        className="padding-large-sides py-5 serviceTable w-100 mx-auto overflow-hidden mw-xl"
       >
         <Row className="serviceTableTopRow mb-5 mb-2md me-0">
           <Col className="ms-2 mb-4" md={3}>
@@ -30,7 +30,7 @@ const Service = ({
         </Row>
         <Row>
           {subServices.map((subService, index) => (
-            <Col className="p-3" md={3} key={index}>
+            <Col className="px-3" md={3} key={index}>
               <p className="mb-5 mb-2md two-lines-height">
                 <strong>{subService.title}</strong>
               </p>

@@ -17,22 +17,23 @@ function ProjectPreviewGrid(props) {
     arrows: true,
     infinite: true,
     adaptiveHeight: false,
-    slidesToShow: 2.2,
+    slidesToShow: 3.2,
     slidesToScroll: 1,
     initialSlide: 1,
     centerMode: true,
-    centerPadding: "8%",
+    centerPadding: "5.5%",
     className: "slider-container",
 
     responsive: [
       {
-        breakpoint: 992,
+        breakpoint: 1600,
         settings: {
           centerMode: true,
-          slidesToShow: 2.3,
+          slidesToShow: 2.2,
           slidesToScroll: 1,
           initialSlide: 0,
           infinite: true,
+          centerPadding: "8%",
         },
       },
       {
@@ -43,6 +44,7 @@ function ProjectPreviewGrid(props) {
           slidesToScroll: 1,
           initialSlide: 1,
           infinite: true,
+          centerPadding: "8%",
         },
       },
       {
@@ -50,10 +52,9 @@ function ProjectPreviewGrid(props) {
         settings: {
           centerMode: false,
           slidesToShow: 1,
-          slidesToScroll: 1,
           initialSlide: 1,
           infinite: true,
-          centerPadding: "0%",
+          centerPadding: "8%",
         },
       },
     ],

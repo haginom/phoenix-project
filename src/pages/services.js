@@ -50,20 +50,21 @@ const ServicePage = ({ data }) => {
   return (
     <Layout>
       <HeroCover
-        heroClass="hero-top"
-        backgroundPositionCoverImage="-3% top"
-        adjustPolyWidth={"adjustPolyWidthServices"}
+        rectangle={"rectanglePrimary"}
+        heroClass={"hero-top"}
+        backgroundPositionCoverImage="backgroundImageResearch"
         chevron={"chevronSuccess"}
+        key={0}
         textColor={"text-light"}
         lgTxtColSpan={7}
         lgTxtOffset={0}
-        lgPolColSpan={4}
+        lgPolColSpan={5}
         lgPolOffset={0}
-        rowTextOffset={0}
-        rowTextSpan={11}
-        rowTextClassName={"rowTextLeft"}
-        bgImageUrl={CoverImage}
+        rowTextOffset={1}
+        rowTextSpan={10}
+        rowTextClassName={"rowTextLeftResearch"}
         bgColor="bg-primary"
+        bgImageUrl={CoverImage}
         polygonClass="polygonLeft"
         heading="We have the tools to help build your brand"
         text="We don’t like to be boxed into disciplines, but mix all the tools to come up with the ideal approach, bringing a blend of brand fundamentals, strategic design, deep user research and digital craft to each project. "
@@ -101,10 +102,11 @@ const ServicePage = ({ data }) => {
           </p>
         </div>
       </Container>
-      <Container fluid className="bg-primary padding-md">
+      <Container fluid className="bg-primary padding-md bg-primary">
         <ServicesGraphic className="servicesGraphic" />
       </Container>
       <Hero
+        heroClass={"hero-mid"}
         cta
         linkTo="/contact"
         btnBorder={"btnBorder"}

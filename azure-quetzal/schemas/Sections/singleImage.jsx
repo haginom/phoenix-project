@@ -18,6 +18,7 @@ export default {
       options: {
         list: [
           {title: 'Image', value: 'image'},
+          {title: 'Video URL', value: 'videoUrl'},
           {title: 'Video', value: 'video'},
         ],
         layout: 'radio',
@@ -37,16 +38,16 @@ export default {
       hidden: ({parent}) => parent?.mediaType === 'video',
     },
     {
-      name: 'imageUrl',
-      type: 'url',
-      hidden: true,
-      readOnly: true,
-    },
-
-    {
       name: 'videoUrl',
       title: 'Video URL',
       type: 'url',
+      hidden: ({parent}) => parent?.mediaType !== 'videoUrl',
+    },
+
+    {
+      name: 'video',
+      title: 'Video',
+      type: 'file',
       hidden: ({parent}) => parent?.mediaType !== 'video',
     },
   ],
