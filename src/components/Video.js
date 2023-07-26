@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 
-const Video = ({ poster, source }) => {
+const Video = ({ poster, source, className }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
   const togglePlaystate = () => {
@@ -15,17 +15,29 @@ const Video = ({ poster, source }) => {
     }
   };
   return (
-    <div className="video-container">
+    <div className={className}>
       {!isPlaying && (
         <FontAwesomeIcon
           style={{
-            width: "6%",
-            height: "auto",
-            position: "absolute",
-            left: "calc(50% - 3%)",
-            top: "calc(50% - 3%)",
-            pointerEvents: "none",
-            zIndex: "100",
+            ...(className === "video-container"
+              ? {
+                  width: "6%",
+                  height: "auto",
+                  position: "absolute",
+                  left: "calc(50% - 3%)",
+                  top: "calc(50% - 3%)",
+                  pointerEvents: "none",
+                  zIndex: "100",
+                }
+              : {
+                  width: "20%",
+                  height: "auto",
+                  position: "absolute",
+                  left: "calc(50% - 10%)",
+                  top: "calc(50% - 10%)",
+                  pointerEvents: "none",
+                  zIndex: "100",
+                }),
           }}
           icon={faCirclePlay}
         />

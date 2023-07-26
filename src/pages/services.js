@@ -1,7 +1,6 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-// import HeroCover from "../components/HeroPolgyon";
 import Service from "../components/Service";
 import { Container } from "react-bootstrap";
 import InfoBox from "../components/InfoBox";
@@ -91,7 +90,7 @@ const ServicePage = ({ data }) => {
         <InfoBox
           className="text-light"
           heading="strategists love shapes"
-          text="And we arrive at ideas with a divergent, convergent conceptual framework"
+          text="We arrive at ideas with a divergent, convergent conceptual framework"
         />
         <div>
           <p className="infoBoxWrapper text-light">
@@ -119,7 +118,8 @@ const ServicePage = ({ data }) => {
         offsetMin={2}
         bgImg="cta-hero"
         bg="bg-success"
-        heading="Have a challenge? We love a good one."
+        heading={`Have a challenge?
+We love a good one.`}
       />
     </Layout>
   );

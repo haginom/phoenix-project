@@ -22,6 +22,7 @@ const Hero = ({
   heading,
   texts,
   cta,
+  ctaSubscribe,
   notFound,
   coverImage,
   coverImageClassName,
@@ -62,13 +63,15 @@ const Hero = ({
                 ? `quoteText`
                 : cta
                 ? `ctaText`
+                : ctaSubscribe
+                ? `ctaText`
                 : null
             }`}
           >
             {quote ? <Quote className="quote" /> : null}
 
             <h1
-              style={{ zIndex: "100" }}
+              style={{ zIndex: "100", whiteSpace: "pre-wrap" }}
               className={`${headingClass} ${
                 notFound
                   ? "display-6"
@@ -106,9 +109,18 @@ const Hero = ({
             ) : null}
 
             {cta ? (
-              <Link to={linkTo} className={`btn btn-primary mt-3 ${btnBorder}`}>
+              <a href={linkTo} className={`btn btn-primary mt-3 ${btnBorder}`}>
                 Let's Talk <Arrow />
-              </Link>
+              </a>
+            ) : null}
+
+            {ctaSubscribe ? (
+              <a
+                href="https://mailchi.mp/2f87f06ed947/email-sign-up"
+                className={`btn btn-primary mt-3 ${btnBorder}`}
+              >
+                Subscribe to our newsletter <Arrow />
+              </a>
             ) : null}
           </div>
         </Col>

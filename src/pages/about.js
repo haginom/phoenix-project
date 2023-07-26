@@ -123,16 +123,16 @@ const AboutPage = ({ data }) => {
             <Col className="d-flex flex-column justify-content-center" sm={6}>
               <h2 className="subheading w-75">PERSPECTIVE MATTERS</h2>
               <h3 className="display-2 mb-2 ">
-                Our team is tiny but truly global.
+                Our team is tiny, but truly global.
               </h3>
               <p className="aboutWidth">
-                Our core team spans seven nationalities and ten languages. And
-                we’ve also built a network of trusted partners around the world,
+                "Our core team spans seven nationalities and ten languages.
+                We’ve also built a network of trusted partners around the world,
                 giving us nuance and depth in each region. Whether you want to
                 do retail research in the Philippines, positioning in India,
                 semiotics in Paris, or get Aussie reactions to brand tone of
-                voice, we’ve got you covered. Wherever you’re growing or
-                planning on going we’re there.
+                voice, we’ve got you covered wherever you’re growing or planning
+                on going."
               </p>
             </Col>
           </Row>
@@ -142,15 +142,18 @@ const AboutPage = ({ data }) => {
               xs={{ span: 12, order: "last" }}
               sm={{ span: 6, order: "first" }}
             >
-              <h2 className="subheading mt-3">PLAYS WELL WITH OTHERS</h2>
-              <h3 className="display-2 mb-4">We’re collaborators at heart.</h3>
+              <h2 className="subheading mt-3">COLLABORATORS AT HEART</h2>
+              <h3 className="display-2 mb-4">
+                Embedding the strategy is part of our process.
+              </h3>
               <p className="aboutWidth">
-                We often work closely with other brand partners or client
-                agencies to bring strategy to life when it comes to the
-                communication, character and advertising side of things. We’ve
-                sat at the pitch table and helped find local partners. And we
-                occasionally partner with boutique creative studios to take on
-                full-service projects.
+                You never just get a deck from us - bringing solutions into
+                practice is a process, whether that looks like a living model,
+                iterative research program, or a new brand book that all teams
+                will start to use as a north star. We’ve sat at the pitch table,
+                advised on briefs and campaign planning, helped find local
+                partners, and occasionally partner with boutique creative
+                studios to take on full-service projects.
               </p>
             </Col>
             <Col xs={{ span: 12, order: "first" }} sm={6}>
@@ -163,12 +166,12 @@ const AboutPage = ({ data }) => {
             </Col>
             <Col className="d-flex flex-column justify-content-center" sm={6}>
               <h2 className="subheading mt-2">female-led</h2>
-              <h3 className="display-2 mb-2">Part of the few.</h3>
+              <h3 className="display-2 mb-2">
+                Part of the 0.1% of strategy companies run by women.
+              </h3>
               <p className="aboutWidth">
-                We’re part of the 0.1% of strategy shops founded and run by
-                women. We think that’s nuts, but we’re driving the change and
-                bringing empathy and lateral thinking to a traditionally
-                masculine and linear discipline.
+                We’re driving the change, and bringing empathy and lateral
+                thinking to a traditionally masculine and linear discipline.
               </p>
             </Col>
           </Row>
@@ -178,17 +181,17 @@ const AboutPage = ({ data }) => {
               xs={{ span: 12, order: "last" }}
               sm={{ span: 6, order: "first" }}
             >
-              <h2 className="subheading mt-3">BUILT AROUND BABIES</h2>
+              <h2 className="subheading mt-3">TRULY FLEXIBLE CULTURE</h2>
               <h3 className="display-2 mb-4">
-                Flexible culture that values balance.
+                Balance, babies and conceptual blending
               </h3>
               <p className="aboutWidth">
-                You did read that right. We are a bunch of young parents and new
-                families, so we know how to create a way of working that is
-                built around life, not the other way around. We also believe the
-                more you do OUTSIDE of “work”, the more neurons fire within. So
-                whether it’s bouldering or running a communal daycare, hobbyists
-                welcome!
+                We grew up as our team members families grew! Inherently, our
+                ways of working are built around life, not the other way around.
+                We also believe the more you do OUTSIDE of “work”, the more
+                neurons fire within. So whether it’s bouldering, boat
+                reconstructions or building and running a communal daycare on
+                your Fridays, bring it on.
               </p>
             </Col>
             <Col xs={{ span: 12, order: "first" }} sm={6}>
@@ -226,9 +229,7 @@ const AboutPage = ({ data }) => {
       </div>
       <div className="padding-medium mt-5 mb-6 overflow-hidden">
         <Partners
-          text={
-            "Our clients have big names in the med tech and wellness space."
-          }
+          text={"Our clients are making big strides in personal progress."}
           logos={LogosSortedByOrder}
         />
       </div>
@@ -246,7 +247,8 @@ const AboutPage = ({ data }) => {
         linkTo="/open-roles"
         bgImg="cta-hero"
         bg="bg-success"
-        heading="Have a challenge? We love a good one."
+        heading={`Have a challenge?
+We love a good one.`}
       />
     </Layout>
   );

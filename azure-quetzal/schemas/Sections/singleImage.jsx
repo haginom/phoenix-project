@@ -7,11 +7,6 @@ export default {
   icon: ImageIcon,
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-    },
-    {
       title: 'Media Type',
       name: 'mediaType',
       type: 'string',

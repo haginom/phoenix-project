@@ -20,9 +20,17 @@ export const query = graphql`
               gatsbyImageData
             }
           }
+          caseStudyBuilder {
+            ... on SanityKeywords {
+              _type
+              otherKeywords
+              tags
+            }
+          }
         }
       }
     }
+
     featuredWork: sanityFeaturedWork(id: { eq: $id }) {
       id
       _id
@@ -66,10 +74,21 @@ export const query = graphql`
           _key
           _type
           images {
-            asset {
-              publicUrl
-              url
-              gatsbyImageData
+            ... on SanityImage {
+              _key
+              _type
+              asset {
+                gatsbyImageData
+                publicUrl
+                url
+              }
+            }
+            ... on SanityVideo {
+              _key
+              _type
+              asset {
+                url
+              }
             }
           }
         }
@@ -85,6 +104,12 @@ export const query = graphql`
             }
           }
           excerpt
+        }
+        ... on SanitySectionQuote {
+          _type
+          attribute
+          jobRole
+          quote
         }
         ... on SanitySectionSingleImage {
           _key
@@ -131,17 +156,65 @@ const WorkDetailPage = (props) => {
   const FeaturedPreviews = data.featuredPreviews
     ? mapEdgesToNodes(data.featuredPreviews)
     : [];
-  const SortedWorkByDate = FeaturedPreviews.sort(
-    (a, b) => new Date(a._createdAt) - new Date(b._createdAt)
+
+  //Function to remove current case study from the list of previews
+  const removeFeaturedWorkFromPreviews = (previews, featureWorksItem) => {
+    const areObjectsEqual = (obj1, obj2) => {
+      return obj1.id === obj2.id;
+    };
+
+    return previews.filter(
+      (preview) => !areObjectsEqual(preview, featureWorksItem)
+    );
+  };
+
+  const newFeaturedPreviews = removeFeaturedWorkFromPreviews(
+    FeaturedPreviews,
+    FeatureWorks
   );
 
-  const GroupedWork = splitArrayIntoGroups(SortedWorkByDate, 5);
+  //Function to access the Keyword Tags
+  const getKeywordTags = (node) => {
+    let keywords = node.caseStudyBuilder.filter(
+      (item) => item._type === "keywords"
+    );
+    return keywords.map((obj) => obj.tags);
+  };
+
+  // Function to calculate the number of common elements between two arrays
+  const countCommonElements = (arr1, arr2) => {
+    return arr1.filter((item) => arr2.includes(item)).length;
+  };
+
+  // Function to sort FeaturedPreviews based on relevance to referenceTags
+  const sortByRelevance = (FeaturedPreviews, referenceTags) => {
+    return FeaturedPreviews.sort((previewA, previewB) => {
+      const tagsA = getKeywordTags(previewA);
+      const tagsB = getKeywordTags(previewB);
+
+      // Count the number of common keyword tags between each preview and referenceTags
+      const relevanceA = countCommonElements(tagsA.flat(), referenceTags);
+      const relevanceB = countCommonElements(tagsB.flat(), referenceTags);
+
+      // Sort in descending order (most relevant first)
+      return relevanceB - relevanceA;
+    });
+  };
+
+  const referenceTags = getKeywordTags(FeatureWorks);
+
+  // Call the sorting function
+  const sortedPreviews = sortByRelevance(newFeaturedPreviews, referenceTags);
+
   if (errors) {
     return <p>error occured</p>;
   }
 
   return (
-    <FeaturedWorkPage FeatureWorks={FeatureWorks} GroupedWork={GroupedWork} />
+    <FeaturedWorkPage
+      FeatureWorks={FeatureWorks}
+      SortedPreviews={sortedPreviews}
+    />
   );
 };
 

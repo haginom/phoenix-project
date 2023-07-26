@@ -11,6 +11,7 @@ import Layout from "../components/Layout";
 import Partners from "../components/OurPartners";
 import { Link } from "gatsby";
 import X from "../images/phoeni-X.png";
+import BrandVenn from "../svgs/Brand-Venn.svg";
 
 export const query = graphql`
   query IndexPageQuery {
@@ -134,6 +135,13 @@ const IndexPage = (props) => {
           browseMoreHref="/work/"
         />
       )}
+      <div className="padding-large bg-primary">
+        <InfoBox
+          className="text-light"
+          text="Phoenix is where brand strategy meets strategic design"
+        />
+        <BrandVenn className="vennGraphic" />
+      </div>
 
       <div className="bg-success padding-large overflow-hidden">
         <div className="mw-xl">
@@ -193,7 +201,7 @@ const IndexPage = (props) => {
         <div className="mw-xl mb-3">
           <Partners
             logos={LogosSortedByOrder}
-            text="We love clients who are brave enough to want to shake thing up."
+            text="We love clients who are brave enough to want to shake things up."
           />
         </div>
       </div>
@@ -209,15 +217,14 @@ const IndexPage = (props) => {
         colSizeMid={7}
         bgImg="quote-hero"
         bg="bg-primary"
-        heading="Their work helped us roadmap, but also have fruitful conversations across teams internally."
-        quoteName="Nil Onal"
-        quoteText="Global Consumer Product Marketing Lead at WhatsApp. 
-        "
+        heading="The Phoenix team has been both valuable and a pleasure to partner with. Their research has provided thorough insights into user problems and needs, helping shape our product strategy and prioritization"
+        quoteName="- Rosie"
+        quoteText="PM, Noom, Inc."
       />
       <Hero
         heroClass={"hero-mid"}
         cta
-        linkTo="contact"
+        linkTo="/contact"
         btnBorder={"btnBorder"}
         headingClass={"ctaHeading"}
         colSizeMax={10}
@@ -228,7 +235,8 @@ const IndexPage = (props) => {
         offsetMin={1}
         bgImg="cta-hero"
         bg="bg-success"
-        heading="Have a challenge? We love a good one."
+        heading={`Have a challenge?
+We love a good one.`}
       />
     </Layout>
   );

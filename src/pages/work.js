@@ -10,7 +10,7 @@ import X from "../images/phoeni-X-orange.png";
 
 export const WorkPageQuery = graphql`
   query WorkQuery {
-    featuredWork: allSanityFeaturedWork {
+    featuredWork: allSanityFeaturedWork(filter: { research: { eq: false } }) {
       edges {
         node {
           id
@@ -78,31 +78,31 @@ const WorkPage = (props) => {
         {GroupedWork ? (
           <div>
             {GroupedWork.map((subarray, subarrayIndex) => {
-              const numRows = subarray.length;
-              const rowFractions =
-                "0.23fr ".repeat(numRows - 1) + "0.25fr 0.25fr";
               return (
-                <div
-                  className="work-grid-container"
-                  style={{ gridTemplateRows: rowFractions }}
-                  key={subarrayIndex}
-                >
+                <div className="work-grid-container" key={subarrayIndex}>
                   {subarray.map((work, index) => {
-                    const isFifthWork = (index + 1) % 5 === 0;
                     const isOffset = (index + 1) % 2 === 0;
 
                     return (
-                      <div
-                        className={`work-grid preview-card-wrapper-${index}`}
-                        key={index}
-                      >
-                        <ProjectPreview
-                          isOffset={isOffset}
-                          isFifthWork={isFifthWork}
-                          work
-                          {...work}
-                        />
-                      </div>
+                      <React.Fragment>
+                        <div
+                          className={`work-grid preview-card-wrapper`}
+                          key={index}
+                        >
+                          <ProjectPreview
+                            isOffset={isOffset}
+                            // isFifthWork={isFifthWork}
+                            work
+                            {...work}
+                          />
+                        </div>
+                        {!isOffset && (
+                          <>
+                            <div className="work-grid empty-grid"></div>
+                            <div className="work-grid empty-grid"></div>
+                          </>
+                        )}
+                      </React.Fragment>
                     );
                   })}
                 </div>
@@ -115,9 +115,9 @@ const WorkPage = (props) => {
             .work-grid-container {
               display: flex;
               flex-direction: column
-            
+              margin-top: 2rem;
             }
-            .work-grid{
+            .preview-card-wrapper{
               display: flex;
               flex-direction: column;
             }
@@ -139,22 +139,23 @@ const WorkPage = (props) => {
         colSizeMid={7}
         bgImg="quote-hero"
         bg="bg-primary"
-        heading="Their work helped us roadmap, but also have fruitful conversations across teams internally."
-        quoteName="Nil Onal"
-        quoteText="Global Consumer Product Marketing Lead at WhatsApp. 
+        heading="I'm looking forward to working with Phoenix for many more years to come and can’t imagine a better partner in our corner"
+        quoteName="Sophie Pless"
+        quoteText="Director, International Strategy & Growth, Noom. 
         "
       />
       <Hero
+        heroClass={"hero-mid"}
         cta
         linkTo="/contact"
         btnBorder={"btnBorder"}
         headingClass={"ctaHeading"}
-        colSizeMax={9}
+        colSizeMax={10}
         colSizeMin={6}
         colSizeMid={6}
         offsetMax={3}
         offsetMid={3}
-        offsetMin={2}
+        offsetMin={1}
         bgImg="cta-hero"
         bg="bg-success"
         heading="Have a problem we can help you solve?"

@@ -13,6 +13,7 @@ import sectionQuote from './Sections/quote'
 import sectionIntro from './Sections/heading'
 import keywords from './Sections/keywords'
 import sectionImageGallery from './Sections/imageGallery'
+import video from './Sections/video'
 
 export const schemaTypes = [
   featuredWork,
@@ -29,5 +30,6 @@ export const schemaTypes = [
   sectionQuote,
   sectionIntro,
   keywords,
-  sectionImageGallery
+  sectionImageGallery,
+  video,
 ]

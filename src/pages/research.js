@@ -3,8 +3,54 @@ import Layout from "../components/Layout";
 import HeroCover from "../components/Polygon";
 import Hero from "../components/Hero";
 import CoverImage from "../images/research.jpg";
+import { graphql } from "gatsby";
+import ProjectPreviewGrid from "../components/ProjectPreviewSlick";
+import { mapEdgesToNodes } from "../library/helpers";
 
-const ResearchPage = () => {
+export const query = graphql`
+  query ResearchPageQuery {
+    featuredWork: allSanityFeaturedWork(filter: { research: { eq: true } }) {
+      edges {
+        node {
+          id
+          _createdAt
+          title
+          description
+          previewPoster {
+            asset {
+              gatsbyImageData
+              altText
+              publicUrl
+              url
+              _id
+            }
+          }
+          logo {
+            asset {
+              gatsbyImageData
+              publicUrl
+              url
+              _id
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+const ResearchPage = (props) => {
+  const { data, errors } = props;
+
+  const featuredWorkNodes = (data || {}).featuredWork
+    ? mapEdgesToNodes(data.featuredWork)
+    : [];
+
+  const SortedWorkByDate = featuredWorkNodes.sort(
+    (a, b) => new Date(a._createdAt) - new Date(b._createdAt)
+  );
+
+  console.log(SortedWorkByDate);
   return (
     <Layout background="success">
       <HeroCover
@@ -31,11 +77,16 @@ const ResearchPage = () => {
         text="Our teams expertiese is rooted in a desire to continue learning, thinking, and growing. Below are some of our recent studies and thoughts."
       />
       <div className="padding-large ">
-        <p>hello</p>
+        {SortedWorkByDate && (
+          <ProjectPreviewGrid
+            title="Our latest research projects"
+            nodes={SortedWorkByDate}
+          />
+        )}
       </div>
 
       <Hero
-        cta
+        ctaSubscribe
         heroClass={"hero-mid"}
         linkTo="/contact"
         btnBorder={"btnBorder"}

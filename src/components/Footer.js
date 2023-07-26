@@ -15,15 +15,9 @@ const Footer = () => {
             <h4 className="colTitle mb-4">Follow us</h4>
             <ul className="footerLinks">
               <li className="mb-2">
-                <a href="/">Instagram</a>
-              </li>
-              <li className="mb-2">
                 <a href="https://nl.linkedin.com/company/phoenix-brand-strategy">
                   LinkedIn
                 </a>
-              </li>
-              <li>
-                <a href="/">Medium</a>
               </li>
             </ul>
           </Col>
@@ -32,20 +26,23 @@ const Footer = () => {
             <ul className="footerLinks">
               <li className="mb-2">
                 {" "}
-                <a href="/">Hi@phoenixbrandstrategy.com</a>
+                <a href="/contact">Hi@phoenixbrandstrategy.com</a>
               </li>
               <li className="mb-2">
                 {" "}
-                <a href="/">Jobs@phoenixbrandstrategy.com</a>
+                <a href="/open-roles">Jobs@phoenixbrandstrategy.com</a>
               </li>
             </ul>
           </Col>
           <Col lg={1} md={0} />
           <Col className="p-3 " lg={4} md={12}>
             <h4 className="colTitle mb-4">Keep in Touch</h4>
-            <Button variant="outline-primary btn-large mt-4">
+            <a
+              href="https://mailchi.mp/2f87f06ed947/email-sign-up"
+              className="btn outline-primary btn-primary btn-large mt-4"
+            >
               Subscribe to our newsletter <Arrow />
-            </Button>
+            </a>
           </Col>
         </Row>
       </Container>
@@ -62,11 +59,10 @@ const Footer = () => {
         </Col>
         <Col xs={5} md={3}>
           <Row>
-            <Col xs={6} md={6}>
-              <span className="pe-3">Terms</span>
-            </Col>
-            <Col xs={6} md={6}>
-              <span>Privacy</span>
+            <Col>
+              <a href="/conditions">
+                <span className="pe-3">Terms & Conditions </span>
+              </a>
             </Col>
           </Row>
         </Col>

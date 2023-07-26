@@ -13,6 +13,11 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'research',
+      type: 'boolean',
+      title: 'Research',
+    },
+    {
       name: 'description',
       type: 'text',
       rows: 3,

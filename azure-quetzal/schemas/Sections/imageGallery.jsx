@@ -13,6 +13,7 @@ export default {
       of: [
         {
           type: 'image',
+          title: 'Image',
           options: {
             hotspot: true,
           },
@@ -24,6 +25,10 @@ export default {
             },
           ],
         },
+
+        {
+          type: 'video',
+        },
       ],
       validation: (Rule) => Rule.max(4).warning('You can add up to 4 images.'),
     },
@@ -33,14 +38,14 @@ export default {
       images: 'images',
     },
     prepare(selection) {
-      const { images } = selection;
+      const {images} = selection
 
-      const galleryCount = images.length || 0;
-      const galleryText = galleryCount === 1 ? 'image' : 'images';
+      const galleryCount = images.length || 0
+      const galleryText = galleryCount === 1 ? 'image' : 'images'
 
       return {
         title: `Image Gallery (${galleryCount} ${galleryText})`,
-      };
+      }
     },
   },
 }

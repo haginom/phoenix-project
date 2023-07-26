@@ -12,11 +12,12 @@ function ProjectPreviewGrid(props) {
 
   const FlattenedNodes = flattenArray(props.nodes);
 
+  console.log(props.nodes);
   const settings = {
     dots: false,
     arrows: true,
-    infinite: true,
-    adaptiveHeight: false,
+    infinite: false,
+    adaptiveHeight: true,
     slidesToShow: 3.2,
     slidesToScroll: 1,
     initialSlide: 1,
@@ -73,7 +74,6 @@ function ProjectPreviewGrid(props) {
         {props.title && <h2 className="subheading mb-2">{props.title}</h2>}
         <div className="btn-wrap">
           <button className="arrow-btn prev-btn" onClick={goToPrevSlide}>
-            {" "}
             <ArrowRight className="arrow arrowLeft" />
           </button>
           <button className="arrow-btn next-btn" onClick={goToNextSlide}>
