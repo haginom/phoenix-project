@@ -17,7 +17,7 @@ function ProjectPreviewGrid(props) {
     dots: false,
     arrows: true,
     infinite: false,
-    adaptiveHeight: true,
+    adaptiveHeight: false,
     slidesToShow: 3.2,
     slidesToScroll: 1,
     initialSlide: 1,
