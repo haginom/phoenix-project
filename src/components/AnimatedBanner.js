@@ -10,6 +10,7 @@ const AnimatedBanner = ({ text, miniIcon }) => {
         gradientColor="#ffffff"
         backgroundColor="#ffffff"
         loop={100}
+        speed={60}
       >
         {text.map((item, index) => (
           <div className="marqueeList" key={index}>

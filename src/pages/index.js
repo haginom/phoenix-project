@@ -234,7 +234,7 @@ const IndexPage = (props) => {
         colSizeMid={6}
         offsetMax={3}
         offsetMid={3}
-        offsetMin={1}
+        offsetMin={2}
         bgImg="cta-hero"
         bg="bg-success"
         heading={`Have a challenge?

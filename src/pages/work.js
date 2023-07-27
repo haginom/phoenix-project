@@ -151,12 +151,12 @@ const WorkPage = (props) => {
         linkTo="/contact"
         btnBorder={"btnBorder"}
         headingClass={"ctaHeading"}
-        colSizeMax={10}
+        colSizeMax={8}
         colSizeMin={6}
         colSizeMid={6}
         offsetMax={3}
         offsetMid={3}
-        offsetMin={1}
+        offsetMin={2}
         bgImg="cta-hero"
         bg="bg-success"
         heading="Have a problem we can help you solve?"

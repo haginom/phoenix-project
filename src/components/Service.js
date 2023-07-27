@@ -17,7 +17,7 @@ const Service = ({
       />
       <Container
         fluid
-        className="padding-large-sides py-5 serviceTable w-100 mx-auto overflow-hidden mw-xl"
+        className="padding-large-sides pt-2 serviceTable w-100 mx-auto overflow-hidden mw-xl"
       >
         <Row className="serviceTableTopRow mb-5 mb-2md me-0">
           <Col className="ms-2 mb-4" md={3}>
