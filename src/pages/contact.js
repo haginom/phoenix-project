@@ -54,16 +54,16 @@ const ContactPage = () => {
         </Row>
       </Container>
       <Hero
-        heroClass={"hero-mid"}
+        heroClass={"hero-midi"}
         cta
         linkTo="/open-roles"
         btnBorder={"btnBorder"}
         headingClass={"ctaHeading"}
-        colSizeMax={9}
+        colSizeMax={12}
         colSizeMin={6}
-        colSizeMid={6}
+        colSizeMid={8}
         offsetMax={3}
-        offsetMid={3}
+        offsetMid={2}
         offsetMin={1}
         bgImg="cta-hero"
         bg="bg-success"
