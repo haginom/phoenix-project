@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="bg-secondary">
       <Container fluid className="footer padding-small">
         <Row>
-          <img alt="Phoenix Logo" src={logoO} className={`footerLogo`} />
+          <img alt="Phoenix Logo" src={logoO} className={`footerLogo pt-3`} />
         </Row>
         <Row>
           <Col className="p-3" lg={3} md={12}>

@@ -1,6 +1,6 @@
 import * as React from "react";
 import Contact from "../svgs/Contact.svg";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Hero from "../components/Hero";
 import Layout from "../components/Layout";
 import X from "../images/phoeni-X.png";

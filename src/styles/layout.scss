@@ -57,7 +57,7 @@ h4 {
 
 @media (max-width: 768px) {
   .mb-2md {
-    margin-bottom: 1rem !important;
+    margin-bottom: 2rem !important;
   }
 }
 
@@ -199,7 +199,7 @@ h4 {
 }
 
 .padding-medium {
-  padding: 1rem;
+  padding: 1.5rem;
   padding-bottom: 0rem;
 }
 
@@ -287,8 +287,8 @@ h4 {
   border: 0.5px white solid;
 }
 .btn {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   border-radius: 40px;
@@ -316,6 +316,7 @@ h4 {
   text-align: left;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 
   svg {
     display: inline;
