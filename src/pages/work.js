@@ -114,7 +114,7 @@ const WorkPage = (props) => {
           @media (max-width: 768px) {
             .work-grid-container {
               display: flex;
-              flex-direction: column
+              flex-direction: column;
               margin-top: 2rem;
             }
             .preview-card-wrapper{
