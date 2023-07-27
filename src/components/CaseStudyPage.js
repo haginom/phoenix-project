@@ -45,7 +45,7 @@ const myPortableTextComponents = {
         ? "noreferrer noopener"
         : undefined;
       return (
-        <a href={value.href} rel={rel} target="_blank">
+        <a href={value.href} target="_blank" rel="noreferrer">
           {children}
         </a>
       );
@@ -151,14 +151,14 @@ const FeaturedWorkPage = ({ SortedPreviews, FeatureWorks }) => {
                 }}
               >
                 {item._type === "sectionIntro" && (
-                  <h1 className="work-detail-intro display-3 mb-3 w-90">
+                  <h1 className="work-detail-intro display-4 mb-3 w-90">
                     {item.caseStudyIntro}
                   </h1>
                 )}
                 {item._type === "sectionText" && (
                   <div className="work-detail-section-text w-90">
                     <div className="my-4">
-                      <h2 className="mb-4">{item.subHeading}</h2>
+                      <h2 className="mb-4 display-5">{item.subHeading}</h2>
                       {item._rawContent?.map((block, index) => (
                         <div key={index}>
                           <PortableText
