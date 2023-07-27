@@ -65,7 +65,7 @@ const ContactPage = () => {
         offsetMax={3}
         offsetMid={3}
         offsetMin={1}
-        // bgImg="cta-hero"
+        bgImg="cta-hero"
         bg="bg-success"
         heading="Think you might fit in here?"
         texts={[
