@@ -40,8 +40,8 @@ const ConditionsPage = () => {
           </p>
           <ul>
             <li>
-              <strong>1.1.1. Client:</strong> the party that assigns the
-              Contractor to perform certain services.
+              1.1.1. Client: the party that assigns the Contractor to perform
+              certain services.
             </li>
             <li>
               1.1.2 Confidential Information: the Engagement between the Client

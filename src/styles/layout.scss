@@ -784,6 +784,14 @@ svg {
   max-width: 50rem;
   padding-bottom: 2rem;
   padding-top: 2rem;
+  display: none;
+}
+
+.vennGraphicMobile {
+  width: 100%;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  display: block;
 }
 
 @media (min-width: 768px) {
@@ -793,8 +801,12 @@ svg {
     max-width: 60rem;
   }
   .vennGraphic {
+    display: block;
     padding-top: 2rem;
     height: 30%;
+  }
+  .vennGraphicMobile {
+    display: none;
   }
 }
 

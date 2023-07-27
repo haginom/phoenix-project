@@ -12,6 +12,7 @@ import Partners from "../components/OurPartners";
 import { Link } from "gatsby";
 import X from "../images/phoeni-X.png";
 import BrandVenn from "../svgs/Brand-Venn.svg";
+import BrandVennMobile from "../svgs/Venn-Mobile.svg";
 
 export const query = graphql`
   query IndexPageQuery {
@@ -141,6 +142,7 @@ const IndexPage = (props) => {
           text="Phoenix is where brand strategy meets strategic design"
         />
         <BrandVenn className="vennGraphic" />
+        <BrandVennMobile className="vennGraphicMobile" />
       </div>
 
       <div className="bg-success padding-large overflow-hidden">
