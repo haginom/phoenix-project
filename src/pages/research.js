@@ -76,14 +76,13 @@ const ResearchPage = (props) => {
         heading="Thoughts, opinions and experiments around the world"
         text="Our teams expertiese is rooted in a desire to continue learning, thinking, and growing. Below are some of our recent studies and thoughts."
       />
-      <div className="padding-large ">
-        {SortedWorkByDate && (
-          <ProjectPreviewGrid
-            title="Our latest research projects"
-            nodes={SortedWorkByDate}
-          />
-        )}
-      </div>
+      {SortedWorkByDate && (
+        <ProjectPreviewGrid
+          setTitleWidth
+          title="Our latest research projects"
+          nodes={SortedWorkByDate}
+        />
+      )}
 
       <Hero
         ctaSubscribe

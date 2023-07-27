@@ -7,9 +7,8 @@ import ArrowRight from "../svgs/arrowRight.svg";
 import { useRef } from "react";
 import { flattenArray } from "../helpers/helpers";
 
-function ProjectPreviewGrid(props) {
+function ProjectPreviewGrid(props, setTitleWidth) {
   const sliderRef = useRef(null);
-
   const FlattenedNodes = flattenArray(props.nodes);
 
   console.log(props.nodes);
@@ -71,7 +70,11 @@ function ProjectPreviewGrid(props) {
   return (
     <div className="padding-large-no-right overflow-hidden">
       <div className="d-flex justify-content-between overflow-hidden">
-        {props.title && <h2 className="subheading mb-2">{props.title}</h2>}
+        {props.title && (
+          <h2 className={`subheading mb-2 ${setTitleWidth && "titleWidth"}`}>
+            {props.title}
+          </h2>
+        )}
         <div className="btn-wrap">
           <button className="arrow-btn prev-btn" onClick={goToPrevSlide}>
             <ArrowRight className="arrow arrowLeft" />

@@ -56,7 +56,6 @@ const myPortableTextComponents = {
 const FeaturedWorkPage = ({ GroupedWork, FeatureWorks }) => {
   const { caseStudyBuilder } = FeatureWorks;
 
-  console.log(caseStudyBuilder);
   const property = "_type";
   const HeroSection = filterByProperty(caseStudyBuilder, property, "hero");
   const KeywordsSection = filterByProperty(
