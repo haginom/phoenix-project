@@ -202,7 +202,7 @@ const IndexPage = (props) => {
               ))}
             </Row>
           </div>
-          <Link to="/services" className="btn btn-primary mb-3">
+          <Link to="/services" className="btn btn-primary mb-3 outline-primary">
             <span className="mb-0">See our services</span>
             <Arrow className="btn-arrow" />
           </Link>

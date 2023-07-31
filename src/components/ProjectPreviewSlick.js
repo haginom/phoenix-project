@@ -87,7 +87,7 @@ function ProjectPreviewGrid(props, setTitleWidth) {
       {props.browseMoreHref && (
         <div>
           <Link
-            className="btn link-button btn-primary"
+            className="btn link-button btn-primary outline-primary"
             to={props.browseMoreHref}
           >
             <p className="mb-0"> See more work</p>
