@@ -10,11 +10,11 @@ import Video from "./Video";
 
 const myPortableTextComponents = {
   types: {
-    h1: ({ children }) => <h1 className="display-1">{children}</h1>,
-    p: ({ children }) => <p className="display-1">{children}</p>,
-    normal: ({ children }) => <p className="display-1">{children}</p>,
-    paragraph: ({ children }) => <p className="display-1">{children}</p>,
-    span: ({ children }) => <p className="display-1">{children}</p>,
+    h1: ({ children }) => <h1 className="display-3">{children}</h1>,
+    p: ({ children }) => <p className="p">{children}</p>,
+    normal: ({ children }) => <p>{children}</p>,
+    paragraph: ({ children }) => <p c>{children}</p>,
+    span: ({ children }) => <span>{children}</span>,
   },
   list: {
     // Ex. 1: customizing common list types
@@ -151,7 +151,7 @@ const FeaturedWorkPage = ({ SortedPreviews, FeatureWorks }) => {
                 }}
               >
                 {item._type === "sectionIntro" && (
-                  <h1 className="work-detail-intro display-4 mb-3 w-90">
+                  <h1 className="work-detail-intro display-3 mb-3 w-90">
                     {item.caseStudyIntro}
                   </h1>
                 )}

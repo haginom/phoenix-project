@@ -11,7 +11,7 @@ const Footer = () => {
           <img alt="Phoenix Logo" src={logoO} className={`footerLogo pt-3`} />
         </Row>
         <Row>
-          <Col className="p-3" lg={3} md={12}>
+          <Col className="p-3" md={3} sm={12}>
             <h4 className="colTitle mb-4">Follow us</h4>
             <ul className="footerLinks">
               <li className="mb-2">
@@ -21,7 +21,7 @@ const Footer = () => {
               </li>
             </ul>
           </Col>
-          <Col className="p-3" lg={4} md={12}>
+          <Col className="p-3" md={4} sm={12}>
             <h4 className="colTitle mb-4">Contact Us</h4>
             <ul className="footerLinks">
               <li className="mb-2">
@@ -34,14 +34,15 @@ const Footer = () => {
               </li>
             </ul>
           </Col>
-          <Col lg={1} md={0} />
-          <Col className="p-3 " lg={4} md={12}>
+          <Col md={1} sm={0} />
+          <Col className="p-3 " md={4} sm={12}>
             <h4 className="colTitle mb-4">Keep in Touch</h4>
             <a
               href="https://mailchi.mp/2f87f06ed947/email-sign-up"
               className="btn outline-primary btn-primary btn-large mt-4"
             >
-              Subscribe to our newsletter <Arrow />
+              <span className="mb-0">Subscribe to our newsletter</span>{" "}
+              <Arrow className="btn-arrow" />
             </a>
           </Col>
         </Row>
@@ -55,13 +56,13 @@ const Footer = () => {
         bg-primary d-flex flex-row-reverse flex-md-row justify-content-between copyright padding-sides"
       >
         <Col xs={7} md={9}>
-          <span>Copyright Phoenix Brand Strategy 2022</span>
+          <p className="mb-0">Copyright Phoenix Brand Strategy 2022</p>
         </Col>
         <Col xs={5} md={3}>
           <Row>
             <Col>
               <a href="/conditions">
-                <span className="pe-3">Terms & Conditions </span>
+                <p className="pe-3 mb-0">Terms & Conditions </p>
               </a>
             </Col>
           </Row>

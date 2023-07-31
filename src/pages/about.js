@@ -100,7 +100,7 @@ const AboutPage = ({ data }) => {
       <div className="padding-large">
         <Container fluid className="bg-success missionStatement">
           <div className="subheading fw-5">Our Mission</div>
-          <h3 className="display-2 mb-2r">
+          <h3 className="display-4 mb-2r">
             Our job is to help clients make decisions about what to do, or not
             do.
           </h3>
@@ -122,7 +122,7 @@ const AboutPage = ({ data }) => {
             </Col>
             <Col className="d-flex flex-column justify-content-center" sm={6}>
               <h2 className="subheading w-75">PERSPECTIVE MATTERS</h2>
-              <h3 className="display-2 mb-2 ">
+              <h3 className="display-4 mb-2 ">
                 Our team is tiny, but truly global.
               </h3>
               <p className="aboutWidth">
@@ -143,7 +143,7 @@ const AboutPage = ({ data }) => {
               sm={{ span: 6, order: "first" }}
             >
               <h2 className="subheading mt-3">COLLABORATORS AT HEART</h2>
-              <h3 className="display-2 mb-4">
+              <h3 className="display-4 mb-4">
                 Embedding the strategy is part of our process.
               </h3>
               <p className="aboutWidth">
@@ -166,7 +166,7 @@ const AboutPage = ({ data }) => {
             </Col>
             <Col className="d-flex flex-column justify-content-center" sm={6}>
               <h2 className="subheading mt-2">female-led</h2>
-              <h3 className="display-2 mb-2">
+              <h3 className="display-4 mb-2">
                 Part of the 0.1% of strategy companies run by women.
               </h3>
               <p className="aboutWidth">
@@ -182,7 +182,7 @@ const AboutPage = ({ data }) => {
               sm={{ span: 6, order: "first" }}
             >
               <h2 className="subheading mt-3">TRULY FLEXIBLE CULTURE</h2>
-              <h3 className="display-2 mb-4">
+              <h3 className="display-4 mb-4">
                 Balance, babies and conceptual blending
               </h3>
               <p className="aboutWidth">
@@ -203,7 +203,7 @@ const AboutPage = ({ data }) => {
       <div className="padding-medium text-white mb-5 mt-n5">
         <div className="padding-team bg-primary">
           <p className="subheading">Our Team</p>
-          <h2 className="mb-4 mb-o display-2">Meet the Humans of Phoenix</h2>
+          <h2 className="mb-4 mb-o display-4">Meet the Humans of Phoenix</h2>
           <Row className="ms-1">
             {TeamSortedByOrder.map((teamMember, index) => (
               <Col className="mt-5 gx-5 " key={index} md={4}>
@@ -214,7 +214,7 @@ const AboutPage = ({ data }) => {
                   />
                 </Row>
                 <Row className="mb-3 mb-o">
-                  <p className="h2 lh-2">{teamMember.name}</p>
+                  <p className="display-5 lh-2">{teamMember.name}</p>
                 </Row>
                 <Row className="mb-3 mb-o w-90">
                   <p>{teamMember.jobTitle}</p>

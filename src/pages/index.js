@@ -141,7 +141,9 @@ const IndexPage = (props) => {
           className="text-light"
           text="Phoenix is where brand strategy meets strategic design"
         />
-        <BrandVenn className="vennGraphic" />
+        <div className="vennGraphic-container">
+          <BrandVenn className="vennGraphic" />
+        </div>
         <BrandVennMobile className="vennGraphicMobile" />
       </div>
 
@@ -155,6 +157,7 @@ const IndexPage = (props) => {
             <Row className=" gx-5">
               {ServicesSortedByOrder.map((service, index) => (
                 <Col
+                  className="my-3"
                   key={index}
                   lg={4}
                   md={12}
@@ -172,17 +175,23 @@ const IndexPage = (props) => {
                     />
                   </Row>
                   <Row>
-                    <h3 className="w-90-md mb-3 display-2">
+                    <h3 className="w-90-md mb-3 display-4">
                       {service.name.split(" ").length === 2 ? (
                         <>
                           {service.name.split(" ")[0]}
                           <br />
                           {service.name.split(" ")[1]}
                         </>
+                      ) : service.name.split(" ").length === 3 ? (
+                        <>
+                          {service.name.split(" ").slice(0, 2).join(" ")}
+                          <br />
+                          {service.name.split(" ")[2]}
+                        </>
                       ) : (
                         service.name
                       )}
-                    </h3>{" "}
+                    </h3>
                   </Row>
                   <Row>
                     <Col sm={12} md={10} lg={12}>
@@ -194,8 +203,8 @@ const IndexPage = (props) => {
             </Row>
           </div>
           <Link to="/services" className="btn btn-primary mb-3">
-            See our services
-            <Arrow />
+            <span className="mb-0">See our services</span>
+            <Arrow className="btn-arrow" />
           </Link>
         </div>
       </div>

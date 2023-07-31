@@ -10,7 +10,7 @@ $font-family-base: "Work Sans" !default;
 
 $h1-font-size: 3rem;
 $h2-font-size: 2.5rem;
-$p-font-size: 1.3rem;
+$p-font-size: calc(1.3rem + 1vw);
 $p-line-height: 1.8rem;
 $border-radius: 0;
 $container-max-widths: (
@@ -55,62 +55,72 @@ ul {
 }
 
 .display-2 {
-  font-size: calc(1.575rem + 1.8vw);
+  font-size: calc(1.5rem + 0.3vw);
   font-weight: 500;
   line-height: 1.2;
 }
 @media (min-width: 1200px) {
   .display-2 {
-    font-size: 2.25rem;
+    font-size: calc(1rem + 1vw);
   }
 }
 
 .display-3 {
-  font-size: calc(1.5rem + 4vw);
+  font-size: 2rem;
   font-weight: 500;
   line-height: 1.2;
 }
 @media (min-width: 768px) {
   .display-3 {
-    font-size: calc(1.5rem + 2vw);
+    font-size: calc(2rem + 0.5vw);
   }
 }
-// @media (min-width: 1200px) {
-//   .display-3 {
-//     font-size: calc(1.5rem + 2.5vw);
-//   }
-// }
+@media (min-width: 860px) {
+  .display-3 {
+    font-size: calc(2.5rem + 1.2vw);
+  }
+}
+@media (min-width: 1800px) {
+  .display-3 {
+    font-size: calc(4.3rem + 0.2vw);
+  }
+}
 
 .display-4 {
-  font-size: calc(1.475rem + 2vw);
+  font-size: 24px;
   font-weight: 500;
   line-height: 1.2;
 }
 @media (min-width: 768px) {
   .display-4 {
-    font-size: calc(1.4rem + 2vw);
+    font-size: calc(1.8rem + 0.4vw);
+  }
+}
+@media (min-width: 1400px) {
+  .display-4 {
+    font-size: calc(1.8rem + 1vw);
   }
 }
 
 .display-5 {
-  font-size: calc(1.3rem + 1vw);
+  font-size: calc(1.2rem + 0.6vw);
   font-weight: 500;
   line-height: 1.2;
 }
 @media (min-width: 768px) {
   .display-5 {
-    font-size: calc(1rem + 1vw);
+    font-size: calc(1.2rem + 0.5vw);
   }
 }
 
 .display-6 {
-  font-size: calc(1.3rem + 1.5vw);
+  font-size: calc(1rem + 1.5vw);
   font-weight: 500;
   line-height: 1.2;
 }
 @media (min-width: 1200px) {
   .display-6 {
-    font-size: 12.5rem;
+    font-size: calc(1rem + 1.5vw);
   }
 }
 
@@ -182,4 +192,9 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+a:hover,
+a:focus {
+  color: #fc5a44;
 }

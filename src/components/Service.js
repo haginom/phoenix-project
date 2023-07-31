@@ -17,15 +17,17 @@ const Service = ({
       />
       <Container
         fluid
-        className="padding-large-sides pt-2 serviceTable w-100 mx-auto overflow-hidden mw-xl"
+        className="padding-large-sides pt-0 pb-2 serviceTable w-100 mx-auto overflow-hidden mw-xl"
       >
-        <Row className="serviceTableTopRow mb-5 mb-2md me-0">
+        <Row className="serviceTableTopRow my-5 mb-2md me-0">
           <Col className="ms-2 mb-4" md={3}>
             {serviceImage}
           </Col>
           <Col md={5}>
-            <h3 className="display-2 mb-4">{title}</h3>
-            <p className="mb-5 mb-2md">{titleDescription}</p>
+            <h3 className="display-4 mb-4">{title}</h3>
+            <p className="mb-5 mb-2md serviceTitleDescription">
+              {titleDescription}
+            </p>
           </Col>
         </Row>
         <Row>

@@ -3,7 +3,6 @@ import { Container } from "react-bootstrap";
 import Quote from "../svgs/Quote.svg";
 import Arrow from "../svgs/arrowRight.svg";
 import { Row, Col } from "react-bootstrap";
-import { Link } from "gatsby";
 
 const Hero = ({
   heroClass,
@@ -101,7 +100,7 @@ const Hero = ({
 
             {quoteText ? (
               <div className="quote-text-container">
-                <p className="clientTitle mt-2">{quoteName}</p>
+                <p className="clientTitle display-5 mt-2">{quoteName}</p>
                 <p className="clientTitle">
                   <strong>{quoteText}</strong>
                 </p>
@@ -110,7 +109,8 @@ const Hero = ({
 
             {cta ? (
               <a href={linkTo} className={`btn btn-primary mt-3 ${btnBorder}`}>
-                Let's Talk <Arrow />
+                <span className="mb-0">Let's Talk </span>
+                <Arrow className="btn-arrow" />
               </a>
             ) : null}
 
@@ -119,7 +119,8 @@ const Hero = ({
                 href="https://mailchi.mp/2f87f06ed947/email-sign-up"
                 className={`btn btn-primary mt-3 ${btnBorder}`}
               >
-                Subscribe to our newsletter <Arrow />
+                <span className="mb-0">Subscribe to our newsletter </span>
+                <Arrow className="btn-arrow" />
               </a>
             ) : null}
           </div>

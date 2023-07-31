@@ -73,7 +73,7 @@ const WorkPage = (props) => {
         coverImage={X}
         coverImageClassName="x-Mobile"
       />
-      <div className="padding-large mw-large">
+      <div className="padding-large ">
         <h3 className="subheading mb-5">Work</h3>
         {GroupedWork ? (
           <div>
@@ -89,12 +89,7 @@ const WorkPage = (props) => {
                           className={`work-grid preview-card-wrapper`}
                           key={index}
                         >
-                          <ProjectPreview
-                            isOffset={isOffset}
-                            // isFifthWork={isFifthWork}
-                            work
-                            {...work}
-                          />
+                          <ProjectPreview isOffset={isOffset} work {...work} />
                         </div>
                         {!isOffset && (
                           <>

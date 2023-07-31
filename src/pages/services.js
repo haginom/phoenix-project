@@ -68,24 +68,25 @@ const ServicePage = ({ data }) => {
         heading="We have the tools to help build your brand"
         text="We don’t like to be boxed into disciplines, but mix all the tools to come up with the ideal approach, bringing a blend of brand fundamentals, strategic design, deep user research and digital craft to each project. "
       />
-      {ServicesSortedByOrder.map((service, index) => (
-        <Service
-          key={index}
-          serviceImage={
-            <img
-              src={service.icon.asset.url}
-              alt="icon for service"
-              className="serviceIcon"
-            />
-          }
-          title={service.name}
-          titleDescription={service.description}
-          service="brandBuilding"
-          subServices={service.subService}
-          miniIcon={service.miniIcon}
-        />
-      ))}
-
+      <div className="pb-4">
+        {ServicesSortedByOrder.map((service, index) => (
+          <Service
+            key={index}
+            serviceImage={
+              <img
+                src={service.icon.asset.url}
+                alt="icon for service"
+                className="serviceIcon"
+              />
+            }
+            title={service.name}
+            titleDescription={service.description}
+            service="brandBuilding"
+            subServices={service.subService}
+            miniIcon={service.miniIcon}
+          />
+        ))}
+      </div>
       <Container className="padding-large bg-primary" fluid>
         <InfoBox
           className="text-light"
@@ -102,7 +103,9 @@ const ServicePage = ({ data }) => {
         </div>
       </Container>
       <Container fluid className="bg-primary padding-md bg-primary">
-        <ServicesGraphic className="servicesGraphic" />
+        <div className="serviceGraphic-container">
+          <ServicesGraphic className="servicesGraphic" />
+        </div>
       </Container>
       <Hero
         heroClass={"hero-mid"}

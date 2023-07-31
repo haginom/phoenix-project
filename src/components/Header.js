@@ -5,14 +5,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useLocation } from "@reach/router";
-import OffcanvasBg from "../images/Offcanvas.svg";
 import logo from "../images/logo-white-crop.png";
 import logoB from "../images/logo-black-crop.png";
-import { Link } from "gatsby";
+import { CloseButton } from "react-bootstrap";
 
 const Header = ({ background, about }) => {
   const location = useLocation();
   const isActiveWork = location.pathname.includes("work/");
+  const [visible, setVisible] = React.useState(false);
 
   return (
     <>
@@ -25,14 +25,19 @@ const Header = ({ background, about }) => {
           expand={expand}
         >
           <Container className="navbarContainer" fluid>
-            <Navbar.Brand as={Link} to="/">
+            <Navbar.Brand>
               {background ? (
-                <img src={logoB} alt="Logo Phoenix" className={`navLogo`} />
+                <a href="/">
+                  <img src={logoB} alt="Logo Phoenix" className={`navLogo`} />
+                </a>
               ) : (
-                <img src={logo} alt="Logo Phoenix" className={`navLogo`} />
+                <a href="/">
+                  <img src={logo} alt="Logo Phoenix" className={`navLogo`} />
+                </a>
               )}
             </Navbar.Brand>
             <Navbar.Toggle
+              onClick={() => setVisible(true)}
               activekey={location.pathname}
               aria-controls={`offcanvasNavbar-expand-${expand}`}
             >
@@ -63,14 +68,27 @@ const Header = ({ background, about }) => {
               id={`offcanvasNavbar-expand-${expand} offcanvasBg`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
               placement="end"
+              show={visible}
+              onHide={() => {
+                setVisible(false);
+              }}
             >
-              <img className="offcanvas-image" src={OffcanvasBg} alt="" />
-              <Offcanvas.Header closeButton>
+              {/* å<img className="offcanvas-image" src={OffcanvasBg} alt="" /> */}
+
+              <Offcanvas.Header>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  {" "}
-                  <img src={logoB} className={`navLogo`} alt="" />
+                  <a href="/">
+                    <img src={logoB} className={`navLogo`} alt="" />
+                  </a>
                 </Offcanvas.Title>
+                <CloseButton
+                  aria-label="Hide"
+                  onClick={() => {
+                    setVisible(false);
+                  }}
+                />
               </Offcanvas.Header>
+
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1">
                   <Nav.Link

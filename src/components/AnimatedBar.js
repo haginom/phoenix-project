@@ -2,13 +2,19 @@ import React from "react";
 import Chevron from "../svgs/chevron.svg";
 import Marquee from "react-fast-marquee";
 
-const text = ["New market", "Next Product"];
+const text = [
+  "New market",
+  "Next Product",
+  "New market",
+  "Next Product",
+  "New market",
+  "Next Product",
+];
 
 const AnimatedBanner = () => {
   return (
     <div className="marqueeContainer marqueeIndexSpacing">
       <Marquee
-        style={{ marginRight: "-1rem", minWidth: "100%" }}
         startPosition={0}
         gradientColor="#ffffff"
         backgroundColor="#ffffff"

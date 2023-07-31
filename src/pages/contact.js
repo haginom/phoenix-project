@@ -29,7 +29,7 @@ const ContactPage = () => {
         <p className="subheading">PARTNERS</p>
         <Row className="w-100 align-items-center ">
           <Col sm={12} lg={6}>
-            <h2 className="mb-5 mt-2 w-90">
+            <h2 className="display-4 mb-5 mt-2 w-90">
               Have an interesting problem to solve?
             </h2>
             <p className="w-90">

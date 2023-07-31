@@ -2,6 +2,7 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 
 const AnimatedBanner = ({ text, miniIcon }) => {
+  const doubledText = text.concat(text);
   return (
     <div className="marqueeContainer my-3">
       <Marquee
@@ -12,7 +13,7 @@ const AnimatedBanner = ({ text, miniIcon }) => {
         loop={100}
         speed={60}
       >
-        {text.map((item, index) => (
+        {doubledText.map((item, index) => (
           <div className="marqueeList" key={index}>
             <img
               src={miniIcon.asset?.url}

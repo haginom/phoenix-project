@@ -11,31 +11,19 @@ function ProjectPreviewGrid(props, setTitleWidth) {
   const sliderRef = useRef(null);
   const FlattenedNodes = flattenArray(props.nodes);
 
-  console.log(props.nodes);
   const settings = {
     dots: false,
     arrows: true,
-    infinite: false,
+    infinite: true,
     adaptiveHeight: false,
-    slidesToShow: 3.2,
+    slidesToShow: 2.2,
     slidesToScroll: 1,
     initialSlide: 1,
     centerMode: true,
-    centerPadding: "5.5%",
+    centerPadding: "8%",
     className: "slider-container",
 
     responsive: [
-      {
-        breakpoint: 1600,
-        settings: {
-          centerMode: true,
-          slidesToShow: 2.2,
-          slidesToScroll: 1,
-          initialSlide: 0,
-          infinite: true,
-          centerPadding: "8%",
-        },
-      },
       {
         breakpoint: 768,
         settings: {
@@ -102,8 +90,9 @@ function ProjectPreviewGrid(props, setTitleWidth) {
             className="btn link-button btn-primary"
             to={props.browseMoreHref}
           >
-            See more work{"  "}
-            <Arrow />
+            <p className="mb-0"> See more work</p>
+
+            <Arrow className="btn-arrow" />
           </Link>
         </div>
       )}

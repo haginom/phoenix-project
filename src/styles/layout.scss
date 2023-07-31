@@ -10,7 +10,7 @@
 }
 
 .mw-large {
-  max-width: 85rem;
+  max-width: 130rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -102,6 +102,10 @@ h4 {
 
 //customise padding
 
+.padding-small {
+  padding: 1.85rem 2rem 1.85rem 2rem;
+}
+
 .padding-large {
   padding: 3rem 2rem 3rem 2rem;
 }
@@ -126,10 +130,13 @@ h4 {
     padding: 4rem 3rem 0rem 3rem;
   }
   .padding-large-no-right {
-    padding: 4rem 0rem 2rem 3rem;
+    padding: 4rem 0rem 3rem 4rem;
   }
   .padding-large-no-bottom {
     padding: 4rem 3rem 0rem 3rem;
+  }
+  .padding-small {
+    padding: 3rem 3rem 3rem 3rem;
   }
 }
 
@@ -146,6 +153,9 @@ h4 {
   .padding-large-no-bottom {
     padding: 4rem 6rem 0rem 6rem;
   }
+  .padding-small {
+    padding: 4rem 6rem 4rem 6rem;
+  }
 }
 
 @media (min-width: 1140px) {
@@ -161,15 +171,8 @@ h4 {
   .padding-large-no-bottom {
     padding: 4.5rem 10rem 0rem 10rem;
   }
-}
-
-.padding-small {
-  padding: 5rem 8rem 5rem 8rem;
-}
-
-@media (max-width: 768px) {
   .padding-small {
-    padding: 1.85rem 2rem 1.85rem 2rem;
+    padding: 4rem 6rem 4rem 6rem;
   }
 }
 
@@ -185,6 +188,9 @@ h4 {
   }
   .padding-large-no-bottom {
     padding: 8rem 12rem 0rem 12rem;
+  }
+  .padding-small {
+    padding: 8rem 12rem 8rem 12rem;
   }
 }
 
@@ -255,15 +261,23 @@ h4 {
   }
 }
 
-@media (max-width: 768px) {
+.padding-sides {
+  padding: 1.5rem 2rem 1.5rem 2rem;
+}
+@media (min-width: 768px) {
   .padding-sides {
-    padding: 0.75rem 2rem 0.75rem 2rem;
+    padding: 1.5rem 2rem 1.5rem 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .padding-sides {
+    padding: 1.5rem 6rem 1.5rem 6rem;
   }
 }
 
-@media (max-width: 568px) {
+@media (min-width: 1640px) {
   .padding-sides {
-    padding: 0.75rem 0.25rem 0.75rem 0.25rem;
+    padding: 1.5rem 8rem 1.5rem 8rem;
   }
 }
 
@@ -287,14 +301,16 @@ h4 {
   border: 0.5px white solid;
 }
 .btn {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  display: flex;
+  padding-left: calc(1.5rem + 0.2vw);
+  padding-right: calc(1.5rem + 0.2vw);
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   border-radius: 40px;
   color: #fff;
+  width: fit-content;
   font-weight: 500;
-  width: 14rem;
+
   display: flex;
   justify-content: space-around;
 }
@@ -303,20 +319,25 @@ h4 {
   .btn {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    width: 18rem;
   }
 }
 .btn-large {
-  width: 19rem;
   margin-left: 0.2rem;
 }
 
+.btn-arrow {
+  margin-left: 2rem;
+  height: calc(1.2rem + 0.2vw);
+  width: calc(2rem + 0.2vw);
+}
+
 .btn-primary {
-  max-width: 100%;
   text-align: left;
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  border-color: #c5d8ff;
 
   svg {
     display: inline;
@@ -329,30 +350,39 @@ h4 {
   }
 }
 
-.btn-outline-primary {
+.outline-primary {
   border: solid #f86a1a 3px;
 }
 
 .link-button {
   background-color: #fc5a44;
   color: #fff;
-  width: 16rem;
   text-align: left;
   border-radius: 40px;
   text-decoration: none;
+  width: fit-content;
 }
 
 //customise text
 p {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.5;
   font-weight: 400;
+}
+
+span {
+  font-size: 0.8rem;
+  line-height: 1.2;
 }
 
 @media (min-width: 1840px) {
   p {
-    font-size: 1.3rem;
-    line-height: 2rem;
+    font-size: calc(1.2rem + 0.3vw);
+    line-height: 1.6;
+  }
+  span {
+    font-size: calc(1rem + 0.3vw);
+    line-height: 1.2;
   }
 }
 
@@ -376,7 +406,7 @@ p {
 
 @media (min-width: 1240px) {
   .subheading {
-    font-size: calc(1rem + 0.4vw);
+    font-size: calc(1rem + 0.2vw);
   }
 }
 
@@ -385,6 +415,14 @@ p {
 }
 
 //nav menu
+
+@media (min-width: 769px) {
+  .offcanvas {
+    background-image: url("data:image/svg+xml,%3Csvg width='665' height='760' viewBox='0 0 665 780' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_388_7437)'%3E%3Cpath d='M673.1 663.65L756.02 791.51H839L673.1 535.69L507.2 791.51H590.18L673.1 663.65Z' fill='%23FC5A44'/%3E%3Cpath d='M977.58 0.699951H894.59L679.83 331.86L465.06 0.699951H382.08L638.34 395.84L381.73 791.51H464.72L679.83 459.81L894.94 791.51H977.92L721.32 395.84L977.58 0.699951Z' fill='%23FC5A44'/%3E%3Cpath d='M329.08 0.649883L246.1 0.629883L502.27 395.83L245.58 791.44L328.56 791.46L585.25 395.85L329.08 0.649883Z' fill='%23FC5A44'/%3E%3Cpath d='M845.56 0.699951H762.58L679.65 128.57L596.73 0.699951H513.74L679.65 256.52L845.56 0.699951Z' fill='%23FC5A44'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_388_7437'%3E%3Crect width='1224' height='792.01' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: top right;
+  }
+}
 
 .offcanvas.offcanvas-end {
   width: 100%;
@@ -431,6 +469,11 @@ p {
     padding-left: 3rem;
     padding-right: 3rem;
   }
+}
+
+.offcanvas {
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
 }
 
 .offcanvas-title {
@@ -485,7 +528,6 @@ p {
 .offcanvas-image {
   position: absolute;
   right: 0;
-  z-index: 2000;
 }
 
 .offcanvas-image {
@@ -593,9 +635,15 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
+}
+
+.quote-chevron {
+  flex: 0 0 50px;
 }
 
 .logoText {
+  flex: 1;
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.8rem;
@@ -727,23 +775,27 @@ svg {
   align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  margin-right: 2rem;
+  margin-right: 1rem;
   white-space: nowrap; /* prevent line breaks */
   font-size: 1rem;
   justify-content: center;
-  width: 100%;
-  margin-left: 2rem;
+  margin-left: 1rem;
+}
+
+.marqueeList > img {
+  height: 50px;
 }
 
 .marqueeText {
   font-size: 3rem;
   font-weight: 500;
   color: #fc5a44;
+  flex: 1;
 }
 
 @media (min-width: 768px) {
   .marqueeText {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 }
 
@@ -752,28 +804,31 @@ svg {
   max-width: 450px;
 }
 
+@media (min-width: 1200px) {
+  .infoBoxWrapper {
+    max-width: 650px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .infoBoxWrapper {
+    max-width: 850px;
+  }
+}
+
 .infoBoxText {
-  font-size: 2rem;
-  line-height: 1.3;
   letter-spacing: -0.03rem;
   font-weight: 500;
-  max-width: 450px;
 }
 
 @media (min-width: 768px) {
   .infoBoxText {
-    font-size: 2.1rem;
-    line-height: 1.3;
-    letter-spacing: -0.03rem;
-    font-weight: 500;
     margin-bottom: 2.5rem;
   }
 }
 
 @media (min-width: 1400px) {
   .infoBoxText {
-    font-size: calc(2.1rem + 0.4vw);
-    line-height: 1.3;
     letter-spacing: -0.03rem;
     font-weight: 500;
     margin-bottom: 2.5rem;
@@ -786,6 +841,7 @@ svg {
 
 .serviceIcon {
   object-fit: contain;
+  height: 60%;
 }
 
 @media (min-width: 768px) {
@@ -802,9 +858,7 @@ svg {
 .vennGraphic {
   height: 20%;
   width: 100%;
-  max-width: 50rem;
-  padding-bottom: 2rem;
-  padding-top: 2rem;
+  max-width: 80rem;
   display: none;
 }
 
@@ -823,12 +877,28 @@ svg {
   }
   .vennGraphic {
     display: block;
-    padding-top: 2rem;
-    height: 30%;
+    padding: 2rem;
+    height: 20%;
   }
   .vennGraphicMobile {
     display: none;
   }
+
+  .vennGraphic-container {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .serviceGraphic-container {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.serviceTitleDescription {
+  max-width: 32rem;
 }
 
 //About
@@ -913,6 +983,9 @@ svg {
 .work-detail-keywords {
   grid-row: 1 / 3;
   margin-top: 1rem;
+  // height: fit-content;
+  // position: sticky;
+  // top: 5%;
 }
 
 .work-detail-image-gallery {
@@ -955,16 +1028,25 @@ svg {
 .work-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
   gap: 2rem;
+  // grid-auto-rows: 1fr;
+  grid-auto-rows: min-content;
 }
 
+@media (max-width: 769px) {
+  .work-grid-container {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 .preview-card-wrapper {
   margin-top: -1rem;
 }
 
 .work-grid:nth-child(9n) {
   grid-column: span 2;
+  grid-row: span 2;
   margin-top: 0;
 }
 
@@ -978,9 +1060,13 @@ svg {
 
 @media (min-width: 768px) {
   .preview-card-wrapper {
-    margin-top: -8rem;
+    margin-top: -10rem;
   }
   .empty-grid {
     display: block;
   }
+}
+
+.projectPreviewText {
+  min-height: 4rem;
 }

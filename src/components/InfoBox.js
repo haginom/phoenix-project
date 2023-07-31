@@ -4,7 +4,7 @@ const InfoBox = ({ heading, text, className }) => {
   return (
     <div className={`infoBoxWrapper ${className} `}>
       {heading ? <h3 className="subheading ">{heading}</h3> : null}
-      <div className="infoBoxText">{text}</div>
+      <h2 className="infoBoxText display-4">{text}</h2>
     </div>
   );
 };

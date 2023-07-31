@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import Image from "gatsby-plugin-sanity-image";
 
 function ProjectPreview({
@@ -10,11 +9,11 @@ function ProjectPreview({
   ...props
 }) {
   return (
-    <Link
+    <a
       className={`previewCard ms-0 ${work && "work-preview-card"} ${
         isOffset && "isOffset"
       } ${isFifthWork && "full-width-preview-card"}`}
-      to={`/work/${props?.id}`}
+      href={`/work/${props?.id}`}
     >
       <div className="leadMediaThumb mb-1">
         {props.previewPoster && props.previewPoster.asset && (
@@ -48,12 +47,12 @@ function ProjectPreview({
         )}
       </div>
       <div>
-        <h3 className={`mb-2 ${headingClass}`}>{props.title}</h3>
+        <h3 className={`mb-2 display-5 ${headingClass}`}>{props.title}</h3>
         <div>
-          <p className="mb-0">{props.description}</p>
+          <p className="mb-0 projectPreviewText">{props.description}</p>
         </div>
       </div>
-    </Link>
+    </a>
   );
 }
 export default ProjectPreview;
