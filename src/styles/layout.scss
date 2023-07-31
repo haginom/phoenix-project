@@ -804,7 +804,12 @@ svg {
   max-width: 450px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
+  .infoBoxWrapper {
+    max-width: 425px;
+  }
+}
+@media (min-width: 1600px) {
   .infoBoxWrapper {
     max-width: 650px;
   }
