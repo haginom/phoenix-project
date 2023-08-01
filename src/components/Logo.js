@@ -20,8 +20,7 @@ const LogoWithQuote = ({ companyName, quote, logo, handleLogoHover }) => {
       <div className="logo">
         <GatsbyImage
           objectFit="contain"
-          style={{ maxHeight: "100%" }}
-          imgStyle={{ maxHeight: "100%" }}
+          style={{ width: "auto", height: "100%", maxHeight: "75px" }}
           image={logo?.asset.gatsbyImageData}
           alt={companyName}
         />
