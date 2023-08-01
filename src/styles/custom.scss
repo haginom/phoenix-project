@@ -85,11 +85,11 @@ ul {
 
 @media (min-width: 988px) {
   .display-3 {
-    font-size: calc(52px + (52 - 44) * ((100vw - 988px) / (1800 - 988)));
+    font-size: calc(48px + (56 - 48) * ((100vw - 988px) / (1800 - 988)));
   }
 
   .display-4 {
-    font-size: calc(32px + (38 - 32) * ((100vw - 300px) / (2600 - 300)));
+    font-size: calc(30px + (36 - 30) * ((100vw - 300px) / (2600 - 300)));
   }
 }
 

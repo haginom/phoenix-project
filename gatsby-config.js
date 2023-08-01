@@ -32,6 +32,12 @@ module.exports = {
     },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/images/phoeni-X-orange.png",
+      },
+    },
     "gatsby-transformer-sharp",
     {
       resolve: `gatsby-plugin-sass`,
