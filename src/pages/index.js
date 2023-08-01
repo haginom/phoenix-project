@@ -139,7 +139,7 @@ const IndexPage = (props) => {
       <div className="padding-large bg-primary">
         <InfoBox
           className="text-light"
-          text="Phoenix is where brand strategy meets strategic design"
+          text="Phoenix is where brand strategy meets strategic design."
         />
         <div className="vennGraphic-container">
           <BrandVenn className="vennGraphic" />

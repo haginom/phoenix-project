@@ -365,7 +365,7 @@ h4 {
 
 //customise text
 p {
-  font-size: 1rem;
+  font-size: calc(12px + (18 - 12) * ((100vw - 300px) / (1800 - 300)));
   line-height: 1.5;
   font-weight: 400;
 }
@@ -777,7 +777,6 @@ svg {
   -ms-flex-align: center;
   margin-right: 1rem;
   white-space: nowrap; /* prevent line breaks */
-  font-size: 1rem;
   justify-content: center;
   margin-left: 1rem;
 }
@@ -787,39 +786,13 @@ svg {
 }
 
 .marqueeText {
-  font-size: 3rem;
+  font-size: calc(48px + (48 - 36) * ((100vw - 300px) / (2200 - 300)));
   font-weight: 500;
   color: #fc5a44;
   flex: 1;
 }
 
-@media (min-width: 768px) {
-  .marqueeText {
-    font-size: 4rem;
-  }
-}
-
 //
-.infoBoxWrapper {
-  max-width: 450px;
-}
-
-@media (min-width: 768px) {
-  .infoBoxWrapper {
-    max-width: 475px;
-  }
-}
-@media (min-width: 1600px) {
-  .infoBoxWrapper {
-    max-width: 650px;
-  }
-}
-
-@media (min-width: 2000px) {
-  .infoBoxWrapper {
-    max-width: 850px;
-  }
-}
 
 .infoBoxText {
   letter-spacing: -0.03rem;
@@ -828,7 +801,10 @@ svg {
 
 @media (min-width: 768px) {
   .infoBoxText {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
+  }
+  .infoBoxWrapper {
+    max-width: 42%;
   }
 }
 
@@ -836,7 +812,7 @@ svg {
   .infoBoxText {
     letter-spacing: -0.03rem;
     font-weight: 500;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
   }
 }
 
@@ -882,8 +858,11 @@ svg {
   }
   .vennGraphic {
     display: block;
-    padding: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     height: 20%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .vennGraphicMobile {
     display: none;
@@ -899,6 +878,13 @@ svg {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media (min-width: 1800px) {
+  .vennGraphic {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 }
 

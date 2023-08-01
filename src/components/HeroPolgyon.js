@@ -3,15 +3,12 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const HeroCover = ({
   bg,
-  left,
   heading,
-  textColor,
   text,
   light,
   bgPolygon,
   svgColor,
   polygon,
-  margin,
 }) => {
   return (
     <Container fluid className={`${bg} hero hero-top`}>
