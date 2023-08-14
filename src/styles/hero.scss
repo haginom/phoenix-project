@@ -64,7 +64,7 @@
   .hero-top {
     height: 0;
     overflow: hidden;
-    padding-top: calc(581.44px / 1127.34px * 100%);
+    padding-top: calc(501.44px / 1127.34px * 100%);
     background: white;
     position: relative;
     max-height: 900px;
@@ -313,14 +313,14 @@
 
   .polygonLeftS::before {
     left: 17.5vw;
-    top: -3vw;
+    top: -3.9vw;
     border-top: 26vw solid transparent;
     border-bottom: 26vw solid transparent;
     border-right: 16vw solid #c5d8ff;
   }
   .polygonLeft::before {
     left: 21.7vw;
-    top: 0vw;
+    top: -4vw;
     border-top: 26vw solid transparent;
     border-bottom: 26vw solid transparent;
     border-right: 20vw solid #fc5a44
@@ -370,7 +370,7 @@
     border-top: 30vw solid transparent;
     border-bottom: 30vw solid transparent;
     border-left: 18vw solid #c5d8ff;
-    left: 5vw;
+    left: 10vw;
   }
 
   .rowTextLeft {
@@ -526,7 +526,7 @@
     background-position: calc(0% - 8vw);
   }
   .chevronPrimaryAbout {
-    background-position: calc(0% - 11vw);
+    background-position: calc(0% + 0vw);
     background-size: cover;
   }
 .aboutPolywidth{
