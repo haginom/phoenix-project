@@ -160,16 +160,16 @@ h4 {
 
 @media (min-width: 1140px) {
   .padding-large {
-    padding: 4.5rem 10rem 4.5rem 10rem;
+    padding: 5rem 10rem 5rem 10rem;
   }
   .padding-large-sides {
-    padding: 4.5rem 10rem 0rem 10rem;
+    padding: 5rem 10rem 0rem 10rem;
   }
   .padding-large-no-right {
-    padding: 4.5rem 0rem 4.5rem 10rem;
+    padding: 5rem 0rem 5rem 10rem;
   }
   .padding-large-no-bottom {
-    padding: 4.5rem 10rem 0rem 10rem;
+    padding: 5rem 10rem 0rem 10rem;
   }
   .padding-small {
     padding: 4rem 6rem 4rem 6rem;
@@ -371,13 +371,13 @@ p {
 }
 
 span {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   line-height: 1.2;
 }
 
 @media (min-width: 1840px) {
   p {
-    font-size: calc(1.2rem + 0.3vw);
+    font-size: calc(1.1rem + 0.3vw);
     line-height: 1.6;
   }
   span {
@@ -422,6 +422,12 @@ span {
     background-repeat: no-repeat;
     background-position: top right;
   }
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000; 
 }
 
 .offcanvas.offcanvas-end {
@@ -640,19 +646,19 @@ footer {
 
 .logoText {
   flex: 1;
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 1.8rem;
   margin-left: 1rem;
   color: #f86a1a;
 }
+@media (min-width: 922px) {
+  
+.logoText {
 
-@media (min-width: 768px) {
-  .logoText {
-    font-size: 1.8rem;
-    line-height: 2.5rem;
-  }
+    font-size: calc(1.3rem + 0.3vw);
+    line-height: 1.6;
+  
 }
+}
+
 
 .logoInfo {
   max-width: 50rem;
@@ -809,6 +815,7 @@ svg {
     letter-spacing: -0.03rem;
     font-weight: 500;
     margin-bottom: 3rem;
+    width: 90%;
   }
 }
 
@@ -816,6 +823,11 @@ svg {
   border-bottom: #fc5a44 solid 3px;
 }
 
+@media (min-width: 900px) {
+.serviceTable{
+  margin-top: 3rem;
+}
+}
 .serviceIcon {
   object-fit: contain;
   height: 60%;
@@ -879,8 +891,13 @@ svg {
 
 @media (min-width: 1800px) {
   .vennGraphic {
+    width: 75%;
     padding-top: 2rem;
     padding-bottom: 2rem;
+  }
+
+  .vennGraphic-container{
+    width: 70%;
   }
 }
 
@@ -1029,6 +1046,8 @@ svg {
 }
 .preview-card-wrapper {
   margin-top: -1rem;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .work-grid:nth-child(9n) {
@@ -1056,4 +1075,12 @@ svg {
 
 .projectPreviewText {
   min-height: 4rem;
+}
+
+.scroll-smooth{
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-snap-stop: always;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }

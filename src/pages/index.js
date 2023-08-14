@@ -115,7 +115,7 @@ const IndexPage = (props) => {
         offsetMid={1}
         offsetMin={1}
         colSizeMax={10}
-        colSizeMin={6}
+        colSizeMin={5}
         colSizeMid={6}
         bg="bg-primary"
         heading="We’re a global brand strategy, research & insights consultancy "
@@ -150,11 +150,12 @@ const IndexPage = (props) => {
       <div className="bg-success padding-large overflow-hidden">
         <div className="mw-xl">
           <InfoBox
+          className="mt-3"
             heading="what we do"
             text="We help find the right problems to solve with a mind in design, and heart in the future."
           />
           <div className="my-4 overflow-hidden">
-            <Row className=" gx-5">
+            <Row className=" gx-5 mt-3">
               {ServicesSortedByOrder.map((service, index) => (
                 <Col
                   className="my-3"
@@ -171,11 +172,11 @@ const IndexPage = (props) => {
                       alt=""
                       src={service.icon.asset.url}
                       style={{ width: "110px" }}
-                      className="mb-3"
+                      className="mb-4"
                     />
                   </Row>
                   <Row>
-                    <h3 className="w-90-md mb-3 display-4">
+                    <h3 className="w-90-md mb-4 display-4">
                       {service.name.split(" ").length === 2 ? (
                         <>
                           {service.name.split(" ")[0]}
@@ -195,7 +196,7 @@ const IndexPage = (props) => {
                   </Row>
                   <Row>
                     <Col sm={12} md={10} lg={12}>
-                      <p className="w-100 mb-4">{service.description}</p>
+                      <p className="w-90 mb-5">{service.description}</p>
                     </Col>
                   </Row>
                 </Col>

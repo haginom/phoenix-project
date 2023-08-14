@@ -95,11 +95,12 @@ ul {
 
 @media (min-width: 1800px) {
   .display-3 {
-    font-size: calc(68px + (68 - 60) * ((100vw - 1800px) / (2600 - 1800)));
+    font-size: calc(64px + (64 - 58) * ((100vw - 1800px) / (2600 - 1800)));
   }
 
   .display-4 {
-    font-size: calc(46px + (56 - 46) * ((100vw - 300px) / (2600 - 300)));
+    font-size: calc(44px + (50 - 44) * ((100vw - 300px) / (2600 - 300)));
+    line-height: 1.3;
   }
 }
 

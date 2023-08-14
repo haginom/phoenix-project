@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 import Service from "../components/Service";
 import { Container } from "react-bootstrap";
 import InfoBox from "../components/InfoBox";
-import ServicesGraphic from "../svgs/Services-Graphic.svg";
+import  ServicesGraphic from "../svgs/Services-Graphic.svg";
 import Hero from "../components/Hero";
 import { mapEdgesToNodes } from "../library/helpers";
 import HeroCover from "../components/Polygon";

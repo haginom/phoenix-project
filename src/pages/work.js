@@ -8,6 +8,7 @@ import { splitArrayIntoGroups } from "../helpers/helpers";
 import Hero from "../components/Hero";
 import X from "../images/phoeni-X-orange.png";
 
+
 export const WorkPageQuery = graphql`
   query WorkQuery {
     featuredWork: allSanityFeaturedWork(filter: { research: { eq: false } }) {
@@ -73,13 +74,13 @@ const WorkPage = (props) => {
         coverImage={X}
         coverImageClassName="x-Mobile"
       />
-      <div className="padding-large ">
+      <div className="padding-large">
         <h3 className="subheading mb-5">Work</h3>
         {GroupedWork ? (
           <div>
             {GroupedWork.map((subarray, subarrayIndex) => {
               return (
-                <div className="work-grid-container" key={subarrayIndex}>
+                <div className="work-grid-container scroll-smooth" key={subarrayIndex}>
                   {subarray.map((work, index) => {
                     const isOffset = (index + 1) % 2 === 0;
 

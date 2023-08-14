@@ -48,7 +48,39 @@
   .hero-top {
     height: 0;
     overflow: hidden;
-    padding-top: calc(501.44px / 1127.34px * 100%);
+    padding-top: calc(581.44px / 1127.34px * 100%);
+    background: white;
+    position: relative;
+    max-height: 900px;
+  }
+}
+
+@media (min-width: 992px) {
+  .hero {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .hero-top {
+    height: 0;
+    overflow: hidden;
+    padding-top: calc(581.44px / 1127.34px * 100%);
+    background: white;
+    position: relative;
+    max-height: 900px;
+  }
+}
+
+@media (min-width: 1590px) {
+  .hero {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .hero-top {
+    height: 0;
+    overflow: hidden;
+    padding-top: calc(541.44px / 1127.34px * 100%);
     background: white;
     position: relative;
     max-height: 900px;
@@ -263,12 +295,12 @@
   }
 
   .adjustPolyWidthAbout {
-    width: 65%;
+    width:60%;
   }
 
   .polygonRight::before {
     border-left: 13vw solid #c5d8ff;
-    left: 6vw;
+    left: 0vw;
     top: -2vw;
     border-top: 24vw solid transparent;
     border-bottom: 24vw solid transparent;
@@ -281,17 +313,17 @@
 
   .polygonLeftS::before {
     left: 17.5vw;
-    top: 0vw;
-    border-top: 22.5vw solid transparent;
-    border-bottom: 22.5vw solid transparent;
+    top: -3vw;
+    border-top: 26vw solid transparent;
+    border-bottom: 26vw solid transparent;
     border-right: 16vw solid #c5d8ff;
   }
   .polygonLeft::before {
-    left: 19vw;
+    left: 21.7vw;
     top: 0vw;
-    border-top: 22.5vw solid transparent;
-    border-bottom: 22.5vw solid transparent;
-    border-right: 20vw solid #fc5a44;
+    border-top: 26vw solid transparent;
+    border-bottom: 26vw solid transparent;
+    border-right: 20vw solid #fc5a44
   }
 
   .rowTextLeft {
@@ -311,9 +343,9 @@
     border-left: 22vw solid #fc5a44;
   }
   .polygonRight::before {
-    border-top: 24vw solid transparent;
-    border-bottom: 24vw solid transparent;
-    border-left: 12vw solid #c5d8ff;
+    border-top: 26.5vw solid transparent;
+    border-bottom: 26.5vw solid transparent;
+    border-left: 20vw solid #c5d8ff;
   }
 
   .rowTextLeft {
@@ -338,7 +370,7 @@
     border-top: 30vw solid transparent;
     border-bottom: 30vw solid transparent;
     border-left: 18vw solid #c5d8ff;
-    left: -1vw;
+    left: 5vw;
   }
 
   .rowTextLeft {
@@ -354,9 +386,7 @@
     top: -20vh;
     // border-right: 20vw solid #fc5a44;
   }
-  .rowTextLeft {
-    width: 50rem;
-  }
+
 }
 
 // .polygonLeftS::before {
@@ -411,7 +441,7 @@
 
 @media (min-width: 968px) {
   .backgroundPositionImageAbout {
-    background-position: right -2% top;
+    background-position: right -6% top;
   }
 }
 
@@ -480,7 +510,7 @@
     background-position: calc(0% - 10vw);
   }
   .chevronPrimary {
-    background-position: calc(0% + 0vw);
+    background-position: calc(0% - 4.7vw);
   }
   .chevronPrimaryAbout {
     background-position: calc(0% - 10vw);
@@ -496,14 +526,21 @@
     background-position: calc(0% - 8vw);
   }
   .chevronPrimaryAbout {
-    background-position: calc(0% - 10vw);
+    background-position: calc(0% - 11vw);
     background-size: cover;
   }
+.aboutPolywidth{
+  width: 25%;
+}
 }
 
 @media (min-width: 1640px) {
   .chevronSuccessCS {
     background-position: calc(0% - 9vw);
+  }
+  .chevronPrimaryAbout {
+    background-position: calc(0% - 6vw);
+    background-size: cover;
   }
 }
 

@@ -83,6 +83,7 @@ const AboutPage = ({ data }) => {
         // rectangle={"rectangleSuccessLeft"}
         // adjustPolyWidth={"adjustPolyWidthAbout"}
         chevron={"chevronPrimaryAbout"}
+        adjustPolyWidth={"aboutPolywidth"}
         backgroundPositionCoverImage="backgroundPositionImageAbout"
         rowTextClassName="rowTextLeft"
         textColor={"text-dark"}

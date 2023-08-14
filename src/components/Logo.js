@@ -55,10 +55,10 @@ const LogoContainer = ({ logos }) => {
       </div>
       <div className="d-flex justify-content-center align-items-center logoInfo">
         <Chevron className="quote-chevron" />
-        <span className="logoText">
+          <p className="logoText">
           {hoveredQuote ||
             "Hover over any logo to see what kind of journeys we’ve been on!"}
-        </span>
+            </p>
       </div>
       <div className="logo-container-row">
         {logos
