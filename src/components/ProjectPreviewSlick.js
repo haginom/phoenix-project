@@ -57,7 +57,7 @@ function ProjectPreviewGrid(props, setTitleWidth) {
   };
   return (
     <div className="padding-large-no-right overflow-hidden">
-      <div className="d-flex justify-content-between overflow-hidden">
+      <div className="d-flex justify-content-between overflow-hidden mb-2">
         {props.title && (
           <h2 className={`subheading mb-2 ${setTitleWidth && "titleWidth"}`}>
             {props.title}

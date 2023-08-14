@@ -6,7 +6,7 @@
   font-weight: 600;
 }
 .mw-xl {
-  max-width: 90rem;
+  max-width: 100rem;
 }
 
 .mw-large {
@@ -810,11 +810,11 @@ svg {
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1600px) {
   .infoBoxText {
     letter-spacing: -0.03rem;
     font-weight: 500;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     width: 90%;
   }
 }
@@ -830,12 +830,12 @@ svg {
 }
 .serviceIcon {
   object-fit: contain;
-  height: 60%;
+  height: 14vh;
 }
 
 @media (min-width: 768px) {
   .two-lines-height {
-    height: 4rem;
+    min-height: 4rem;
   }
 }
 
