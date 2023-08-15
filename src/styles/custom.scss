@@ -83,7 +83,7 @@ ul {
   line-height: 1.2;
 }
 
-@media (min-width: 988px) {
+@media (min-width: 1140px) {
   .display-3 {
     font-size: calc(48px + (56 - 48) * ((100vw - 988px) / (1800 - 988)));
   }
