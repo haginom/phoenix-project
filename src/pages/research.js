@@ -50,7 +50,6 @@ const ResearchPage = (props) => {
     (a, b) => new Date(a._createdAt) - new Date(b._createdAt)
   );
 
-  console.log(SortedWorkByDate);
   return (
     <Layout background="success">
       <HeroCover
@@ -79,6 +78,7 @@ const ResearchPage = (props) => {
       {SortedWorkByDate && (
         <ProjectPreviewGrid
           setTitleWidth
+          infinite
           title="Our latest research projects"
           nodes={SortedWorkByDate}
         />

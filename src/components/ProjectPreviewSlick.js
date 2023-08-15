@@ -11,10 +11,12 @@ function ProjectPreviewGrid(props, setTitleWidth) {
   const sliderRef = useRef(null);
   const FlattenedNodes = flattenArray(props.nodes);
 
+  const infiniteBoolean = FlattenedNodes.length >= 3;
+
   const settings = {
     dots: false,
     arrows: true,
-    infinite: true,
+    infinite: infiniteBoolean,
     adaptiveHeight: false,
     slidesToShow: 2.2,
     slidesToScroll: 1,

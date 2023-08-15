@@ -132,6 +132,7 @@ const IndexPage = (props) => {
       {SortedWorkByDate && (
         <ProjectPreviewGrid
           title="Featured Work"
+          infinite={true}
           nodes={SortedWorkByDate}
           browseMoreHref="/work/"
         />

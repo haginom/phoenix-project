@@ -16,6 +16,13 @@ export default {
       name: 'research',
       type: 'boolean',
       title: 'Research',
+      description: 'Is this case study a research piece?'
+    },
+    {
+      name: 'featured',
+      type: 'boolean',
+      title: 'Featured',
+      description: 'Should this case study be featured within the "Featured Work" section on the homepage?'
     },
     {
       name: 'description',
