@@ -95,6 +95,7 @@ const FeaturedWorkPage = ({ SortedPreviews, FeatureWorks }) => {
     (obj) => obj._type !== "hero" && obj._type !== "keywords"
   );
 
+  console.log(QuoteSection.attribute)
   return (
     <Layout>
       <HeroCover
@@ -374,7 +375,7 @@ const FeaturedWorkPage = ({ SortedPreviews, FeatureWorks }) => {
           bgImg="quote-hero"
           bg="bg-primary"
           heading="The Phoenix team has been both valuable and a pleasure to partner with. Their research has provided thorough insights into user problems and needs, helping shape our product strategy and prioritization"
-          quoteName="- Rosie"
+          quoteName="Rosie"
           quoteText="PM, Noom, Inc."
         />
       )}
