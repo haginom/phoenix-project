@@ -99,14 +99,14 @@ const Hero = ({
               </div>
             ) : null}
 
-            {quoteText ? (
+            {/* {quoteText ? (
               <div className="quote-text-container">
                 <p className="clientTitle display-5 mt-2">{quoteName}</p>
                 <p className="clientTitle">
                   <strong>{quoteText}</strong>
                 </p>
               </div>
-            ) : null}
+            ) : null} */}
 
           {quote ? (
               <div className="quote-text-container">

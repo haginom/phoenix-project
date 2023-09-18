@@ -8,7 +8,6 @@ import {deskStructure} from './deskStructure'
 export default defineConfig({
   name: 'default',
   title: 'azure-quetzal',
-
   projectId: '3i8bbloq',
   dataset: 'production',
 
