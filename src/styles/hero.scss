@@ -296,7 +296,7 @@
   }
 
   .adjustPolyWidthAbout {
-    width:60%;
+    width: 60%;
   }
 
   .polygonRight::before {
@@ -321,10 +321,10 @@
   }
   .polygonLeft::before {
     left: 21.7vw;
-    
+
     border-top: 26vw solid transparent;
     border-bottom: 26vw solid transparent;
-    border-right: 20vw solid #fc5a44
+    border-right: 20vw solid #fc5a44;
   }
 
   .rowTextLeft {
@@ -372,7 +372,6 @@
     border-bottom: 28vw solid transparent;
     border-left: 18vw solid #c5d8ff;
     left: 8vw;
-
   }
 
   .rowTextLeft {
@@ -388,7 +387,6 @@
     top: -20vh;
     // border-right: 20vw solid #fc5a44;
   }
-
 }
 
 // .polygonLeftS::before {
@@ -521,20 +519,20 @@
   .chevronSuccess {
     background-position: calc(0% + 0vw);
   }
-  .aboutPolywidth{
+  .aboutPolywidth {
     width: 25%;
   }
 }
 
 @media (min-width: 1140px) {
   .chevronSuccessCS {
-    background-position: calc(0% - 8vw);
+    background-position: calc(0% - 9.2vw);
   }
   .chevronPrimaryAbout {
-    background-position: calc(0% - 7vw);
+    background-position: calc(0% - 7.5vw);
     background-size: cover;
   }
-  .aboutPolywidth{
+  .aboutPolywidth {
     width: 25%;
   }
 }
@@ -585,8 +583,6 @@
     z-index: 100;
   }
 }
-
-
 
 /**NOT HEADER HEROS**/
 

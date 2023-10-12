@@ -34,7 +34,7 @@ function ProjectPreview({
                 className="previewPosterImg absolute"
                 asset={props.logo?.asset}
                 style={{
-                  width: "80%",
+                  width: "65%",
                   height: "100%",
                   objectFit: "contain",
                   left: "50%",
