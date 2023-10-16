@@ -7,7 +7,7 @@ import {deskStructure} from './deskStructure'
 
 export default defineConfig({
   name: 'default',
-  title: 'azure-quetzal',
+  title: 'phoenix-cms',
   projectId: '3i8bbloq',
   dataset: 'production',
 
