@@ -33,7 +33,7 @@ const Service = ({
               <p className="subservice-title two-lines-height">
                 <strong>{subService.title}</strong>
               </p>
-              <p className="subservice-descritpion ">
+              <p className="subservice-description ">
                 {subService.description}
               </p>
             </Col>
