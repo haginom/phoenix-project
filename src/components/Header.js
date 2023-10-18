@@ -73,8 +73,6 @@ const Header = ({ background, about }) => {
                 setVisible(false);
               }}
             >
-              {/* å<img className="offcanvas-image" src={OffcanvasBg} alt="" /> */}
-
               <Offcanvas.Header>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
                   <a href="/">

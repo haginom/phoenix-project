@@ -33,7 +33,6 @@ const Hero = ({
   quoteText,
   colWidthAdjustIndex,
 }) => {
-  console.log(quoteText, quoteName)
   return (
     <Container
       fluid
@@ -108,7 +107,7 @@ const Hero = ({
               </div>
             ) : null} */}
 
-          {quote ? (
+            {quote ? (
               <div className="quote-text-container">
                 <p className="clientTitle display-5 mt-2">- {quoteName}</p>
                 <p className="clientTitle">

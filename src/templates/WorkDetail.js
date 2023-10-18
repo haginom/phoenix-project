@@ -14,10 +14,19 @@ export const query = graphql`
           description
           previewPoster {
             asset {
-              _id
-              url
-              altText
               gatsbyImageData
+              altText
+              publicUrl
+              url
+              _id
+            }
+          }
+          logo {
+            asset {
+              gatsbyImageData
+              publicUrl
+              url
+              _id
             }
           }
           caseStudyBuilder {
