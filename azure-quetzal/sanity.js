@@ -1,8 +1,7 @@
 import {createClient} from '@sanity/client'
 
 const client = createClient({
-  title: 'azure-quetzal',
-
+  title: 'phoenix-cms',
   projectId: '3i8bbloq',
   dataset: 'production',
   useCdn: true, // set to `false` to bypass the edge cache

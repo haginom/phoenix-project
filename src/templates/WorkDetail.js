@@ -1,7 +1,7 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import FeaturedWorkPage from "../components/CaseStudyPage";
-import { mapEdgesToNodes, splitArrayIntoGroups } from "../helpers/helpers";
+import { mapEdgesToNodes } from "../helpers/helpers";
 
 export const query = graphql`
   query WorkQuery($id: String!) {
@@ -14,10 +14,19 @@ export const query = graphql`
           description
           previewPoster {
             asset {
-              _id
-              url
-              altText
               gatsbyImageData
+              altText
+              publicUrl
+              url
+              _id
+            }
+          }
+          logo {
+            asset {
+              gatsbyImageData
+              publicUrl
+              url
+              _id
             }
           }
           caseStudyBuilder {
