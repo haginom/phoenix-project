@@ -16,24 +16,26 @@ const Service = ({
         miniIcon={miniIcon}
       />
       <Container fluid className="serviceTable">
-        <Row className="serviceTableTopRow my-5 mb-2md me-0">
-          <Col className="ms-2lg mb-4" md={3}>
+        <Row className="service-table-row">
+          <Col className="" md={3}>
             {serviceImage}
           </Col>
           <Col md={5}>
             <h3 className="display-4 mb-4">{title}</h3>
-            <p className="mb-5 mb-2md serviceTitleDescription">
+            <p className="service-title py-3 serviceTitleDescription">
               {titleDescription}
             </p>
           </Col>
         </Row>
-        <Row>
+        <Row className="gx-0 serviceTableTopRow service-table-row">
           {subServices.map((subService, index) => (
-            <Col className="px-3" md={3} key={index}>
-              <p className="mb-3 mb-2md two-lines-height">
+            <Col className="subservice " md={3} key={index}>
+              <p className="subservice-title two-lines-height">
                 <strong>{subService.title}</strong>
               </p>
-              <p className="mb-5 mb-2md">{subService.description}</p>
+              <p className="subservice-descritpion ">
+                {subService.description}
+              </p>
             </Col>
           ))}
         </Row>

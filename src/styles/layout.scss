@@ -55,12 +55,6 @@ h4 {
   }
 }
 
-@media (max-width: 768px) {
-  .mb-2md {
-    margin-bottom: 2rem !important;
-  }
-}
-
 @media (max-width: 568px) {
   .mb-o {
     margin-bottom: 0rem !important;
@@ -822,37 +816,86 @@ svg {
   }
 }
 
-.serviceTable {
-  padding: 1.5em 6em 2em 6em;
-  font-size: calc(1em + 1vw);
-  max-width: 1540px;
+@media (min-width: 768px) {
+  .serviceTable {
+    padding: 1.5em 3em 2em 3em;
+    font-size: calc(1em + 0.5vw);
+    max-width: 1340px;
+  }
 }
 
 .serviceTableTopRow {
-  border-bottom: #fc5a44 solid 3px;
+  border-top: #fc5a44 solid 3px;
 }
 
-// @media (min-width: 900px) {
-//   .serviceTable {
-//     margin-top: 3rem;
-//   }
-// }
 .serviceIcon {
   object-fit: contain;
-  max-height: 70%;
+  max-height: 14vh;
+  margin: 1rem 0;
+}
+
+.subservice-title {
+  padding: 1rem 0.5rem;
+  margin-top: 1rem;
+}
+
+.subservice-description {
+  padding: 0rem 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.service-table-row {
+  margin: 1em 2em;
+}
+
+.service-title {
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 768px) {
   .two-lines-height {
-    min-height: 6rem;
+    min-height: 6.5rem;
+  }
+  .subservice:first-child {
+    padding-right: 1.25rem;
+  }
+
+  .subservice:last-child {
+    padding-left: 1.25rem;
+  }
+  .subservice:not(:first-child):not(:last-child) {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .serviceIcon {
+    object-fit: contain;
+    max-height: 70%;
+  }
+
+  .subservice-title {
+    padding: 1rem 0.5rem;
+    margin-top: 3rem;
+  }
+
+  .subservice-description {
+    padding: 0rem 0.5rem;
+    margin-bottom: 3rem;
+  }
+  .service-table-row {
+    margin: 1em;
+  }
+
+  .service-title {
+    margin-bottom: 3rem;
   }
 }
 
-@media (min-width: 1240px) {
-  .two-lines-height {
-    min-height: 8rem;
-  }
-}
+// @media (min-width: 1240px) {
+//   .two-lines-height {
+//     min-height: 10.5rem;
+//   }
+// }
 
 .servicesGraphic {
   height: 10%;

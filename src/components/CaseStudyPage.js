@@ -95,7 +95,7 @@ const FeaturedWorkPage = ({ SortedPreviews, FeatureWorks }) => {
     (obj) => obj._type !== "hero" && obj._type !== "keywords"
   );
 
-  console.log(QuoteSection.attribute)
+  console.log(QuoteSection.attribute);
   return (
     <Layout>
       <HeroCover

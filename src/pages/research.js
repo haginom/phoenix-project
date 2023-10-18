@@ -40,7 +40,7 @@ export const query = graphql`
 `;
 
 const ResearchPage = (props) => {
-  const { data, errors } = props;
+  const { data } = props;
 
   const featuredWorkNodes = (data || {}).featuredWork
     ? mapEdgesToNodes(data.featuredWork)

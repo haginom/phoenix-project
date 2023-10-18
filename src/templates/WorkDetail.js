@@ -1,7 +1,7 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import FeaturedWorkPage from "../components/CaseStudyPage";
-import { mapEdgesToNodes, splitArrayIntoGroups } from "../helpers/helpers";
+import { mapEdgesToNodes } from "../helpers/helpers";
 
 export const query = graphql`
   query WorkQuery($id: String!) {
