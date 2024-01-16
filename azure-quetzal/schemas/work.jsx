@@ -16,13 +16,16 @@ export default {
       name: 'research',
       type: 'boolean',
       title: 'Research',
-      description: 'Is this case study a research piece?'
+      description: 'Is this case study a research piece?',
+      initialValue: false,
     },
     {
       name: 'featured',
       type: 'boolean',
       title: 'Featured',
-      description: 'Should this case study be featured within the "Featured Work" section on the homepage?'
+      description:
+        'Should this case study be featured within the "Featured Work" section on the homepage?',
+      initialValue: false,
     },
     {
       name: 'description',
@@ -59,4 +62,8 @@ export default {
       type: 'caseStudyBuilder',
     },
   ],
+  initialValue: {
+    research: false,
+    featured: false,
+  },
 }

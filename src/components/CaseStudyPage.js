@@ -95,7 +95,7 @@ const FeaturedWorkPage = ({ SortedPreviews, FeatureWorks }) => {
     (obj) => obj._type !== "hero" && obj._type !== "keywords"
   );
 
-  console.log(QuoteSection.attribute);
+  console.log(HeroSection.image);
   return (
     <Layout>
       <HeroCover
@@ -112,7 +112,7 @@ const FeaturedWorkPage = ({ SortedPreviews, FeatureWorks }) => {
         rowTextSpan={12}
         rowTextClassName="rowTextLeft"
         bgColor="bg-primary"
-        bgImageUrl={HeroSection.image?.asset.publicUrl}
+        bgImageUrl={HeroSection.image?.asset.url}
         polygonClass="polygonRightP"
         heading={HeroSection.heading}
         text={HeroSection.tagline}

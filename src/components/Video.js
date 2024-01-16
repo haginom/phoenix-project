@@ -43,6 +43,7 @@ const Video = ({ poster, source, className }) => {
       )}
       <div>
         <video
+          playsInline
           poster={poster}
           ref={videoRef}
           onClick={togglePlaystate}

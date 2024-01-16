@@ -8,7 +8,6 @@ import { splitArrayIntoGroups } from "../helpers/helpers";
 import Hero from "../components/Hero";
 import X from "../images/phoeni-X-orange.png";
 
-
 export const WorkPageQuery = graphql`
   query WorkQuery {
     featuredWork: allSanityFeaturedWork(filter: { research: { eq: false } }) {
@@ -54,6 +53,7 @@ const WorkPage = (props) => {
 
   const GroupedWork = splitArrayIntoGroups(SortedWorkByDate, 5);
 
+  console.log(featuredWorkNodes);
   return (
     <Layout background="success">
       <Hero
@@ -80,7 +80,10 @@ const WorkPage = (props) => {
           <div>
             {GroupedWork.map((subarray, subarrayIndex) => {
               return (
-                <div className="work-grid-container scroll-smooth" key={subarrayIndex}>
+                <div
+                  className="work-grid-container scroll-smooth"
+                  key={subarrayIndex}
+                >
                   {subarray.map((work, index) => {
                     const isOffset = (index + 1) % 2 === 0;
 

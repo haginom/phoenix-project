@@ -16,11 +16,11 @@ import BrandVennMobile from "../svgs/Venn-Mobile.svg";
 
 export const query = graphql`
   query IndexPageQuery {
-    featuredWork: allSanityFeaturedWork {
+    featuredWork: allSanityFeaturedWork(sort: { _updatedAt: DESC }) {
       edges {
         node {
           id
-          _createdAt
+          _updatedAt
           title
           description
           previewPoster {
@@ -100,10 +100,10 @@ const IndexPage = (props) => {
     ? mapEdgesToNodes(data.featuredWork)
     : [];
 
-  const SortedWorkByDate = featuredWorkNodes.sort(
-    (a, b) => new Date(a._createdAt) - new Date(b._createdAt)
-  );
-
+  // const SortedWorkByDate = featuredWorkNodes.sort(
+  //   (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
+  // );
+  // console.log(SortedWorkByDate);
   const logoNodes = (data || {}).logos ? mapEdgesToNodes(data.logos) : [];
   const LogosSortedByOrder = logoNodes.sort((a, b) => a.order - b.order);
   return (
@@ -129,11 +129,11 @@ const IndexPage = (props) => {
         <InfoBox text="We work closely with clients to solve big brand and business challenges: " />
       </div>
       <AnimatedBanner />
-      {SortedWorkByDate && (
+      {featuredWorkNodes && (
         <ProjectPreviewGrid
           title="Featured Work"
           infinite
-          nodes={SortedWorkByDate}
+          nodes={featuredWorkNodes}
           browseMoreHref="/work/"
         />
       )}
@@ -151,7 +151,7 @@ const IndexPage = (props) => {
       <div className="bg-success padding-large overflow-hidden">
         <div className="mw-xl">
           <InfoBox
-          className="mt-3"
+            className="mt-3"
             heading="what we do"
             text="We help find the right problems to solve with a mind in design, and heart in the future."
           />
