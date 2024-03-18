@@ -16,9 +16,10 @@ import BrandVennMobile from "../svgs/Venn-Mobile.svg";
 
 export const query = graphql`
   query IndexPageQuery {
-    featuredWork: allSanityFeaturedWork(sort: { _updatedAt: DESC }) {
+    featuredWork: allSanityFeaturedWork(sort: { orderRank: ASC }) {
       edges {
         node {
+          orderRank
           id
           _updatedAt
           title
@@ -100,10 +101,6 @@ const IndexPage = (props) => {
     ? mapEdgesToNodes(data.featuredWork)
     : [];
 
-  // const SortedWorkByDate = featuredWorkNodes.sort(
-  //   (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
-  // );
-  // console.log(SortedWorkByDate);
   const logoNodes = (data || {}).logos ? mapEdgesToNodes(data.logos) : [];
   const LogosSortedByOrder = logoNodes.sort((a, b) => a.order - b.order);
   return (

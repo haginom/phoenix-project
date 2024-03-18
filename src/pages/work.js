@@ -10,7 +10,10 @@ import X from "../images/phoeni-X-orange.png";
 
 export const WorkPageQuery = graphql`
   query WorkQuery {
-    featuredWork: allSanityFeaturedWork(filter: { research: { eq: false } }) {
+    featuredWork: allSanityFeaturedWork(
+      sort: { orderRank: ASC }
+      filter: { research: { eq: false } }
+    ) {
       edges {
         node {
           id
@@ -47,11 +50,11 @@ const WorkPage = (props) => {
     ? mapEdgesToNodes(data.featuredWork)
     : [];
 
-  const SortedWorkByDate = featuredWorkNodes.sort(
-    (a, b) => new Date(a._createdAt) - new Date(b._createdAt)
-  );
+  // const SortedWorkByDate = featuredWorkNodes.sort(
+  //   (a, b) => new Date(a._createdAt) - new Date(b._createdAt)
+  // );
 
-  const GroupedWork = splitArrayIntoGroups(SortedWorkByDate, 5);
+  const GroupedWork = splitArrayIntoGroups(featuredWorkNodes, 5);
 
   console.log(featuredWorkNodes);
   return (

@@ -17,7 +17,6 @@ import video from './Sections/video'
 import roleDescription from './roleDescription'
 
 export const schemaTypes = [
-  featuredWork,
   team,
   clients,
   roles,
