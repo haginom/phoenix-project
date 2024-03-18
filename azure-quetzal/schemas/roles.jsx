@@ -15,7 +15,8 @@ export default {
     {
       title: 'Role Description',
       name: 'roleDescription',
-      type: 'text',
+      type: 'roleDescription',
+      validation: (Rule) => Rule.required(),
     },
   ],
 }

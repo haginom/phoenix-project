@@ -1,9 +1,10 @@
 import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 
 import {deskStructure} from './deskStructure'
+import {deskTool} from 'sanity/desk'
+import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
 
 export default defineConfig({
   name: 'default',

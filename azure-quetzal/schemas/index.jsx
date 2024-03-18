@@ -14,6 +14,7 @@ import sectionIntro from './Sections/heading'
 import keywords from './Sections/keywords'
 import sectionImageGallery from './Sections/imageGallery'
 import video from './Sections/video'
+import roleDescription from './roleDescription'
 
 export const schemaTypes = [
   featuredWork,
@@ -32,4 +33,5 @@ export const schemaTypes = [
   keywords,
   sectionImageGallery,
   video,
+  roleDescription,
 ]

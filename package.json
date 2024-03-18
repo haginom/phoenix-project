@@ -51,6 +51,7 @@
     "react-lite-youtube-embed": "^2.3.52",
     "react-multi-carousel": "^2.8.3",
     "react-slick": "^0.29.0",
+    "sanity": "^3.34.0",
     "sass": "^1.61.0",
     "slick-carousel": "^1.8.1"
   }
